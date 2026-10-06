@@ -26,16 +26,7 @@
 
 ## Six screens, one thumb
 
-<table>
-  <tr>
-    <td align="center" width="16%"><img src="assets/pad.webp" width="120" alt="Trackpad screen"><br><b>PAD</b><br><sub>Tap, scroll, drag</sub></td>
-    <td align="center" width="16%"><img src="assets/air.webp" width="120" alt="Air mouse screen"><br><b>AIR</b><br><sub>Aim the phone</sub></td>
-    <td align="center" width="16%"><img src="assets/remote.webp" width="120" alt="Remote screen"><br><b>REMOTE</b><br><sub>Play, arrows, volume</sub></td>
-    <td align="center" width="16%"><img src="assets/tv.webp" width="120" alt="TV screen"><br><b>TV</b><br><sub>Samsung, LG, Google TV</sub></td>
-    <td align="center" width="16%"><img src="assets/keys.webp" width="120" alt="Keyboard screen"><br><b>KEYS</b><br><sub>Any language</sub></td>
-    <td align="center" width="16%"><img src="assets/slides.webp" width="120" alt="Slides screen"><br><b>SLIDES</b><br><sub>Next, previous, timer</sub></td>
-  </tr>
-</table>
+<p align="center"><img src="readme/screens.webp" alt="The six screens: PAD, AIR, REMOTE, TV, KEYS, SLIDES" width="100%"></p>
 
 ## Install — two minutes, once
 
