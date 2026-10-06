@@ -5,7 +5,7 @@
 document.documentElement.classList.add("js");
 
 const REPO = "MathisZerbib/mouseos";
-const SITE = "https://mathiszerbib.github.io/mouseos/";
+const SITE = "https://mouseos.app/";
 // Set once the Play listing is live — every "Google Play" button follows.
 const PLAY_URL = "";
 

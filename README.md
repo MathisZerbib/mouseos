@@ -14,7 +14,7 @@
   <a href="https://github.com/MathisZerbib/mouseos/releases/latest"><img alt="Download for Mac" src="https://img.shields.io/badge/Download-Mac-ff4d00?style=for-the-badge&labelColor=131311&logo=apple&logoColor=white"></a>
   <a href="https://github.com/MathisZerbib/mouseos/releases/latest"><img alt="Download for Windows" src="https://img.shields.io/badge/Download-Windows-ff4d00?style=for-the-badge&labelColor=131311"></a>
   <a href="https://github.com/MathisZerbib/mouseos/releases/latest"><img alt="Download for Linux" src="https://img.shields.io/badge/Download-Linux-ff4d00?style=for-the-badge&labelColor=131311&logo=linux&logoColor=white"></a>
-  <a href="https://mathiszerbib.github.io/mouseos/"><img alt="Website" src="https://img.shields.io/badge/Website-mouseos-f2efe8?style=for-the-badge&labelColor=131311"></a>
+  <a href="https://mouseos.app/"><img alt="Website" src="https://img.shields.io/badge/Website-mouseos.app-f2efe8?style=for-the-badge&labelColor=131311"></a>
 </p>
 <p align="center">
   <img alt="macOS 11 or later, Apple silicon" src="https://img.shields.io/badge/macOS-11%2B%20·%20Apple%20silicon-f2efe8?style=flat-square&labelColor=131311">
@@ -74,7 +74,7 @@ Start on your computer, finish on your phone. Keep both on the same Wi‑Fi. The
 
 - **No account, no cloud, no tracking.** Phone and Mac talk directly over your Wi‑Fi.
 - **Nobody else takes over your computer.** Every new phone needs one ALLOW click on the computer.
-- [Privacy policy](https://mathiszerbib.github.io/mouseos/privacy-policy.html)
+- [Privacy policy](https://mouseos.app/privacy-policy.html)
 
 ## Stuck?
 
@@ -85,4 +85,4 @@ Start on your computer, finish on your phone. Keep both on the same Wi‑Fi. The
 
 ---
 
-<sub>This repository hosts the MouseOS website (<a href="https://mathiszerbib.github.io/mouseos/">mathiszerbib.github.io/mouseos</a>) and the releases for Mac, Windows and Linux.</sub>
+<sub>This repository hosts the MouseOS website (<a href="https://mouseos.app/">mouseos.app</a>) and the releases for Mac, Windows and Linux.</sub>
