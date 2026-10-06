@@ -15,6 +15,9 @@
 <meta property="og:description" content="Trackpad, air mouse, keyboard and remote for your Mac and your TV. Free. No account, no cloud.">
 <meta property="og:image" content="https://mathiszerbib.github.io/mouseos/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Geist+Mono:wght@400..700&display=swap">
 <link rel="stylesheet" href="styles.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -30,7 +33,7 @@
       <a href="#features">Features</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-signal btn-sm" href="#install">Get started</a>
+    <a class="btn btn-signal btn-sm" href="#install">Get MouseOS</a>
   </div>
 </header>
 
@@ -38,20 +41,21 @@
 
   <!-- ——— hero ——— -->
   <section class="hero">
-    <canvas class="hero-grid" aria-hidden="true"></canvas>
+    <canvas class="field" aria-hidden="true"></canvas>
     <div class="wrap hero-row">
       <div class="hero-copy">
         <p class="eyebrow" data-intro>Mac &amp; TV remote · Free</p>
         <h1 data-intro>Your phone is your Mac's <em>mouse.</em></h1>
         <p class="lede" data-intro>Trackpad, air mouse, keyboard and remote — for your Mac and your TV. No account, no cloud.</p>
         <div class="cta" data-intro>
-          <a class="btn btn-signal" data-mac-download href="https://github.com/MathisZerbib/mouseos/releases/latest">Download for Mac</a>
-          <a class="btn btn-line" data-play href="#install">Google Play <small>soon</small></a>
+          <a class="btn btn-signal" data-mac-download href="https://github.com/MathisZerbib/mouseos/releases/latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M3 14h10"/></svg>Download for Mac</a>
+          <a class="btn btn-line" data-play href="#install">Google Play</a>
         </div>
+        <p class="fine" data-intro>Apple silicon · macOS 11+ · Android 8+</p>
       </div>
       <div class="hero-device" data-intro>
         <div class="phone tilt"><img src="assets/pad.webp" alt="The MouseOS trackpad screen" width="720" height="1280"></div>
-        <p class="hint"><span class="hint-desk">Move your mouse —</span><span class="hint-touch">Drag the grid —</span> that's your phone driving your Mac.</p>
+        <p class="hint"><span class="hint-desk">Move your mouse —</span><span class="hint-touch">Drag across the grid —</span> that's your phone driving your Mac.</p>
       </div>
     </div>
   </section>
@@ -59,61 +63,136 @@
   <!-- ——— install ——— -->
   <section id="install" class="section">
     <div class="wrap">
-      <p class="eyebrow" data-reveal>Install</p>
-      <h2 data-reveal>Set up in a minute.</h2>
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>Install</p>
+        <h2 data-reveal>Two minutes. Once.</h2>
+        <p class="lede" data-reveal>Start on your Mac, finish on your phone. Keep both on the same Wi&#8209;Fi.</p>
+      </header>
 
-      <ol class="cards">
-        <li class="card" data-reveal>
-          <svg class="art art-get" viewBox="0 0 240 150" aria-hidden="true">
-            <rect class="frame" x="24" y="34" width="72" height="72" rx="16"/>
-            <path class="arrow" d="M108 70 h34 m-10 -10 l10 10 l-10 10"/>
-            <path class="folder" d="M152 50 h22 l8 8 h34 v52 h-64 z"/>
-            <g class="app"><rect x="36" y="46" width="48" height="48" rx="11" fill="#131311" stroke="#3a3833"/><circle cx="66" cy="64" r="7" fill="#ff4d00"/></g>
-          </svg>
-          <p class="card-no">01</p>
-          <h3>Get the Mac app</h3>
-          <p>Download it, drag it to Applications, open it.</p>
-          <a class="btn btn-signal" data-mac-download href="https://github.com/MathisZerbib/mouseos/releases/latest">Download for Mac</a>
-        </li>
-        <li class="card" data-reveal>
-          <svg class="art art-allow" viewBox="0 0 240 150" aria-hidden="true">
-            <text class="label" x="36" y="80">MouseOS</text>
-            <rect class="track" x="146" y="58" width="60" height="32" rx="16"/>
-            <circle class="knob" cx="162" cy="74" r="12"/>
-          </svg>
-          <p class="card-no">02</p>
-          <h3>Allow control</h3>
-          <p>Click <b>ALLOW CONTROL</b>, then flip the MouseOS switch.</p>
-        </li>
-        <li class="card" data-reveal>
-          <svg class="art art-link" viewBox="0 0 240 150" aria-hidden="true">
-            <rect class="frame" x="22" y="30" width="48" height="90" rx="10"/>
-            <rect class="frame" x="132" y="38" width="88" height="58" rx="5"/>
-            <path class="frame" d="M120 104 h112"/>
-            <path class="wire" d="M76 75 H126"/>
-            <circle class="pulse" cx="76" cy="75" r="6"/>
-            <g class="allow"><rect x="148" y="56" width="56" height="22" rx="2"/><text x="176" y="71">ALLOW</text></g>
-          </svg>
-          <p class="card-no">03</p>
-          <h3>Open the phone app</h3>
-          <p>Same Wi&#8209;Fi. Click <b>ALLOW</b> on the Mac. Done.</p>
-          <a class="btn btn-line" data-play href="#install">Google Play <small>soon</small></a>
-        </li>
-      </ol>
+      <div class="setup">
+        <ol class="steps" data-reveal>
+          <li class="step on">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="2.5" y="1" width="11" height="7.5" rx="1"/><path d="M1 11h14"/></svg>On your Mac</p>
+            <h3>Download and open</h3>
+            <p>Drag MouseOS into <b>Applications</b> and open it. If macOS stops it the first time: <b>System Settings → Privacy &amp; Security → Open Anyway</b>.</p>
+            <div class="step-cta">
+              <a class="btn btn-signal" data-mac-download href="https://github.com/MathisZerbib/mouseos/releases/latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M3 14h10"/></svg>Download for Mac</a>
+              <span class="fine">Apple silicon · macOS 11+</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="2.5" y="1" width="11" height="7.5" rx="1"/><path d="M1 11h14"/></svg>On your Mac</p>
+            <h3>Allow control</h3>
+            <p>Click <b>ALLOW CONTROL</b>, then switch <b>MouseOS</b> on. macOS asks once before any app can move the pointer.</p>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="5" y=".5" width="6" height="11" rx="1.2"/></svg>On your phone</p>
+            <h3>Open the phone app</h3>
+            <p>Install MouseOS on your Android phone and open it on the same Wi&#8209;Fi. It finds your Mac by itself.</p>
+            <div class="step-cta">
+              <a class="btn btn-line" data-play href="#install">Google Play</a>
+              <span class="fine">Android 8+</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="2.5" y="1" width="11" height="7.5" rx="1"/><path d="M1 11h14"/></svg>Back on your Mac</p>
+            <h3>Click ALLOW</h3>
+            <p>Your Mac asks once for each new phone. That's it — your phone is the mouse.</p>
+          </li>
+        </ol>
+
+        <div class="stage-wrap" data-reveal>
+          <div class="stage" aria-hidden="true">
+            <div class="scene">
+              <div class="cam">
+                <div class="laptop">
+                  <div class="lid">
+                    <div class="display">
+                      <div class="menubar"><i></i><i></i><i></i><i></i><i></i><span>9:41</span></div>
+                      <div class="win win-dmg">
+                        <div class="bar"><i></i><i></i><i></i><span>MouseOS</span></div>
+                        <div class="dmg-body">
+                          <div class="dmg-item dmg-app"><img src="assets/stage/icon-mac.webp" alt=""><span>MouseOS</span></div>
+                          <svg class="dmg-arrow" viewBox="0 0 60 12"><path d="M2 6h54m-6-5 6 5-6 5"/></svg>
+                          <div class="dmg-item"><span class="dmg-folder"></span><span>Applications</span></div>
+                        </div>
+                      </div>
+                      <div class="win win-alert">
+                        <img src="assets/stage/icon-mac.webp" alt="">
+                        <b>“MouseOS” Not Opened</b>
+                        <p>Apple could not verify “MouseOS” is free of malware.</p>
+                        <span class="mbtn mbtn-blue alert-done">Done</span>
+                        <span class="mbtn">Move to Trash</span>
+                      </div>
+                      <div class="win win-privacy">
+                        <div class="bar"><i></i><i></i><i></i><span>Privacy &amp; Security</span></div>
+                        <div class="set">
+                          <div class="side"><i></i><i></i><i></i><i></i><em>Privacy &amp; Security</em><i></i><i></i><i></i><i></i></div>
+                          <div class="pane">
+                            <h5>Privacy &amp; Security</h5>
+                            <p class="grp">Security</p>
+                            <div class="row"><p>“MouseOS” was blocked to protect your Mac.</p><span class="mbtn open-anyway">Open Anyway</span></div>
+                            <div class="row row-blank"></div>
+                            <div class="row row-blank"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="win win-app">
+                        <div class="bar bar-light"><i></i><i></i><i></i><span>MouseOS for Mac</span></div>
+                        <div class="shots">
+                          <img class="shot-allow" src="assets/stage/mac-allow.webp" alt="">
+                          <img class="shot-waiting" src="assets/stage/mac-waiting.webp" alt="">
+                          <img class="shot-approve" src="assets/stage/mac-approve.webp" alt="">
+                        </div>
+                      </div>
+                      <div class="win win-access">
+                        <div class="bar"><i></i><i></i><i></i><span>Accessibility</span></div>
+                        <div class="pane">
+                          <p class="grp">Allow the applications below to control your computer.</p>
+                          <div class="row"><img src="assets/stage/icon-mac.webp" alt=""><b>MouseOS</b><span class="toggle"><i></i></span></div>
+                        </div>
+                      </div>
+                      <div class="dock"><i></i><i></i><i></i><i></i><i></i><img class="dock-app" src="assets/stage/icon-mac.webp" alt=""></div>
+                      <img class="ghost" src="assets/stage/icon-mac.webp" alt="">
+                      <svg class="trail"><path class="trail-mac"/></svg>
+                      <span class="ring"></span>
+                      <svg class="ptr" viewBox="0 0 12 19"><path d="M1 1v14.2l3.4-3.3 2.5 5.8 2.4-1-2.5-5.6h4.8z"/></svg>
+                    </div>
+                  </div>
+                  <div class="base"></div>
+                </div>
+                <svg class="link" viewBox="0 0 760 470"><path class="wire" d="M676 150C676 92 626 64 552 82"/><path class="pulse" d="M676 150C676 92 626 64 552 82"/></svg>
+                <div class="handset">
+                  <div class="screen">
+                    <div class="home"><span class="status">9:41</span><i></i><i></i><i></i><i></i><i></i><img class="home-app" src="assets/stage/icon-phone.webp" alt=""><i></i><i></i></div>
+                    <img class="p-intro" src="assets/stage/phone-intro.webp" alt="">
+                    <img class="p-allow" src="assets/stage/phone-allow.webp" alt="">
+                    <img class="p-pad" src="assets/pad.webp" alt="">
+                    <svg class="trail"><path class="trail-pad"/></svg>
+                    <span class="touch"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="stage-bar">
+            <p class="cap" aria-hidden="true"><b>Mac</b><span>Click ALLOW — once per phone</span><span class="cap-n">4/4</span></p>
+            <button class="play" type="button" aria-pressed="false" aria-label="Pause the setup animation">Pause</button>
+          </div>
+        </div>
+      </div>
 
       <div class="stuck" data-reveal>
-        <details>
-          <summary>macOS won't open the app</summary>
-          <p><b>System Settings → Privacy &amp; Security</b>, scroll down, <b>Open Anyway</b>. Once.</p>
-        </details>
-        <details>
-          <summary>The phone doesn't find the Mac</summary>
-          <p>Same Wi&#8209;Fi, VPN off. On café or hotel Wi&#8209;Fi, turn on your phone's hotspot and join it from the Mac. Or tap <b>TYPE THE ADDRESS</b> on the phone.</p>
-        </details>
-        <details>
-          <summary>The pointer doesn't move</summary>
-          <p><b>System Settings → Privacy &amp; Security → Accessibility</b>: turn MouseOS on.</p>
-        </details>
+        <h3>Stuck?</h3>
+        <ul>
+          <li><b>macOS won't open it</b><p>System Settings → Privacy &amp; Security, scroll down, click <b>Open Anyway</b>. Only the first time.</p></li>
+          <li><b>The phone doesn't find the Mac</b><p>Same Wi&#8209;Fi, VPN off. Café or hotel Wi&#8209;Fi hides devices: turn on your phone's hotspot and join it from the Mac. Or tap <b>TYPE THE ADDRESS</b> on the phone.</p></li>
+          <li><b>The pointer doesn't move</b><p>System Settings → Privacy &amp; Security → Accessibility: switch MouseOS on. After an update, the Mac app shows you how.</p></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -130,7 +209,7 @@
           <article class="tab-item" id="tab-remote" data-tab="REMOTE" data-shot="assets/remote.webp"><h3>Remote</h3><p>Arrows, play, the Mac's volume, next episode.</p></article>
           <article class="tab-item" id="tab-tv" data-tab="TV" data-shot="assets/tv.webp"><h3>TV</h3><p>Your Samsung, LG or Google TV. No Mac needed.</p></article>
           <article class="tab-item" id="tab-keys" data-tab="KEYS" data-shot="assets/keys.webp"><h3>Keyboard</h3><p>Type in any language. Accents and emoji included.</p></article>
-          <article class="tab-item" id="tab-slides" data-tab="SLIDES" data-shot="assets/slides.webp"><h3>Slides</h3><p>Giant next and previous. A timer that buzzes. Volume buttons click.</p></article>
+          <article class="tab-item" id="tab-slides" data-tab="SLIDES" data-shot="assets/slides.webp"><h3>Slides</h3><p>Giant next and previous. A timer you set to the minute. Volume buttons click.</p></article>
         </div>
         <div class="tabbar" role="tablist" aria-label="MouseOS screens" hidden></div>
       </div>
@@ -149,7 +228,7 @@
         <li data-reveal><b>No cloud</b><span>Phone to Mac, direct.</span></li>
         <li data-reveal><b>No tracking</b><span>No ads, no analytics.</span></li>
       </ul>
-      <a class="link" href="privacy-policy.html" data-reveal>Privacy policy →</a>
+      <a class="link-more" href="privacy-policy.html" data-reveal>Privacy policy →</a>
     </div>
   </section>
 
