@@ -131,6 +131,7 @@
       "mainEntity": [
         { "@type": "Question", "name": "Is it free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — the phone app and the computer app. No ads. There's an optional tip in Settings if you want to say thanks." } },
         { "@type": "Question", "name": "Which computers?", "acceptedAnswer": { "@type": "Answer", "text": "Mac with Apple silicon (M1 and later), macOS 11 or later. Windows 10 and 11, 64-bit. Linux, 64-bit — Ubuntu, Debian, Fedora and friends, on X11 or Wayland." } },
+        { "@type": "Question", "name": "How do I get the Android app?", "acceptedAnswer": { "@type": "Answer", "text": "It's in closed testing on Google Play. Join the beta on mouseos.app with your Google account email: we add you to the test, then MouseOS installs from Google Play like any app, updates included." } },
         { "@type": "Question", "name": "iPhone?", "acceptedAnswer": { "@type": "Answer", "text": "Android first. iPhone is on the way." } },
         { "@type": "Question", "name": "Which TVs?", "acceptedAnswer": { "@type": "Answer", "text": "Samsung, LG and Google TV (Sony, TCL, Philips…)." } },
         { "@type": "Question", "name": "Does it need the internet?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your phone and your computer talk directly over your Wi‑Fi — nothing goes through a server. No internet, no account. Your phone's hotspot works too." } },
@@ -157,6 +158,7 @@
     <nav class="nav-links" aria-label="Sections">
       <a href="#install">Install</a>
       <a href="#features">Features</a>
+      <a href="#beta">Beta</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-signal btn-sm" href="#install">Get MouseOS</a>
@@ -175,7 +177,7 @@
         <p class="lede" data-intro>Trackpad, air mouse, keyboard and remote — for your Mac, PC, Linux and your TV. No account, no cloud.</p>
         <div class="cta" data-intro>
           <a class="btn btn-signal" data-download="auto" href="https://github.com/MathisZerbib/mouseos/releases/latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M3 14h10"/></svg><span>Download</span></a>
-          <a class="btn btn-line" data-play href="#platforms">Google Play</a>
+          <a class="btn btn-line" data-play href="#beta">Join the beta</a>
         </div>
         <p class="fine" data-intro><a class="fine-link" href="#platforms">Every platform ↓</a></p>
       </div>
@@ -242,7 +244,7 @@
         </div>
         <dl class="glance" data-reveal>
           <div><dt>Price</dt><dd>Free, no ads. An optional tip.</dd></div>
-          <div><dt>Phone</dt><dd>Android 8 or later. iPhone on the way.</dd></div>
+          <div><dt>Phone</dt><dd>Android 8 or later — in <a class="link-more" href="#beta">closed beta</a>. iPhone on the way.</dd></div>
           <div><dt>Computer</dt><dd>Mac (Apple silicon, macOS 11+) · Windows 10 &amp; 11 · Linux (X11 or Wayland)</dd></div>
           <div><dt>TV</dt><dd>Samsung · LG · Google TV — straight from the phone</dd></div>
           <div><dt>Link</dt><dd>Your Wi&#8209;Fi, or your phone's hotspot. No internet.</dd></div>
@@ -290,7 +292,7 @@
           <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="10" y="1" width="12" height="22" rx="2"/><path d="M14 19.5h4"/></svg>
           <h3>Android</h3>
           <p>Android 8+</p>
-          <a class="link-more" data-play href="#install">Google Play →</a>
+          <a class="link-more" data-play href="#beta">Join the beta →</a>
         </li>
         <li class="platform is-soon">
           <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="10" y="1" width="12" height="22" rx="2"/><path d="M14 19.5h4"/></svg>
@@ -341,7 +343,7 @@
             <h3>Open the phone app</h3>
             <p>Install MouseOS on your Android phone and open it on the same Wi&#8209;Fi. It finds your Mac by itself.</p>
             <div class="step-cta">
-              <a class="btn btn-line" data-play href="#install">Google Play</a>
+              <a class="btn btn-line" data-play href="#beta">Join the beta</a>
               <span class="fine">Android 8+</span>
             </div>
           </li>
@@ -458,7 +460,7 @@
             <h3>Open the phone app</h3>
             <p>Install MouseOS on your Android phone and open it on the same Wi&#8209;Fi. It finds your computer by itself.</p>
             <div class="step-cta">
-              <a class="btn btn-line" data-play href="#install">Google Play</a>
+              <a class="btn btn-line" data-play href="#beta">Join the beta</a>
               <span class="fine">Android 8+</span>
             </div>
           </li>
@@ -496,7 +498,7 @@
             <h3>Open the phone app</h3>
             <p>Install MouseOS on your Android phone and open it on the same Wi&#8209;Fi. It finds your computer by itself.</p>
             <div class="step-cta">
-              <a class="btn btn-line" data-play href="#install">Google Play</a>
+              <a class="btn btn-line" data-play href="#beta">Join the beta</a>
               <span class="fine">Android 8+</span>
             </div>
           </li>
@@ -510,6 +512,36 @@
       </div>
 
       <p class="stuck-link">Stuck? <a class="link-more" href="#stuck">Quick fixes →</a></p>
+    </div>
+  </section>
+
+  <!-- ——— beta: the Android app, before it's on Google Play for everyone ——— -->
+  <section id="beta" class="section">
+    <div class="wrap beta">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>Android beta</p>
+        <h2 data-reveal>Get the phone app first.</h2>
+        <p class="lede" data-reveal>MouseOS for Android is in closed testing on Google Play. Leave the email of your Google account: we add you to the test, and MouseOS installs from Google Play like any app — updates included.</p>
+      </header>
+      <form class="beta-form" data-reveal action="https://beta.mouseos.app/join" method="post" novalidate>
+        <label class="beta-field">
+          <span class="fine">Google account email</span>
+          <input type="email" name="email" required autocomplete="email" inputmode="email" spellcheck="false" placeholder="you@gmail.com" maxlength="254">
+        </label>
+        <input class="beta-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-signal" type="submit"><span>Join the beta</span></button>
+        <p class="beta-fine">One email, nothing else: it adds you to the test and tells you when the app is live. Gone when the beta ends — or sooner, a word to <a class="fine-link" href="mailto:support@mouseos.app">support@mouseos.app</a>.</p>
+      </form>
+      <p class="beta-error" hidden><span>Something went wrong.</span> Try again, or email <a class="link-more" href="mailto:support@mouseos.app">support@mouseos.app</a>.</p>
+      <div class="beta-done" hidden>
+        <h3>You're on the list.</h3>
+        <ol class="beta-next">
+          <li data-step="wait"><b>Within a day</b>, we add you to the test.</li>
+          <li data-step="group" hidden><a class="link-more beta-group" href="#beta">Join the testers group</a> with that Google account — one click.</li>
+          <li>Open <a class="link-more beta-optin" href="https://play.google.com/apps/testing/com.mathiszerbib.mouseos">the test page</a> with that account and tap <b>Become a tester</b>.</li>
+          <li>Install MouseOS from Google Play. Meanwhile, <a class="link-more" href="#install">set up your computer</a>.</li>
+        </ol>
+      </div>
     </div>
   </section>
 
@@ -554,6 +586,7 @@
       <h2 data-reveal>Questions</h2>
       <details name="faq"><summary>Is it free?</summary><p>Yes — the phone app and the computer app. No ads. There's an optional tip in Settings if you want to say thanks.</p></details>
       <details name="faq"><summary>Which computers?</summary><p>Mac with Apple silicon (M1 and later), macOS 11 or later. Windows 10 and 11, 64&#8209;bit. Linux, 64&#8209;bit — Ubuntu, Debian, Fedora and friends, on X11 or Wayland.</p></details>
+      <details name="faq"><summary>How do I get the Android app?</summary><p>It's in closed testing on Google Play. <a class="link-more" href="#beta">Join the beta</a> with your Google account email: we add you to the test, then MouseOS installs from Google Play like any app, updates included.</p></details>
       <details name="faq"><summary>iPhone?</summary><p>Android first. iPhone is on the way.</p></details>
       <details name="faq"><summary>Which TVs?</summary><p>Samsung, LG and Google TV (Sony, TCL, Philips…).</p></details>
       <details name="faq"><summary>Does it need the internet?</summary><p>No. Your phone and your computer talk directly over your Wi&#8209;Fi — nothing goes through a server. No internet, no account. Your phone's hotspot works too.</p></details>
@@ -577,6 +610,11 @@
     <a class="wordmark" href="#top">MOUSE<span>OS</span></a>
     <nav aria-label="Footer">
       <a href="#install">Install</a>
+      <a href="phone-as-mouse.html">Phone as a mouse</a>
+      <a href="presentation-remote.html">Slides clicker</a>
+      <a href="tv-remote.html">TV remote</a>
+      <a href="linux-remote-mouse.html">Linux</a>
+      <a href="alternatives.html">Compare</a>
       <a href="privacy-policy.html">Privacy</a>
       <a href="https://github.com/MathisZerbib/mouseos">GitHub</a>
       <a href="mailto:support@mouseos.app">Contact</a>

@@ -581,7 +581,12 @@ function play(stage, steps) {
     a.removeAttribute("href");
     if (!a.querySelector("small")) a.insertAdjacentHTML("beforeend", " <small>soon</small>");
   };
-  document.querySelectorAll("[data-play]").forEach((a) => (PLAY_URL ? (a.href = PLAY_URL) : soon(a)));
+  // Until the listing is live, every "Google Play" button sends people to the beta.
+  document.querySelectorAll("[data-play]").forEach((a) => {
+    if (!PLAY_URL) return;
+    a.href = PLAY_URL;
+    a.textContent = a.classList.contains("link-more") ? "Google Play →" : "Google Play";
+  });
 
   const links = [...document.querySelectorAll("[data-download]")];
   links.forEach((a) => {
@@ -604,6 +609,40 @@ function play(stage, steps) {
       });
     })
     .catch(() => {}); // offline / rate-limited: keep the releases link
+})();
+
+/* ——— beta: the form posts to beta.mouseos.app; the next steps take its place ——— */
+(function beta() {
+  const form = document.querySelector(".beta-form");
+  if (!form) return;
+  const done = document.querySelector(".beta-done"), fail = document.querySelector(".beta-error");
+  const btn = form.querySelector("button"), label = btn.querySelector("span");
+  const WORDS = { email: "That doesn't look like an email address.", slow_down: "Too many tries — give it a minute." };
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.email.checkValidity()) return form.email.reportValidity();
+    btn.disabled = true; label.textContent = "Joining…"; fail.hidden = true;
+    try {
+      const r = await fetch(form.action, {
+        method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ email: form.email.value.trim(), company: form.company.value }),
+      });
+      const data = await r.json();
+      if (!data.ok) throw new Error(data.error);
+      const next = data.next || {};
+      if (next.optIn) done.querySelector(".beta-optin").href = next.optIn;
+      if (next.group) { // a testers group people can join themselves replaces the wait
+        done.querySelector(".beta-group").href = next.group;
+        done.querySelector("[data-step=wait]").hidden = true;
+        done.querySelector("[data-step=group]").hidden = false;
+      }
+      form.hidden = true; done.hidden = false;
+      if (animate) G.from(done, { y: 16, opacity: 0, duration: 0.5, ease: "power3.out" });
+    } catch (err) {
+      fail.querySelector("span").textContent = WORDS[err.message] || "Something went wrong.";
+      fail.hidden = false; btn.disabled = false; label.textContent = "Join the beta";
+    }
+  });
 })();
 
 // On a phone, a computer download becomes "Send to your computer": share sheet, else copy the link.

@@ -37,7 +37,7 @@
 
 | Computers | TVs | Phones |
 |---|---|---|
-| **Mac** — Apple silicon, macOS 11+ ([.dmg](https://github.com/MathisZerbib/mouseos/releases/latest)) | **Samsung** | **Android** 8+ (Google Play, soon) |
+| **Mac** — Apple silicon, macOS 11+ ([.dmg](https://github.com/MathisZerbib/mouseos/releases/latest)) | **Samsung** | **Android** 8+ — closed beta, [join it](https://mouseos.app/#beta) |
 | **Windows** — 10 & 11, 64‑bit ([.msi](https://github.com/MathisZerbib/mouseos/releases/latest)) | **LG** | **iPhone** — on the way |
 | **Linux** — 64‑bit, X11 or Wayland ([.deb / .rpm](https://github.com/MathisZerbib/mouseos/releases/latest)) | **Google TV** (Sony, TCL, Philips…) | |
 
@@ -61,7 +61,7 @@ Start on your computer, finish on your phone. Keep both on the same Wi‑Fi. The
     <td width="50%"><img src="readme/step-4.webp" alt="The phone drives the Mac's pointer"></td>
   </tr>
   <tr>
-    <td valign="top"><b>3 · On your phone — open MouseOS</b><br>Install it on your Android phone (Google Play, soon) and open it on the same Wi‑Fi. It finds your Mac by itself.</td>
+    <td valign="top"><b>3 · On your phone — open MouseOS</b><br>Install it on your Android phone — [join the beta](https://mouseos.app/#beta) and it comes from Google Play — and open it on the same Wi‑Fi. It finds your Mac by itself.</td>
     <td valign="top"><b>4 · Back on your Mac — click ALLOW</b><br>Once per phone. That's it: your phone is the mouse.</td>
   </tr>
 </table>

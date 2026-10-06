@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phone as a mouse for Linux — X11 and Wayland, GNOME &amp; KDE · MouseOS</title>
+<meta name="description" content="A wireless trackpad, air mouse and keyboard for Linux from your Android phone — on X11 and on Wayland (GNOME, KDE Plasma). Free .deb and .rpm, over the local network, no account.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#131311">
+<link rel="icon" href="assets/favicon.png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="canonical" href="https://mouseos.app/linux-remote-mouse.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="MouseOS"><meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://mouseos.app/linux-remote-mouse.html"><meta property="og:title" content="Your phone as a mouse for Linux — Wayland included">
+<meta property="og:description" content="Trackpad, air mouse and keyboard for Linux on X11 and Wayland. Free .deb and .rpm, local network only.">
+<meta property="og:image" content="https://mouseos.app/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","@id":"https://mouseos.app/linux-remote-mouse.html#webpage","url":"https://mouseos.app/linux-remote-mouse.html","name":"Phone as a mouse for Linux — X11 and Wayland","isPartOf":{"@id":"https://mouseos.app/#website"},"about":{"@id":"https://mouseos.app/#app"},"dateModified":"2026-10-07","inLanguage":"en"},
+{"@type":"FAQPage","@id":"https://mouseos.app/linux-remote-mouse.html#faq","mainEntity":[
+{"@type":"Question","name":"Does it work on Wayland?","acceptedAnswer":{"@type":"Answer","text":"Yes. Wayland doesn't let apps move the pointer, so MouseOS uses a virtual input device (uinput) like a real mouse and keyboard. Click ALLOW CONTROL once and enter your password: it adds one udev rule giving the signed-in user access to /dev/uinput."}},
+{"@type":"Question","name":"Which distributions?","acceptedAnswer":{"@type":"Answer","text":"64-bit Linux: a .deb for Ubuntu, Debian and Mint (Ubuntu 22.04, Mint 21, Debian 12 and later), an .rpm for Fedora and openSUSE."}},
+{"@type":"Question","name":"Which ports does it use?","acceptedAnswer":{"@type":"Answer","text":"TCP 53317 (WebSocket for clicks, keys and status) and UDP 53318 (pointer and scroll), on the local network only. Discovery uses mDNS and a UDP beacon."}}]}
+]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Geist+Mono:wght@400..700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head><body class="doc">
+<header class="nav"><div class="wrap nav-row"><a class="wordmark" href="./">MOUSE<span>OS</span></a><a class="nav-link" href="./">← Back to MouseOS</a></div></header>
+<main class="wrap prose">
+<p class="eyebrow">Guide · Linux · X11 · Wayland</p>
+<h1>Your phone as a mouse for Linux — Wayland included</h1>
+<p class="lede">Most phone-mouse apps stop at X11. MouseOS drives GNOME and KDE Plasma on Wayland too: trackpad, air mouse, keyboard and media keys, from an Android phone, over your network.</p>
+
+<div class="gallery">
+  <figure><img src="assets/pad.webp" alt="MouseOS trackpad screen" width="720" height="1280" loading="lazy"><figcaption>Pad</figcaption></figure>
+  <figure><img src="assets/remote.webp" alt="MouseOS media remote screen" width="720" height="1280" loading="lazy"><figcaption>Remote</figcaption></figure>
+</div>
+
+<h2>Install</h2>
+<ol>
+<li>Download the <a href="https://github.com/MathisZerbib/mouseos/releases/latest">.deb</a> (Ubuntu, Debian, Mint) or the <a href="https://github.com/MathisZerbib/mouseos/releases/latest">.rpm</a> (Fedora, openSUSE) and install it with your package manager.</li>
+<li>Open MouseOS. On <strong>Wayland</strong>, click <strong>ALLOW CONTROL</strong> and enter your password once (details below). On X11 there's nothing to allow.</li>
+<li>Open MouseOS on the phone, same network. Click <strong>ALLOW</strong> on the computer for that phone. Done.</li>
+</ol>
+
+<h2>How it works on each session</h2>
+<div class="table"><table>
+<thead><tr><th>Session</th><th>How input gets in</th></tr></thead>
+<tbody>
+<tr><td><strong>X11</strong></td><td>XTest — pointer, buttons, both scroll axes, Unicode typing in any layout.</td></tr>
+<tr><td><strong>Wayland</strong></td><td>A virtual mouse and keyboard through <code>uinput</code>, seen by the compositor like real hardware. ALLOW CONTROL runs one <code>pkexec</code> step that adds a udev rule tagging <code>/dev/uinput</code> with <code>uaccess</code> — access for the signed-in user only — and loads the module at boot.</td></tr>
+</tbody></table></div>
+<p>Want to do it by hand instead? The app shows the three commands it would run. Volume goes through PipeWire or PulseAudio; media keys reach whatever player is in front.</p>
+
+<h2>Network</h2>
+<ul>
+<li>Clicks, keys and status: WebSocket on TCP <strong>53317</strong>. Pointer and scroll: UDP <strong>53318</strong>, accepted only from a phone you allowed.</li>
+<li>Discovery: mDNS plus a UDP beacon — no IP to type. If your firewall blocks it, open those two ports for your LAN, or type the address the app shows.</li>
+<li>No server, no account, no telemetry. Nothing leaves your network.</li>
+</ul>
+
+<div class="cta">
+  <a class="btn btn-signal" href="https://github.com/MathisZerbib/mouseos/releases/latest">Download .deb / .rpm</a>
+  <a class="btn btn-line" href="./#install">Install guide</a>
+</div>
+
+<div class="more">
+<p><strong>More guides:</strong> <a href="phone-as-mouse.html">phone as a mouse</a> · <a href="presentation-remote.html">phone as a presentation clicker</a> · <a href="tv-remote.html">phone as a TV remote</a> · <a href="alternatives.html">MouseOS vs other remote apps</a></p>
+</div>
+</main>
+<footer class="foot"><div class="wrap foot-row"><a class="wordmark" href="./">MOUSE<span>OS</span></a><nav aria-label="Footer"><a href="./#install">Install</a><a href="privacy-policy.html">Privacy</a><a href="https://github.com/MathisZerbib/mouseos">GitHub</a><a href="mailto:support@mouseos.app">Contact</a></nav><p class="fine">© 2026 MouseOS</p></div></footer>
+</body></html>

@@ -6,7 +6,7 @@
 
 - Name: MouseOS (on Google Play: "MouseOS — Mac, PC & TV Remote")
 - Price: free, no ads. An optional tip can be left in the app's Settings.
-- Phone app: Android 8 or later (Google Play). iPhone: on the way.
+- Phone app: Android 8 or later. In closed beta on Google Play: join at https://mouseos.app/#beta with a Google account email, get added to the test, install from Google Play. iPhone: on the way.
 - Computer app (free, required for computers, not for TVs): macOS 11 or later on Apple silicon (.dmg), Windows 10 and 11 64‑bit (.msi), Linux 64‑bit on X11 or Wayland (.deb for Ubuntu/Debian/Mint, .rpm for Fedora/openSUSE). Downloads: https://github.com/MathisZerbib/mouseos/releases/latest
 - TVs: Samsung, LG and Google TV (Sony, TCL, Philips…), controlled straight from the phone over the same Wi‑Fi.
 - The six screens: PAD (trackpad: tap to click, two‑finger scroll or scroll strip, hold to drag), AIR (air mouse: aim the phone like a TV remote, gyroscope), REMOTE (arrows, play/pause, the computer's volume, next episode), TV, KEYS (keyboard in any language, accents and emoji), SLIDES (presentation clicker: giant next/previous, a timer, the volume buttons click).
@@ -24,5 +24,10 @@
 ## Pages
 
 - [MouseOS](https://mouseos.app/): download, the install guide for Mac, Windows and Linux, the six screens, FAQ
+- [Use your phone as a mouse](https://mouseos.app/phone-as-mouse.html): set up a trackpad, air mouse and keyboard for Mac, Windows or Linux
+- [Phone as a presentation clicker](https://mouseos.app/presentation-remote.html): Keynote, PowerPoint, Google Slides; volume buttons turn slides, a timer that buzzes
+- [Phone as a TV remote](https://mouseos.app/tv-remote.html): Samsung, LG and Google TV over Wi‑Fi, pairing for each
+- [Linux, X11 and Wayland](https://mouseos.app/linux-remote-mouse.html): how input works on each session (XTest, uinput), ports, packages
+- [MouseOS and other remote apps](https://mouseos.app/alternatives.html): what it does differently from Unified Remote, Remote Mouse and KDE Connect, and when they fit better
 - [Privacy policy](https://mouseos.app/privacy-policy.html)
 - [Downloads and README on GitHub](https://github.com/MathisZerbib/mouseos)
