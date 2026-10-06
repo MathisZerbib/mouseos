@@ -192,6 +192,17 @@ p { margin: 0; }
   .logos[aria-hidden] { display: none; }
 }
 
+/* ——— in short: two plain paragraphs and the facts at a glance ——— */
+.about-row { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 64px; margin-top: 48px; align-items: start; }
+.about-copy { display: grid; gap: 18px; }
+.about-copy p { font-size: 19px; line-height: 1.55; color: var(--dim); max-width: 30em; text-wrap: pretty; }
+.glance { margin: 0; border-top: 1px solid var(--line); }
+.glance div { display: grid; grid-template-columns: 104px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.glance dt { padding-top: 3px; font: 500 11px/1.6 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--faint); }
+.glance dd { margin: 0; font-size: 16px; line-height: 1.5; color: var(--bone); }
+@media (max-width: 900px) { .about-row { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 420px) { .glance div { grid-template-columns: 1fr; gap: 4px; } }
+
 /* ——— platforms: one tile per screen MouseOS works with ——— */
 .platforms {
   list-style: none; margin: 56px 0 0; padding: 0;

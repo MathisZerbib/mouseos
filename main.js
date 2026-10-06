@@ -594,6 +594,9 @@ function play(stage, steps) {
     .then((r) => (r.ok ? r.json() : null))
     .then((rel) => {
       const assets = (rel && rel.assets) || [];
+      // "In short" names the release the page was written for; the latest one, once it's out.
+      const v = document.querySelector("[data-version]");
+      if (v && rel && rel.tag_name) v.textContent = `${rel.tag_name.replace(/^v/, "")} — ${new Date(rel.published_at).toLocaleDateString("en", { month: "long", year: "numeric" })}`;
       links.forEach((a) => {
         const ext = a.dataset.ext || OS_FILE[a.dataset.download];
         const file = assets.find((f) => f.name.endsWith(ext));

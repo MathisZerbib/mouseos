@@ -82,6 +82,7 @@ Start on your computer, finish on your phone. Keep both on the same Wi‑Fi. The
 - **Windows says it protected your PC** — **More info → Run anyway**. Only the first time: MouseOS isn't signed by Microsoft yet.
 - **The phone doesn't find the computer** — same Wi‑Fi, VPN off. Café or hotel Wi‑Fi hides devices from each other: turn on your phone's hotspot and join it from the computer, or tap **TYPE THE ADDRESS** on the phone. On Windows, your Wi‑Fi must be a Private network.
 - **The pointer doesn't move** — Mac: System Settings → Privacy & Security → Accessibility: switch MouseOS on. Linux on Wayland: open MouseOS and click **ALLOW CONTROL**.
+- **Anything else** — [support@mouseos.app](mailto:support@mouseos.app).
 
 ---
 

@@ -3,18 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MouseOS — Your phone is your computer's mouse</title>
-<meta name="description" content="Trackpad, air mouse, keyboard and remote for your Mac, Windows PC, Linux computer and TV. Free. No account, no cloud.">
+<title>MouseOS — Your phone is your computer's mouse · Trackpad, air mouse &amp; remote for Mac, Windows, Linux and TV</title>
+<meta name="description" content="MouseOS turns your Android phone into a wireless trackpad, air mouse, keyboard and remote for your Mac, Windows PC, Linux computer and Samsung, LG or Google TV. Free, over Wi‑Fi — no account, no cloud, no ads.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Mathis Zerbib">
 <meta name="theme-color" content="#131311">
-<link rel="icon" href="assets/favicon.png">
+<meta name="color-scheme" content="dark">
+<meta name="application-name" content="MouseOS">
+<meta name="apple-mobile-web-app-title" content="MouseOS">
+<link rel="icon" href="assets/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="canonical" href="https://mouseos.app/">
+<!-- the social card — 1200×630, rendered by tools/site/og.py — and what iMessage, Slack, X, LinkedIn, WhatsApp say about the link -->
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="MouseOS">
+<meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://mouseos.app/">
 <meta property="og:title" content="MouseOS — Your phone is your computer's mouse">
 <meta property="og:description" content="Trackpad, air mouse, keyboard and remote for your Mac, Windows PC, Linux computer and TV. Free. No account, no cloud.">
 <meta property="og:image" content="https://mouseos.app/assets/og.png">
+<meta property="og:image:secure_url" content="https://mouseos.app/assets/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MouseOS — Your phone is your computer's mouse. Mac, Windows, Linux, TV — free. A phone showing the MouseOS trackpad.">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MouseOS — Your phone is your computer's mouse">
+<meta name="twitter:description" content="Trackpad, air mouse, keyboard and remote for your Mac, Windows PC, Linux computer and TV. Free. No account, no cloud.">
+<meta name="twitter:image" content="https://mouseos.app/assets/og.png">
+<meta name="twitter:image:alt" content="MouseOS — Your phone is your computer's mouse. Mac, Windows, Linux, TV — free. A phone showing the MouseOS trackpad.">
+<link rel="preload" as="image" href="assets/pad.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Geist+Mono:wght@400..700&display=swap">
@@ -22,6 +41,113 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="main.js" defer></script>
+<!-- what the page says, for machines: the app, the site, who makes it, and the FAQ word for word -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://mouseos.app/#app",
+      "name": "MouseOS",
+      "alternateName": "MouseOS — Mac, PC & TV Remote",
+      "url": "https://mouseos.app/",
+      "image": "https://mouseos.app/assets/og.png",
+      "description": "MouseOS turns an Android phone into a wireless trackpad, air mouse, keyboard, media remote and presentation clicker for a Mac, a Windows PC or a Linux computer, and into a remote for Samsung, LG and Google TVs. Free, over the local Wi‑Fi: no account, no cloud, no ads, no tracking.",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Remote control",
+      "operatingSystem": "Android 8.0 or later (phone app); macOS 11 or later on Apple silicon, Windows 10 and 11 (64-bit), Linux 64-bit on X11 or Wayland (computer app)",
+      "softwareVersion": "2.0",
+      "dateModified": "2026-10-06",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+      "downloadUrl": "https://github.com/MathisZerbib/mouseos/releases/latest",
+      "installUrl": "https://github.com/MathisZerbib/mouseos/releases/latest",
+      "softwareRequirements": "The phone and the computer on the same Wi‑Fi network, or the phone's hotspot. No internet connection, account or cloud service.",
+      "featureList": [
+        "Trackpad: tap to click, two-finger scroll or a scroll strip, hold to drag",
+        "Air mouse: aim the phone like a TV remote",
+        "Remote: arrows, play, the computer's volume, next episode",
+        "TV remote for Samsung, LG and Google TV, no computer needed",
+        "Keyboard: type in any language, accents and emoji included",
+        "Slides: giant next and previous, a timer, the volume buttons click",
+        "No account, no cloud, no ads, no analytics: nothing leaves your Wi‑Fi",
+        "Every new phone is approved once, with an ALLOW click on the computer"
+      ],
+      "screenshot": [
+        "https://mouseos.app/assets/pad.webp",
+        "https://mouseos.app/assets/air.webp",
+        "https://mouseos.app/assets/remote.webp",
+        "https://mouseos.app/assets/tv.webp",
+        "https://mouseos.app/assets/keys.webp",
+        "https://mouseos.app/assets/slides.webp"
+      ],
+      "author": { "@id": "https://mouseos.app/#author" },
+      "publisher": { "@id": "https://mouseos.app/#org" },
+      "sameAs": [ "https://github.com/MathisZerbib/mouseos" ],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://mouseos.app/#website",
+      "url": "https://mouseos.app/",
+      "name": "MouseOS",
+      "description": "Your phone is your computer's mouse. Trackpad, air mouse, keyboard and remote for Mac, Windows, Linux and TV. Free, no account, no cloud.",
+      "publisher": { "@id": "https://mouseos.app/#org" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mouseos.app/#webpage",
+      "url": "https://mouseos.app/",
+      "name": "MouseOS — Your phone is your computer's mouse",
+      "description": "MouseOS turns your Android phone into a wireless trackpad, air mouse, keyboard and remote for your Mac, Windows PC, Linux computer and Samsung, LG or Google TV. Free, over Wi‑Fi — no account, no cloud, no ads.",
+      "isPartOf": { "@id": "https://mouseos.app/#website" },
+      "about": { "@id": "https://mouseos.app/#app" },
+      "primaryImageOfPage": { "@type": "ImageObject", "url": "https://mouseos.app/assets/og.png", "width": 1200, "height": 630 },
+      "dateModified": "2026-10-06",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://mouseos.app/#org",
+      "name": "MouseOS",
+      "url": "https://mouseos.app/",
+      "logo": { "@type": "ImageObject", "url": "https://mouseos.app/assets/icon-512.png", "width": 512, "height": 512 },
+      "email": "support@mouseos.app",
+      "founder": { "@id": "https://mouseos.app/#author" },
+      "sameAs": [ "https://github.com/MathisZerbib/mouseos" ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mouseos.app/#author",
+      "name": "Mathis Zerbib",
+      "url": "https://github.com/MathisZerbib",
+      "sameAs": [ "https://github.com/MathisZerbib" ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mouseos.app/#faq",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is it free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes — the phone app and the computer app. No ads. There's an optional tip in Settings if you want to say thanks." } },
+        { "@type": "Question", "name": "Which computers?", "acceptedAnswer": { "@type": "Answer", "text": "Mac with Apple silicon (M1 and later), macOS 11 or later. Windows 10 and 11, 64-bit. Linux, 64-bit — Ubuntu, Debian, Fedora and friends, on X11 or Wayland." } },
+        { "@type": "Question", "name": "iPhone?", "acceptedAnswer": { "@type": "Answer", "text": "Android first. iPhone is on the way." } },
+        { "@type": "Question", "name": "Which TVs?", "acceptedAnswer": { "@type": "Answer", "text": "Samsung, LG and Google TV (Sony, TCL, Philips…)." } },
+        { "@type": "Question", "name": "Does it need the internet?", "acceptedAnswer": { "@type": "Answer", "text": "No. Your phone and your computer talk directly over your Wi‑Fi — nothing goes through a server. No internet, no account. Your phone's hotspot works too." } },
+        { "@type": "Question", "name": "Bluetooth or Wi‑Fi?", "acceptedAnswer": { "@type": "Answer", "text": "Wi‑Fi, not Bluetooth. MouseOS finds your computer on the local network by itself; you click ALLOW on the computer once, and that's the pairing." } },
+        { "@type": "Question", "name": "Does the TV need the computer app?", "acceptedAnswer": { "@type": "Answer", "text": "No. The TV screen talks to your Samsung, LG or Google TV directly, over the same Wi‑Fi." } },
+        { "@type": "Question", "name": "Can I use it for presentations?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The Slides screen has a giant next and previous, a timer you set to the minute, and the phone's volume buttons click too." } },
+        { "@type": "Question", "name": "Can I type, and control the volume?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Keys types in any language, accents and emoji included. Remote has the arrows, play, the computer's volume and next episode." } },
+        { "@type": "Question", "name": "Can someone else take over my computer?", "acceptedAnswer": { "@type": "Answer", "text": "No. Every new phone needs one ALLOW click on the computer." } },
+        { "@type": "Question", "name": "macOS won't open it", "acceptedAnswer": { "@type": "Answer", "text": "System Settings → Privacy & Security, scroll down, click Open Anyway. Only the first time." } },
+        { "@type": "Question", "name": "Windows says it protected your PC", "acceptedAnswer": { "@type": "Answer", "text": "Click More info, then Run anyway. Only the first time: MouseOS isn't signed by Microsoft yet." } },
+        { "@type": "Question", "name": "The phone doesn't find the computer", "acceptedAnswer": { "@type": "Answer", "text": "Same Wi‑Fi, VPN off. Café or hotel Wi‑Fi hides devices: turn on your phone's hotspot and join it from the computer. On Windows, your Wi‑Fi must be a Private network. Or tap TYPE THE ADDRESS on the phone." } },
+        { "@type": "Question", "name": "The pointer doesn't move", "acceptedAnswer": { "@type": "Answer", "text": "Mac: System Settings → Privacy & Security → Accessibility: switch MouseOS on. Linux on Wayland: open MouseOS and click ALLOW CONTROL. After an update, the app shows you how." } }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -98,6 +224,31 @@
           <li class="logo"><svg viewBox="0 0 24 17.51" aria-hidden="true"><use href="#mk-googletv"/></svg><span>Google TV</span></li>
           <li class="logo"><svg viewBox="0 0 24 13.98" aria-hidden="true"><use href="#mk-android"/></svg><span>Android</span></li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— in short: the plain facts, for people who skim and for the machines that read ——— -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>In short</p>
+        <h2 data-reveal>What MouseOS is.</h2>
+      </header>
+      <div class="about-row">
+        <div class="about-copy">
+          <p data-reveal><b>MouseOS</b> is a free app that turns your Android phone into a wireless <b>trackpad, air mouse, keyboard, media remote and presentation clicker</b> for your Mac, Windows PC or Linux computer — and into a remote for your Samsung, LG or Google TV.</p>
+          <p data-reveal>The phone and the computer talk directly over your Wi&#8209;Fi. No internet needed, no account, no cloud, no ads, no tracking. The computer runs a free companion app; TVs need nothing at all. Every new phone is approved once, with one ALLOW click on the computer.</p>
+        </div>
+        <dl class="glance" data-reveal>
+          <div><dt>Price</dt><dd>Free, no ads. An optional tip.</dd></div>
+          <div><dt>Phone</dt><dd>Android 8 or later. iPhone on the way.</dd></div>
+          <div><dt>Computer</dt><dd>Mac (Apple silicon, macOS 11+) · Windows 10 &amp; 11 · Linux (X11 or Wayland)</dd></div>
+          <div><dt>TV</dt><dd>Samsung · LG · Google TV — straight from the phone</dd></div>
+          <div><dt>Link</dt><dd>Your Wi&#8209;Fi, or your phone's hotspot. No internet.</dd></div>
+          <div><dt>Version</dt><dd><span data-version>2.0 — October 2026</span></dd></div>
+          <div><dt>Made by</dt><dd>Mathis Zerbib, independent developer · <a class="link-more" href="mailto:support@mouseos.app">support@mouseos.app</a></dd></div>
+        </dl>
       </div>
     </div>
   </section>
@@ -401,10 +552,15 @@
   <section id="faq" class="section section-raised">
     <div class="wrap faq">
       <h2 data-reveal>Questions</h2>
-      <details name="faq"><summary>Is it free?</summary><p>Yes — the phone app and the computer app.</p></details>
+      <details name="faq"><summary>Is it free?</summary><p>Yes — the phone app and the computer app. No ads. There's an optional tip in Settings if you want to say thanks.</p></details>
       <details name="faq"><summary>Which computers?</summary><p>Mac with Apple silicon (M1 and later), macOS 11 or later. Windows 10 and 11, 64&#8209;bit. Linux, 64&#8209;bit — Ubuntu, Debian, Fedora and friends, on X11 or Wayland.</p></details>
       <details name="faq"><summary>iPhone?</summary><p>Android first. iPhone is on the way.</p></details>
       <details name="faq"><summary>Which TVs?</summary><p>Samsung, LG and Google TV (Sony, TCL, Philips…).</p></details>
+      <details name="faq"><summary>Does it need the internet?</summary><p>No. Your phone and your computer talk directly over your Wi&#8209;Fi — nothing goes through a server. No internet, no account. Your phone's hotspot works too.</p></details>
+      <details name="faq"><summary>Bluetooth or Wi&#8209;Fi?</summary><p>Wi&#8209;Fi, not Bluetooth. MouseOS finds your computer on the local network by itself; you click <b>ALLOW</b> on the computer once, and that's the pairing.</p></details>
+      <details name="faq"><summary>Does the TV need the computer app?</summary><p>No. The TV screen talks to your Samsung, LG or Google TV directly, over the same Wi&#8209;Fi.</p></details>
+      <details name="faq"><summary>Can I use it for presentations?</summary><p>Yes. The Slides screen has a giant next and previous, a timer you set to the minute, and the phone's volume buttons click too.</p></details>
+      <details name="faq"><summary>Can I type, and control the volume?</summary><p>Yes. Keys types in any language, accents and emoji included. Remote has the arrows, play, the computer's volume and next episode.</p></details>
       <details name="faq"><summary>Can someone else take over my computer?</summary><p>No. Every new phone needs one ALLOW click on the computer.</p></details>
       <h3 id="stuck">Stuck?</h3>
       <details name="faq"><summary>macOS won't open it</summary><p>System Settings → Privacy &amp; Security, scroll down, click <b>Open Anyway</b>. Only the first time.</p></details>
@@ -423,6 +579,7 @@
       <a href="#install">Install</a>
       <a href="privacy-policy.html">Privacy</a>
       <a href="https://github.com/MathisZerbib/mouseos">GitHub</a>
+      <a href="mailto:support@mouseos.app">Contact</a>
     </nav>
     <p class="fine">© 2026 MouseOS</p>
     <p class="fine foot-legal">Product names and logos are trademarks of their owners. MouseOS is independent — not affiliated with or endorsed by them.</p>
