@@ -17,8 +17,19 @@ if (G) G.ticker.lagSmoothing(0);
 const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const animate = !!G && !still;
 const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
-// A phone can't install the Mac app: its Mac buttons send this page to the Mac instead.
+// A phone can't install the computer app: its download buttons send this page to the computer instead.
 const onPhone = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.maxTouchPoints > 1 && /Mac/.test(navigator.platform));
+// The visitor's computer: picks the download, the install tab and its words. On a phone, the likeliest one.
+const visitorOs = (() => {
+  const ua = navigator.userAgent;
+  if (onPhone) return /Android/i.test(ua) ? "windows" : "mac";
+  const p = `${navigator.userAgentData?.platform || ""} ${navigator.platform || ""} ${ua}`.toLowerCase();
+  if (p.includes("win")) return "windows";
+  if (p.includes("linux") || p.includes("x11") || p.includes("cros")) return "linux";
+  return "mac";
+})();
+const OS_NAME = { mac: "Mac", windows: "Windows", linux: "Linux" };
+const OS_FILE = { mac: ".dmg", windows: ".msi", linux: ".deb" };
 
 /* ——— the cursor: the app's orange dot replaces the system arrow ——— */
 (function cursor() {
@@ -38,7 +49,7 @@ const onPhone = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (naviga
   document.addEventListener("pointerleave", () => (dot.style.opacity = 0));
   addEventListener("blur", () => (dot.style.opacity = 0));
 
-  const TARGETS = "a, button, summary, [role='tab'], .js .step";
+  const TARGETS = "a, button, summary, [role='tab'], .js .setup-staged .step";
   document.addEventListener("pointerover", (e) => {
     const t = !!e.target.closest(TARGETS);
     if (t === over) return;
@@ -100,7 +111,7 @@ const onPhone = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (naviga
     }
   }
 
-  // A ring leaving the phone — the beacon the app uses to find your Mac.
+  // A ring leaving the phone — the beacon the app uses to find your computer.
   function ping(amp) {
     if (!phone) return;
     const p = phone.getBoundingClientRect(), r = hero.getBoundingClientRect();
@@ -219,7 +230,7 @@ const onPhone = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (naviga
 /* ——— install: the stage plays the real setup, step by step ——— */
 (function setup() {
   const stage = document.querySelector(".stage");
-  const steps = [...document.querySelectorAll(".step")];
+  const steps = [...document.querySelectorAll(".setup-staged .step")];
   if (!stage || steps.length !== 4) return;
   const scene = stage.querySelector(".scene");
   const fit = () => scene.style.setProperty("--k", stage.clientWidth / 760);
@@ -443,6 +454,38 @@ function play(stage, steps) {
   go(0);
 }
 
+/* ——— install: one tab per computer, opened on the visitor's ——— */
+(function osTabs() {
+  const bar = document.querySelector(".os-tabs");
+  const panels = [...document.querySelectorAll("[data-os-panel]")];
+  if (!bar || !panels.length) return;
+  const buttons = [...bar.querySelectorAll("[data-os]")];
+  panels.forEach((p) => {
+    p.id = `os-${p.dataset.osPanel}`;
+    p.setAttribute("role", "tabpanel");
+  });
+  const select = (os, focus) => {
+    panels.forEach((p) => (p.hidden = p.dataset.osPanel !== os));
+    buttons.forEach((b) => {
+      const on = b.dataset.os === os;
+      b.setAttribute("aria-selected", on);
+      b.tabIndex = on ? 0 : -1;
+      if (on && focus) b.focus();
+    });
+    if (window.ScrollTrigger) window.ScrollTrigger.refresh(); // shown panels have new positions
+  };
+  buttons.forEach((b, i) => {
+    b.setAttribute("aria-controls", `os-${b.dataset.os}`);
+    b.addEventListener("click", () => select(b.dataset.os));
+    b.addEventListener("keydown", (e) => {
+      const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (d) { e.preventDefault(); select(buttons[(i + d + buttons.length) % buttons.length].dataset.os, true); }
+    });
+  });
+  bar.hidden = false;
+  select(visitorOs);
+})();
+
 /* ——— features: the app's own bottom tab bar ——— */
 (function tabs() {
   const items = [...document.querySelectorAll(".tab-item")];
@@ -483,7 +526,55 @@ function play(stage, steps) {
   select(0);
 })();
 
-/* ——— downloads: straight to the DMG when a release exists, honest "soon" otherwise ——— */
+/*
+ * Downloads: [data-download] names the OS ("auto" = the visitor's), [data-ext]
+ * a file type; each link goes straight to that file in the latest release,
+ * or says "soon" honestly when it isn't there.
+ */
+/* ——— faq: one answer open at a time, unfolding instead of snapping ——— */
+(function faq() {
+  const items = [...document.querySelectorAll(".faq details")];
+  if (!items.length) return;
+  const run = new Map(); // details → its running animation
+  const ease = "cubic-bezier(.2, .8, .2, 1)";
+  items.forEach((d) => {
+    d.removeAttribute("name"); // the browser's exclusive accordion snaps; this one animates
+    const answer = Object.assign(document.createElement("div"), { className: "answer" });
+    answer.append(...[...d.children].filter((el) => el.tagName !== "SUMMARY"));
+    d.append(answer);
+    d.querySelector("summary").addEventListener("click", (e) => {
+      e.preventDefault();
+      const opening = !d.open || d.classList.contains("closing");
+      if (opening) items.forEach((o) => o !== d && o.open && !o.classList.contains("closing") && toggle(o, false));
+      toggle(d, opening);
+    });
+  });
+
+  function toggle(d, open) {
+    const answer = d.querySelector(".answer");
+    const from = d.open ? answer.getBoundingClientRect().height : 0;
+    run.get(d)?.cancel();
+    d.classList.toggle("closing", !open);
+    if (open) d.open = true;
+    const to = open ? answer.scrollHeight : 0;
+    if (still) return done();
+    const a = answer.animate(
+      [
+        { height: `${from}px`, opacity: open ? from / (to || 1) : 1 },
+        { height: `${to}px`, opacity: open ? 1 : 0 },
+      ],
+      { duration: open ? 460 : 340, easing: ease }
+    );
+    run.set(d, a);
+    a.finished.then(done, () => {}); // a cancel (another click) rejects: that click took over
+    function done() {
+      run.delete(d);
+      if (!open) d.open = false;
+      d.classList.remove("closing");
+    }
+  }
+})();
+
 (function downloads() {
   const soon = (a) => {
     a.setAttribute("aria-disabled", "true");
@@ -492,25 +583,40 @@ function play(stage, steps) {
   };
   document.querySelectorAll("[data-play]").forEach((a) => (PLAY_URL ? (a.href = PLAY_URL) : soon(a)));
 
-  const macs = [...document.querySelectorAll("[data-mac-download]")];
-  if (onPhone) return macs.forEach(sendToMac);
+  const links = [...document.querySelectorAll("[data-download]")];
+  links.forEach((a) => {
+    if (a.dataset.download !== "auto") return;
+    a.dataset.download = visitorOs;
+    a.querySelector("span").textContent = `Download for ${OS_NAME[visitorOs]}`;
+  });
+  if (onPhone) return links.forEach(sendToComputer);
   fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { headers: { Accept: "application/vnd.github+json" } })
     .then((r) => (r.ok ? r.json() : null))
     .then((rel) => {
-      const dmg = rel && (rel.assets || []).find((a) => a.name.endsWith(".dmg"));
-      macs.forEach((a) => { if (dmg) { a.href = dmg.browser_download_url; a.setAttribute("download", ""); } else soon(a); });
+      const assets = (rel && rel.assets) || [];
+      links.forEach((a) => {
+        const ext = a.dataset.ext || OS_FILE[a.dataset.download];
+        const file = assets.find((f) => f.name.endsWith(ext));
+        if (file) { a.href = file.browser_download_url; a.setAttribute("download", ""); } else soon(a);
+      });
     })
     .catch(() => {}); // offline / rate-limited: keep the releases link
 })();
 
-// On a phone, "Download for Mac" becomes "Send to your Mac": share sheet, else copy the link.
-function sendToMac(a) {
-  a.querySelector("svg")?.remove();
-  a.textContent = "Send to your Mac";
+// On a phone, a computer download becomes "Send to your computer": share sheet, else copy the link.
+// One per place is enough: secondary ones (.rpm) step aside.
+function sendToComputer(a) {
+  if (a.classList.contains("btn-line") || a.dataset.ext === ".rpm") { a.hidden = true; return; }
+  if (a.classList.contains("btn")) {
+    a.querySelector("svg")?.remove();
+    a.textContent = "Send to your computer";
+  } else {
+    a.textContent = "Send to your computer →";
+  }
   a.href = SITE;
   a.addEventListener("click", async (e) => {
     e.preventDefault();
-    if (navigator.share) return navigator.share({ title: "MouseOS for Mac", url: SITE }).catch(() => {});
-    try { await navigator.clipboard.writeText(SITE); a.textContent = "Link copied — open it on your Mac"; } catch { location.href = SITE; }
+    if (navigator.share) return navigator.share({ title: "MouseOS for your computer", url: SITE }).catch(() => {});
+    try { await navigator.clipboard.writeText(SITE); a.textContent = "Link copied — open it on your computer"; } catch { location.href = SITE; }
   });
 }
