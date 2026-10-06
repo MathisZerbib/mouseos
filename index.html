@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MouseOS — Your phone is your Mac's mouse</title>
-<meta name="description" content="Trackpad, air mouse, keyboard, media remote and slide clicker for your Mac — and the remote for your TV. Free. No account, no cloud.">
+<meta name="description" content="Trackpad, air mouse, keyboard and remote for your Mac and your TV. Free. No account, no cloud.">
 <meta name="theme-color" content="#131311">
 <link rel="icon" href="assets/favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -12,10 +12,12 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mathiszerbib.github.io/mouseos/">
 <meta property="og:title" content="MouseOS — Your phone is your Mac's mouse">
-<meta property="og:description" content="Trackpad, air mouse, keyboard, media remote and clicker for your Mac — and your TV. Free. No account, no cloud.">
+<meta property="og:description" content="Trackpad, air mouse, keyboard and remote for your Mac and your TV. Free. No account, no cloud.">
 <meta property="og:image" content="https://mathiszerbib.github.io/mouseos/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="main.js" defer></script>
 </head>
 <body>
@@ -24,8 +26,8 @@
   <div class="wrap nav-row">
     <a class="wordmark" href="#top" aria-label="MouseOS home">MOUSE<span>OS</span></a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#features">Features</a>
       <a href="#install">Install</a>
+      <a href="#features">Features</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-signal btn-sm" href="#install">Get started</a>
@@ -39,18 +41,17 @@
     <canvas class="hero-grid" aria-hidden="true"></canvas>
     <div class="wrap hero-row">
       <div class="hero-copy">
-        <p class="eyebrow">Mac &amp; TV remote · No account · No cloud</p>
-        <h1>Your phone is your Mac's <em>mouse.</em></h1>
-        <p class="lede">Trackpad, air mouse, keyboard, media remote and slide clicker for your Mac — plus the remote for your Samsung, LG or Google&nbsp;TV. Open it on both: they find each other on your Wi&#8209;Fi.</p>
-        <div class="cta">
+        <p class="eyebrow" data-intro>Mac &amp; TV remote · Free</p>
+        <h1 data-intro>Your phone is your Mac's <em>mouse.</em></h1>
+        <p class="lede" data-intro>Trackpad, air mouse, keyboard and remote — for your Mac and your TV. No account, no cloud.</p>
+        <div class="cta" data-intro>
           <a class="btn btn-signal" data-mac-download href="https://github.com/MathisZerbib/mouseos/releases/latest">Download for Mac</a>
           <a class="btn btn-line" data-play href="#install">Google Play <small>soon</small></a>
         </div>
-        <p class="fine">Free · Mac with Apple silicon, macOS 11+ · Android 8+</p>
       </div>
-      <div class="hero-device">
-        <div class="phone"><img src="assets/pad.webp" alt="The MouseOS trackpad screen on a phone" width="720" height="1280"></div>
-        <p class="hint"><span class="hint-desk">Move your mouse over the grid —</span><span class="hint-touch">Drag on the grid —</span> that's what your phone does to your Mac.</p>
+      <div class="hero-device" data-intro>
+        <div class="phone tilt"><img src="assets/pad.webp" alt="The MouseOS trackpad screen" width="720" height="1280"></div>
+        <p class="hint"><span class="hint-desk">Move your mouse —</span><span class="hint-touch">Drag the grid —</span> that's your phone driving your Mac.</p>
       </div>
     </div>
   </section>
@@ -58,75 +59,60 @@
   <!-- ——— install ——— -->
   <section id="install" class="section">
     <div class="wrap">
-      <p class="eyebrow">Install · about 2 minutes</p>
-      <h2>Three steps. Then it links by itself.</h2>
+      <p class="eyebrow" data-reveal>Install</p>
+      <h2 data-reveal>Set up in a minute.</h2>
 
-      <ol class="steps">
-        <li class="step">
-          <div class="step-copy">
-            <p class="step-head"><span class="step-no">01</span><span class="step-where">On your Mac</span></p>
-            <h3>Download MouseOS for Mac and open it.</h3>
-            <ol class="mini">
-              <li>Open <b>MouseOS.dmg</b> and drag <b>MouseOS</b> into <b>Applications</b>.</li>
-              <li>Open MouseOS from Applications. An orange dot appears in the menu bar — it stays there, quietly.</li>
-            </ol>
-            <a class="btn btn-signal" data-mac-download href="https://github.com/MathisZerbib/mouseos/releases/latest">Download for Mac</a>
-            <p class="note"><b>macOS says it can't check the app?</b> Open <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b>. Only the first time.</p>
-          </div>
-          <figure class="step-shot window">
-            <img src="assets/mac-allow-control.webp" alt="MouseOS for Mac, first screen: Let your phone drive this Mac — Allow control" width="960" height="608" loading="lazy">
-          </figure>
+      <ol class="cards">
+        <li class="card" data-reveal>
+          <svg class="art art-get" viewBox="0 0 240 150" aria-hidden="true">
+            <rect class="frame" x="24" y="34" width="72" height="72" rx="16"/>
+            <path class="arrow" d="M108 70 h34 m-10 -10 l10 10 l-10 10"/>
+            <path class="folder" d="M152 50 h22 l8 8 h34 v52 h-64 z"/>
+            <g class="app"><rect x="36" y="46" width="48" height="48" rx="11" fill="#131311" stroke="#3a3833"/><circle cx="66" cy="64" r="7" fill="#ff4d00"/></g>
+          </svg>
+          <p class="card-no">01</p>
+          <h3>Get the Mac app</h3>
+          <p>Download it, drag it to Applications, open it.</p>
+          <a class="btn btn-signal" data-mac-download href="https://github.com/MathisZerbib/mouseos/releases/latest">Download for Mac</a>
         </li>
-
-        <li class="step">
-          <div class="step-copy">
-            <p class="step-head"><span class="step-no">02</span><span class="step-where">On your Mac</span></p>
-            <h3>Let it move the pointer.</h3>
-            <ol class="mini">
-              <li>Click <b>ALLOW CONTROL</b>.</li>
-              <li>macOS opens <b>Privacy &amp; Security → Accessibility</b>: flip <b>MouseOS</b> on.</li>
-              <li>Come back — the screen moves on by itself.</li>
-            </ol>
-            <p class="note"><b>Why?</b> macOS lets an app move the pointer or type only after you say so, once. MouseOS uses it for exactly that.</p>
-          </div>
-          <figure class="step-shot window">
-            <img src="assets/mac-switch-on.webp" alt="MouseOS for Mac confirms: switch is on" width="960" height="508" loading="lazy">
-          </figure>
+        <li class="card" data-reveal>
+          <svg class="art art-allow" viewBox="0 0 240 150" aria-hidden="true">
+            <text class="label" x="36" y="80">MouseOS</text>
+            <rect class="track" x="146" y="58" width="60" height="32" rx="16"/>
+            <circle class="knob" cx="162" cy="74" r="12"/>
+          </svg>
+          <p class="card-no">02</p>
+          <h3>Allow control</h3>
+          <p>Click <b>ALLOW CONTROL</b>, then flip the MouseOS switch.</p>
         </li>
-
-        <li class="step">
-          <div class="step-copy">
-            <p class="step-head"><span class="step-no">03</span><span class="step-where">On your phone</span></p>
-            <h3>Install MouseOS, open it, click ALLOW on the Mac.</h3>
-            <ol class="mini">
-              <li>Install MouseOS from Google Play.</li>
-              <li>Open it on the <b>same Wi&#8209;Fi</b> as your Mac. It finds the Mac and links by itself.</li>
-              <li>The Mac shows <b>“New phone”</b>: click <b>ALLOW</b>. Once — it remembers your phone.</li>
-            </ol>
-            <a class="btn btn-line" data-play href="#install">Google Play <small>soon</small></a>
-          </div>
-          <figure class="step-shot pair">
-            <div class="phone phone-sm"><img src="assets/phone-allow.webp" alt="The phone says: click Allow on your Mac" width="720" height="1280" loading="lazy"></div>
-            <div class="window"><img src="assets/mac-new-phone.webp" alt="The Mac asks: this phone wants to control this Mac — Allow or Block" width="960" height="352" loading="lazy"></div>
-          </figure>
+        <li class="card" data-reveal>
+          <svg class="art art-link" viewBox="0 0 240 150" aria-hidden="true">
+            <rect class="frame" x="22" y="30" width="48" height="90" rx="10"/>
+            <rect class="frame" x="132" y="38" width="88" height="58" rx="5"/>
+            <path class="frame" d="M120 104 h112"/>
+            <path class="wire" d="M76 75 H126"/>
+            <circle class="pulse" cx="76" cy="75" r="6"/>
+            <g class="allow"><rect x="148" y="56" width="56" height="22" rx="2"/><text x="176" y="71">ALLOW</text></g>
+          </svg>
+          <p class="card-no">03</p>
+          <h3>Open the phone app</h3>
+          <p>Same Wi&#8209;Fi. Click <b>ALLOW</b> on the Mac. Done.</p>
+          <a class="btn btn-line" data-play href="#install">Google Play <small>soon</small></a>
         </li>
       </ol>
 
-      <p class="done"><span class="dot" aria-hidden="true"></span> That's it. Next time, just open the app — it's already linked.</p>
-
-      <div class="stuck">
-        <h3>Stuck?</h3>
+      <div class="stuck" data-reveal>
         <details>
-          <summary>My phone doesn't find the Mac</summary>
-          <p>Phone and Mac must be on the same Wi&#8209;Fi, with VPN off and not on a guest network. Public, café and hotel networks hide devices from each other: turn on your phone's <b>hotspot</b> and join it from the Mac — it works anywhere. Last resort: tap <b>ENTER ADDRESS MANUALLY</b> on the phone and type the number the Mac shows.</p>
+          <summary>macOS won't open the app</summary>
+          <p><b>System Settings → Privacy &amp; Security</b>, scroll down, <b>Open Anyway</b>. Once.</p>
         </details>
         <details>
-          <summary>The Mac asks about the local network</summary>
-          <p>Click <b>Allow</b>. If you said no earlier: <b>System Settings → Privacy &amp; Security → Local Network</b>, turn MouseOS on.</p>
+          <summary>The phone doesn't find the Mac</summary>
+          <p>Same Wi&#8209;Fi, VPN off. On café or hotel Wi&#8209;Fi, turn on your phone's hotspot and join it from the Mac. Or tap <b>TYPE THE ADDRESS</b> on the phone.</p>
         </details>
         <details>
-          <summary>Everything is linked but the pointer doesn't move</summary>
-          <p>MouseOS must be on in <b>System Settings → Privacy &amp; Security → Accessibility</b>. The phone tells you when the Mac blocks control, and clears by itself once it's fixed.</p>
+          <summary>The pointer doesn't move</summary>
+          <p><b>System Settings → Privacy &amp; Security → Accessibility</b>: turn MouseOS on.</p>
         </details>
       </div>
     </div>
@@ -136,37 +122,19 @@
   <section id="features" class="section section-raised">
     <div class="wrap features">
       <div class="features-copy">
-        <p class="eyebrow">Six screens</p>
-        <h2>One tab bar, under your thumb.</h2>
-        <div class="tab-items">
-          <article class="tab-item" id="tab-pad" data-tab="PAD" data-shot="assets/pad.webp">
-            <h3>Trackpad</h3>
-            <p>A Mac trackpad in your hand. Tap to click, two fingers to scroll with momentum, hold then move to drag. Slow for precision, fast to cross the screen.</p>
-          </article>
-          <article class="tab-item" id="tab-air" data-tab="AIR" data-shot="assets/air.webp">
-            <h3>Air mouse</h3>
-            <p>Aim the phone like a TV remote. The gyroscope moves the pointer — flat or upright, any grip. Hold to point, tap to click.</p>
-          </article>
-          <article class="tab-item" id="tab-remote" data-tab="REMOTE" data-shot="assets/remote.webp">
-            <h3>Couch remote</h3>
-            <p>D-pad and OK for Netflix, YouTube and Plex, the Mac's real volume, NEXT EPISODE, and one-tap launchers you can edit.</p>
-          </article>
-          <article class="tab-item" id="tab-tv" data-tab="TV" data-shot="assets/tv.webp">
-            <h3>TV remote</h3>
-            <p>Your TV's own remote — no Mac needed. Samsung, LG and Google TV (Sony, TCL, Philips…). Pair once, it remembers.</p>
-          </article>
-          <article class="tab-item" id="tab-keys" data-tab="KEYS" data-shot="assets/keys.webp">
-            <h3>Keyboard</h3>
-            <p>Type on the phone, it lands on the Mac in any keyboard layout — accents and emoji included. Arrows and shortcuts one tap away.</p>
-          </article>
-          <article class="tab-item" id="tab-slides" data-tab="SLIDES" data-shot="assets/slides.webp">
-            <h3>Slide clicker</h3>
-            <p>Knows Keynote, PowerPoint and Google Slides. A talk timer that buzzes at 5 min, 1 min and time. Giant PREV / NEXT — and the volume buttons click too.</p>
-          </article>
+        <p class="eyebrow" data-reveal>Six screens</p>
+        <h2 data-reveal>Everything under your thumb.</h2>
+        <div class="tab-items" data-reveal>
+          <article class="tab-item" id="tab-pad" data-tab="PAD" data-shot="assets/pad.webp"><h3>Trackpad</h3><p>Tap to click. Two fingers to scroll. Hold, then move, to drag.</p></article>
+          <article class="tab-item" id="tab-air" data-tab="AIR" data-shot="assets/air.webp"><h3>Air mouse</h3><p>Aim the phone like a TV remote. Hold to point, tap to click.</p></article>
+          <article class="tab-item" id="tab-remote" data-tab="REMOTE" data-shot="assets/remote.webp"><h3>Remote</h3><p>Arrows, play, the Mac's volume, next episode.</p></article>
+          <article class="tab-item" id="tab-tv" data-tab="TV" data-shot="assets/tv.webp"><h3>TV</h3><p>Your Samsung, LG or Google TV. No Mac needed.</p></article>
+          <article class="tab-item" id="tab-keys" data-tab="KEYS" data-shot="assets/keys.webp"><h3>Keyboard</h3><p>Type in any language. Accents and emoji included.</p></article>
+          <article class="tab-item" id="tab-slides" data-tab="SLIDES" data-shot="assets/slides.webp"><h3>Slides</h3><p>Giant next and previous. A timer that buzzes. Volume buttons click.</p></article>
         </div>
         <div class="tabbar" role="tablist" aria-label="MouseOS screens" hidden></div>
       </div>
-      <div class="features-device">
+      <div class="features-device" data-reveal>
         <div class="phone"><img class="feature-shot" src="assets/pad.webp" alt="The selected MouseOS screen" width="720" height="1280" loading="lazy"></div>
       </div>
     </div>
@@ -175,27 +143,25 @@
   <!-- ——— privacy ——— -->
   <section class="section">
     <div class="wrap privacy">
-      <h2>Nothing leaves your Wi&#8209;Fi.</h2>
-      <p class="lede">Your phone talks straight to your Mac or TV. No account to create, no server in between, nothing tracked.</p>
+      <h2 data-reveal>Nothing leaves your Wi&#8209;Fi.</h2>
       <ul class="facts">
-        <li><b>No account</b><span>Open it and go.</span></li>
-        <li><b>No cloud</b><span>Phone → Mac, on your network.</span></li>
-        <li><b>No tracking</b><span>No ads, no analytics.</span></li>
+        <li data-reveal><b>No account</b><span>Open it and go.</span></li>
+        <li data-reveal><b>No cloud</b><span>Phone to Mac, direct.</span></li>
+        <li data-reveal><b>No tracking</b><span>No ads, no analytics.</span></li>
       </ul>
-      <a class="link" href="privacy-policy.html">Read the privacy policy →</a>
+      <a class="link" href="privacy-policy.html" data-reveal>Privacy policy →</a>
     </div>
   </section>
 
   <!-- ——— faq ——— -->
   <section id="faq" class="section section-raised">
     <div class="wrap faq">
-      <h2>Questions</h2>
-      <details><summary>Is it free?</summary><p>Yes — the phone app and the Mac companion.</p></details>
-      <details><summary>Which Macs?</summary><p>Macs with Apple silicon (M1 and later) on macOS 11 Big Sur or later.</p></details>
-      <details><summary>iPhone? Windows?</summary><p>Android first. iPhone is on the way; Windows isn't planned.</p></details>
-      <details><summary>Which TVs work?</summary><p>Samsung (Tizen), LG (webOS) and Google TV / Android TV — Sony, TCL, Philips and more. The TV tab works even without a Mac.</p></details>
-      <details><summary>Does it work away from home?</summary><p>Anywhere the phone and the Mac share a network — including your phone's own hotspot, which is the fix for café and hotel Wi&#8209;Fi.</p></details>
-      <details><summary>Can someone else on my Wi&#8209;Fi take over my Mac?</summary><p>No. Every new phone needs one ALLOW click on the Mac, and you can block or forget any phone from the menu bar.</p></details>
+      <h2 data-reveal>Questions</h2>
+      <details><summary>Is it free?</summary><p>Yes — phone app and Mac app.</p></details>
+      <details><summary>Which Macs?</summary><p>Apple silicon (M1 and later), macOS 11 or later.</p></details>
+      <details><summary>iPhone? Windows?</summary><p>Android first. iPhone is on the way.</p></details>
+      <details><summary>Which TVs?</summary><p>Samsung, LG and Google TV (Sony, TCL, Philips…).</p></details>
+      <details><summary>Can someone else take over my Mac?</summary><p>No. Every new phone needs one ALLOW click on the Mac.</p></details>
     </div>
   </section>
 
