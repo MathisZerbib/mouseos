@@ -334,14 +334,8 @@ p { margin: 0; }
 .win, .shots img, .screen > img, .ghost, .ring, .touch, .link, .trail { opacity: 0; }
 .win-app, .shot-approve, .p-allow { opacity: 1; }
 
-/* ——— stuck? ——— */
-.stuck { margin-top: 96px; padding-top: 40px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 3fr; gap: 32px; }
-.stuck h3 { font-size: 26px; }
-.stuck ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-.stuck li { display: grid; gap: 10px; align-content: start; }
-.stuck li b { font-size: 17px; font-stretch: 104%; }
-.stuck li p { color: var(--dim); font-size: 16px; }
-@media (max-width: 960px) { .stuck { grid-template-columns: 1fr; margin-top: 72px; } .stuck ul { grid-template-columns: 1fr; gap: 24px; } }
+/* ——— stuck? (pointer to the FAQ) ——— */
+.stuck-link { margin-top: 56px; font: 500 12px/1.4 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
 
 /* ——— features ——— */
 .features { display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: center; }
@@ -383,6 +377,7 @@ p { margin: 0; }
 /* ——— faq ——— */
 .faq > * { max-width: 860px; }
 .faq h2 { margin-bottom: 28px; }
+.faq h3 { margin: 56px 0 8px; font-size: 26px; }
 details { border-bottom: 1px solid var(--line); }
 summary {
   list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px;
