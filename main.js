@@ -8,6 +8,9 @@ const REPO = "MathisZerbib/mouseos";
 const SITE = "https://mouseos.app/";
 // Set once the Play listing is live — every "Google Play" button follows.
 const PLAY_URL = "";
+// A translated page (website/<lang>/, from tools/site/i18n.py) brings its words in window.I18N.
+const tr = (s) => (window.I18N && window.I18N[s]) || s;
+const LANG = document.documentElement.lang || "en";
 
 const G = window.gsap;
 if (G && window.ScrollTrigger) G.registerPlugin(window.ScrollTrigger);
@@ -305,7 +308,7 @@ function play(stage, steps) {
 
   // 1 — Download and open
   start(t, { dock: false, from: [430, 250] });
-  cap(t, "Mac", "Open the download, drag MouseOS into Applications");
+  cap(t, "Mac", tr("Open the download, drag MouseOS into Applications"));
   show(dmg, t + 0.2);
   move(ICON, t + 0.6, 0.8);
   tl.to(ptr, { scale: 0.85, duration: 0.08 }, t + 1.45)
@@ -320,12 +323,12 @@ function play(stage, steps) {
   hide(dmg, t + 3.1);
   tl.set(dockApp, { autoAlpha: 1 }, t + 3.35);
   bounce(t + 3.35);
-  cap(t + 3.3, "Mac", "First open: macOS stops it once");
+  cap(t + 3.3, "Mac", tr("First open: macOS stops it once"));
   show(alert, t + 3.8);
   move(DONE, t + 4.3, 0.7);
   click(DONE, t + 5.05);
   hide(alert, t + 5.2);
-  cap(t + 5.35, "Mac", "Privacy & Security → Open Anyway");
+  cap(t + 5.35, "Mac", tr("Privacy & Security → Open Anyway"));
   show(privacy, t + 5.4, 0.35);
   look(anyway, 0.5, 0.5, 1.5, t + 5.6);
   move(ANYWAY, t + 5.8, 0.8);
@@ -333,7 +336,7 @@ function play(stage, steps) {
   tl.to(anyway, { backgroundColor: BLUE, duration: 0.1 }, t + 6.7);
   wide(t + 7.0);
   hide(privacy, t + 7.05);
-  cap(t + 7.2, "Mac", "MouseOS opens");
+  cap(t + 7.2, "Mac", tr("MouseOS opens"));
   tl.set(shotAllow, { autoAlpha: 1 }, t + 7.25);
   show(app, t + 7.25, 0.4);
   bounce(t + 7.25);
@@ -341,13 +344,13 @@ function play(stage, steps) {
   // 2 — Allow control
   t = S[1];
   start(t, { wins: [app], shot: shotAllow, from: [440, 236] });
-  cap(t, "Mac", "Click ALLOW CONTROL");
+  cap(t, "Mac", tr("Click ALLOW CONTROL"));
   look(shotAllow, 0.5, 0.279, 1.55, t + 0.1);
   move(ALLOW_CONTROL, t + 0.3, 0.8);
   click(ALLOW_CONTROL, t + 1.15);
   wide(t + 1.35, 0.6);
   show(access, t + 1.45, 0.35);
-  cap(t + 1.5, "Mac", "Switch MouseOS on");
+  cap(t + 1.5, "Mac", tr("Switch MouseOS on"));
   look(toggle, 0.5, 0.5, 1.7, t + 1.9);
   move(TOGGLE, t + 2.0, 0.7);
   click(TOGGLE, t + 2.75);
@@ -355,18 +358,18 @@ function play(stage, steps) {
     .to(toggle, { backgroundColor: BLUE, duration: 0.2 }, t + 2.8);
   wide(t + 3.4);
   hide(access, t + 3.5);
-  cap(t + 3.7, "Mac", "Control allowed — now the phone");
+  cap(t + 3.7, "Mac", tr("Control allowed — now the phone"));
   swap(shotAllow, shotWaiting, t + 3.8);
 
   // 3 — Open the phone app
   t = S[2];
   start(t, { wins: [app], shot: shotWaiting, from: [470, 252] });
-  cap(t, "Phone", "Open MouseOS on your phone");
+  cap(t, tr("Phone"), tr("Open MouseOS on your phone"));
   tap(HOME_APP, t + 0.5);
   tl.to(homeApp, { scale: 0.86, duration: 0.1, yoyo: true, repeat: 1 }, t + 0.5)
     .fromTo(pIntro, { autoAlpha: 0, scale: 0.2, transformOrigin: `${HOME_APP[0]}px ${HOME_APP[1]}px` },
       { autoAlpha: 1, scale: 1, duration: 0.4, ease: "power3.out", immediateRender: false }, t + 0.75);
-  cap(t + 1.4, "Phone", "It finds your Mac by itself");
+  cap(t + 1.4, tr("Phone"), tr("It finds your Mac by itself"));
   const LEN = pulse.getTotalLength();
   tl.set(link, { autoAlpha: 1 }, t + 1.4)
     .fromTo(pulse, { strokeDashoffset: 18 }, { strokeDashoffset: -LEN, duration: 0.9, ease: "power1.inOut", repeat: 1, immediateRender: false }, t + 1.45);
@@ -376,7 +379,7 @@ function play(stage, steps) {
   // 4 — Click ALLOW, then the payoff: a finger on the pad drives the Mac's pointer
   t = S[3];
   start(t, { wins: [app], shot: shotWaiting, phone: pAllow, from: [470, 240] });
-  cap(t, "Mac", "Click ALLOW — once per phone");
+  cap(t, "Mac", tr("Click ALLOW — once per phone"));
   swap(shotWaiting, shotApprove, t + 0.15);
   bounce(t + 0.15, 2);
   look(shotApprove, 0.281, 0.214, 1.6, t + 0.4);
@@ -385,7 +388,7 @@ function play(stage, steps) {
   wide(t + 1.8);
   hide(app, t + 1.9, 0.3);
   swap(pAllow, pPad, t + 1.95);
-  cap(t + 2.2, "Done", "Your phone is the mouse");
+  cap(t + 2.2, tr("Done"), tr("Your phone is the mouse"));
   // A figure of eight, as a thumb would draw it; the pad and the desk share its shape.
   const PATH = Array.from({ length: 25 }, (_, i) => {
     const a = (i / 24) * Math.PI * 2;
@@ -446,8 +449,8 @@ function play(stage, steps) {
   steps.forEach((li, i) => li.addEventListener("click", (e) => { if (!e.target.closest("a, button")) go(i); }));
   btn.addEventListener("click", () => {
     held = !held;
-    btn.textContent = held ? "Play" : "Pause";
-    btn.setAttribute("aria-label", held ? "Play the setup animation" : "Pause the setup animation");
+    btn.textContent = held ? tr("Play") : tr("Pause");
+    btn.setAttribute("aria-label", held ? tr("Play the setup animation") : tr("Pause the setup animation"));
     run();
   });
   new IntersectionObserver(([en]) => { inView = en.isIntersecting; run(); }, { threshold: 0.35 }).observe(stage);
@@ -516,7 +519,7 @@ function play(stage, steps) {
     if (focus) buttons[i].focus();
     const src = items[i].dataset.shot;
     if (shot.getAttribute("src") === src) return;
-    const swap = () => { shot.src = src; shot.alt = `MouseOS ${items[i].dataset.tab} screen`; };
+    const swap = () => { shot.src = src; shot.alt = tr("MouseOS {tab} screen").replace("{tab}", items[i].dataset.tab); };
     if (!animate) return swap();
     G.timeline()
       .to(shot, { opacity: 0, y: 10, duration: 0.14, ease: "power2.in", onComplete: swap })
@@ -579,20 +582,20 @@ function play(stage, steps) {
   const soon = (a) => {
     a.setAttribute("aria-disabled", "true");
     a.removeAttribute("href");
-    if (!a.querySelector("small")) a.insertAdjacentHTML("beforeend", " <small>soon</small>");
+    if (!a.querySelector("small")) a.insertAdjacentHTML("beforeend", ` <small>${tr("soon")}</small>`);
   };
   // Until the listing is live, every "Google Play" button sends people to the beta.
   document.querySelectorAll("[data-play]").forEach((a) => {
     if (!PLAY_URL) return;
     a.href = PLAY_URL;
-    a.textContent = a.classList.contains("link-more") ? "Google Play →" : "Google Play";
+    a.textContent = a.classList.contains("link-more") ? tr("Google Play →") : tr("Google Play");
   });
 
   const links = [...document.querySelectorAll("[data-download]")];
   links.forEach((a) => {
     if (a.dataset.download !== "auto") return;
     a.dataset.download = visitorOs;
-    a.querySelector("span").textContent = `Download for ${OS_NAME[visitorOs]}`;
+    a.querySelector("span").textContent = tr(`Download for ${OS_NAME[visitorOs]}`);
   });
   if (onPhone) return links.forEach(sendToComputer);
   fetch(`https://api.github.com/repos/${REPO}/releases/latest`, { headers: { Accept: "application/vnd.github+json" } })
@@ -601,7 +604,7 @@ function play(stage, steps) {
       const assets = (rel && rel.assets) || [];
       // "In short" names the release the page was written for; the latest one, once it's out.
       const v = document.querySelector("[data-version]");
-      if (v && rel && rel.tag_name) v.textContent = `${rel.tag_name.replace(/^v/, "")} — ${new Date(rel.published_at).toLocaleDateString("en", { month: "long", year: "numeric" })}`;
+      if (v && rel && rel.tag_name) v.textContent = `${rel.tag_name.replace(/^v/, "")} — ${new Date(rel.published_at).toLocaleDateString(LANG, { month: "long", year: "numeric" })}`;
       links.forEach((a) => {
         const ext = a.dataset.ext || OS_FILE[a.dataset.download];
         const file = assets.find((f) => f.name.endsWith(ext));
@@ -617,11 +620,11 @@ function play(stage, steps) {
   if (!form) return;
   const done = document.querySelector(".beta-done"), fail = document.querySelector(".beta-error");
   const btn = form.querySelector("button"), label = btn.querySelector("span");
-  const WORDS = { email: "That doesn't look like an email address.", slow_down: "Too many tries — give it a minute." };
+  const WORDS = { email: tr("That doesn't look like an email address."), slow_down: tr("Too many tries — give it a minute.") };
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (!form.email.checkValidity()) return form.email.reportValidity();
-    btn.disabled = true; label.textContent = "Joining…"; fail.hidden = true;
+    btn.disabled = true; label.textContent = tr("Joining…"); fail.hidden = true;
     try {
       const r = await fetch(form.action, {
         method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -639,8 +642,8 @@ function play(stage, steps) {
       form.hidden = true; done.hidden = false;
       if (animate) G.from(done, { y: 16, opacity: 0, duration: 0.5, ease: "power3.out" });
     } catch (err) {
-      fail.querySelector("span").textContent = WORDS[err.message] || "Something went wrong.";
-      fail.hidden = false; btn.disabled = false; label.textContent = "Join the beta";
+      fail.querySelector("span").textContent = WORDS[err.message] || tr("Something went wrong.");
+      fail.hidden = false; btn.disabled = false; label.textContent = tr("Join the beta");
     }
   });
 })();
@@ -651,14 +654,14 @@ function sendToComputer(a) {
   if (a.classList.contains("btn-line") || a.dataset.ext === ".rpm") { a.hidden = true; return; }
   if (a.classList.contains("btn")) {
     a.querySelector("svg")?.remove();
-    a.textContent = "Send to your computer";
+    a.textContent = tr("Send to your computer");
   } else {
-    a.textContent = "Send to your computer →";
+    a.textContent = tr("Send to your computer →");
   }
   a.href = SITE;
   a.addEventListener("click", async (e) => {
     e.preventDefault();
-    if (navigator.share) return navigator.share({ title: "MouseOS for your computer", url: SITE }).catch(() => {});
-    try { await navigator.clipboard.writeText(SITE); a.textContent = "Link copied — open it on your computer"; } catch { location.href = SITE; }
+    if (navigator.share) return navigator.share({ title: tr("MouseOS for your computer"), url: SITE }).catch(() => {});
+    try { await navigator.clipboard.writeText(SITE); a.textContent = tr("Link copied — open it on your computer"); } catch { location.href = SITE; }
   });
 }

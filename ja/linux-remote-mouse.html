@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>スマホをLinuxのマウスに — X11とWayland、GNOME &amp; KDE · MouseOS</title>
+<meta name="description" content="AndroidスマホからLinuxのためのワイヤレスなトラックパッド、エアマウス、キーボード — X11でもWayland（GNOME、KDE Plasma）でも。無料の.debと.rpm、ローカルネットワーク経由、アカウント不要。">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#131311">
+<link rel="icon" href="/assets/favicon.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="canonical" href="https://mouseos.app/ja/linux-remote-mouse.html">
+<link rel="alternate" hreflang="en" href="https://mouseos.app/linux-remote-mouse.html">
+<link rel="alternate" hreflang="fr" href="https://mouseos.app/fr/linux-remote-mouse.html">
+<link rel="alternate" hreflang="pt-BR" href="https://mouseos.app/pt/linux-remote-mouse.html">
+<link rel="alternate" hreflang="es" href="https://mouseos.app/es/linux-remote-mouse.html">
+<link rel="alternate" hreflang="de" href="https://mouseos.app/de/linux-remote-mouse.html">
+<link rel="alternate" hreflang="it" href="https://mouseos.app/it/linux-remote-mouse.html">
+<link rel="alternate" hreflang="ja" href="https://mouseos.app/ja/linux-remote-mouse.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://mouseos.app/zh/linux-remote-mouse.html">
+<link rel="alternate" hreflang="x-default" href="https://mouseos.app/linux-remote-mouse.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="MouseOS"><meta property="og:locale" content="ja_JP">
+<meta property="og:url" content="https://mouseos.app/ja/linux-remote-mouse.html"><meta property="og:title" content="スマホをLinuxのマウスに — Waylandにも対応">
+<meta property="og:description" content="X11とWaylandのLinuxのためのトラックパッド、エアマウス、キーボード。無料の.debと.rpm、ローカルネットワークのみ。">
+<meta property="og:image" content="https://mouseos.app/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://mouseos.app/ja/linux-remote-mouse.html#webpage",
+      "url": "https://mouseos.app/ja/linux-remote-mouse.html",
+      "name": "スマホをLinuxのマウスに — X11とWayland",
+      "isPartOf": {
+        "@id": "https://mouseos.app/#website"
+      },
+      "about": {
+        "@id": "https://mouseos.app/#app"
+      },
+      "dateModified": "2026-10-07",
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mouseos.app/linux-remote-mouse.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Waylandで動きますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。Waylandはアプリにポインタを動かすことを許さないため、MouseOSは実際のマウスやキーボードと同じ仮想入力デバイス（uinput）を使います。ALLOW CONTROLを一度クリックしてパスワードを入力すると、ログイン中のユーザーに/dev/uinputへのアクセスを与えるudevルールが1つ追加されます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "どのディストリビューションで使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "64ビットのLinux：Ubuntu、Debian、Mint用の.deb（Ubuntu 22.04、Mint 21、Debian 12以降）、FedoraとopenSUSE用の.rpm。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "どのポートを使いますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TCP 53317（クリック、キー入力、状態のためのWebSocket）とUDP 53318（ポインタとスクロール）。ローカルネットワークのみ。検出にはmDNSとUDPビーコンを使います。"
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Geist+Mono:wght@400..700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head><body class="doc">
+<header class="nav"><div class="wrap nav-row"><a class="wordmark" href="/ja/">MOUSE<span>OS</span></a><a class="nav-link" href="/ja/">← MouseOSに戻る</a></div></header>
+<main class="wrap prose">
+<p class="eyebrow">ガイド · Linux · X11 · Wayland</p>
+<h1>スマホをLinuxのマウスに — Waylandにも対応</h1>
+<p class="lede">スマホをマウスにするアプリの多くはX11止まりです。MouseOSはWayland上のGNOMEとKDE Plasmaも操作できます：トラックパッド、エアマウス、キーボード、メディアキーを、Androidスマホからネットワーク経由で。</p>
+
+<div class="gallery">
+  <figure><img src="/assets/pad.webp" alt="MouseOSのトラックパッド画面" width="720" height="1280" loading="lazy"><figcaption>Pad</figcaption></figure>
+  <figure><img src="/assets/remote.webp" alt="MouseOSのメディアリモコン画面" width="720" height="1280" loading="lazy"><figcaption>リモコン</figcaption></figure>
+</div>
+
+<h2>インストール</h2>
+<ol>
+<li><a href="https://github.com/MathisZerbib/mouseos/releases/latest">.deb</a>（Ubuntu、Debian、Mint）または<a href="https://github.com/MathisZerbib/mouseos/releases/latest">.rpm</a>（Fedora、openSUSE）をダウンロードし、パッケージマネージャでインストールします。</li>
+<li>MouseOSを開きます。<strong>Wayland</strong>では<strong>ALLOW CONTROL</strong>をクリックしてパスワードを一度入力します（詳細は下記）。X11では許可は不要です。</li>
+<li>同じネットワークで、スマホのMouseOSを開きます。パソコンでそのスマホに対して<strong>ALLOW</strong>をクリック。完了です。</li>
+</ol>
+
+<h2>セッションごとの仕組み</h2>
+<div class="table"><table>
+<thead><tr><th>セッション</th><th>入力の仕組み</th></tr></thead>
+<tbody>
+<tr><td><strong>X11</strong></td><td>XTest — ポインタ、ボタン、縦横のスクロール、どのキーボード配列でもUnicode入力。</td></tr>
+<tr><td><strong>Wayland</strong></td><td><code>uinput</code>による仮想マウスとキーボード。コンポジタからは実際のハードウェアのように見えます。ALLOW CONTROLは<code>pkexec</code>のステップを一度実行し、<code>/dev/uinput</code>に<code>uaccess</code>タグを付けるudevルール — ログイン中のユーザーのみアクセス可能 — を追加して、起動時にモジュールを読み込むようにします。</td></tr>
+</tbody></table></div>
+<p>手動で設定したい場合は、アプリが実行する3つのコマンドを表示します。音量はPipeWireまたはPulseAudio経由、メディアキーは手前のプレーヤーに届きます。</p>
+
+<h2>ネットワーク</h2>
+<ul>
+<li>クリック、キー入力、状態：TCP <strong>53317</strong>のWebSocket。ポインタとスクロール：UDP <strong>53318</strong>、許可したスマホからのみ受け付けます。</li>
+<li>検出：mDNSとUDPビーコン — IPアドレスの入力は不要。ファイアウォールが遮断する場合は、この2つのポートをLAN向けに開放するか、アプリに表示されるアドレスを入力してください。</li>
+<li>サーバーなし、アカウントなし、テレメトリなし。何もネットワークの外に出ません。</li>
+</ul>
+
+<div class="cta">
+  <a class="btn btn-signal" href="https://github.com/MathisZerbib/mouseos/releases/latest">.deb / .rpmをダウンロード</a>
+  <a class="btn btn-line" href="./#install">インストールガイド</a>
+</div>
+
+<div class="more">
+<p><strong>他のガイド：</strong><a href="/ja/phone-as-mouse.html">スマホをマウスに</a> · <a href="/ja/presentation-remote.html">スマホをプレゼン用リモコンに</a> · <a href="/ja/tv-remote.html">スマホをテレビのリモコンに</a> · <a href="/ja/alternatives.html">MouseOSと他のリモートアプリ</a></p>
+</div>
+<div class="langs-row"><nav class="langs" aria-label="言語">
+      <a href="/linux-remote-mouse.html" hreflang="en" lang="en">English</a>
+      <a href="/fr/linux-remote-mouse.html" hreflang="fr" lang="fr">Français</a>
+      <a href="/pt/linux-remote-mouse.html" hreflang="pt-BR" lang="pt-BR">Português</a>
+      <a href="/es/linux-remote-mouse.html" hreflang="es" lang="es">Español</a>
+      <a href="/de/linux-remote-mouse.html" hreflang="de" lang="de">Deutsch</a>
+      <a href="/it/linux-remote-mouse.html" hreflang="it" lang="it">Italiano</a>
+      <a href="/ja/linux-remote-mouse.html" hreflang="ja" lang="ja" aria-current="page">日本語</a>
+      <a href="/zh/linux-remote-mouse.html" hreflang="zh-Hans" lang="zh-Hans">中文</a>
+    </nav></div>
+</main>
+<footer class="foot"><div class="wrap foot-row"><a class="wordmark" href="/ja/">MOUSE<span>OS</span></a><nav aria-label="フッター"><a href="./#install">インストール</a><a href="/ja/privacy-policy.html">プライバシー</a><a href="https://github.com/MathisZerbib/mouseos">GitHub</a><a href="mailto:support@mouseos.app">お問い合わせ</a></nav><p class="fine">© 2026 MouseOS</p></div></footer>
+</body></html>

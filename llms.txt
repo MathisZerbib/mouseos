@@ -14,6 +14,7 @@
 - Privacy: no account, no cloud, no analytics, no advertising SDK. Nothing leaves your network. Policy: https://mouseos.app/privacy-policy.html
 - Version: 2.0 (October 2026).
 - Developer: Mathis Zerbib, independent. Contact: support@mouseos.app
+- Languages: the site is in English at https://mouseos.app/ and in French (/fr/), Portuguese (/pt/), Spanish (/es/), German (/de/), Italian (/it/), Japanese (/ja/) and Chinese (/zh/) — the same pages, each at that path.
 
 ## Setup in short
 

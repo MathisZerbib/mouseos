@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MouseOS — 手机就是你电脑的鼠标 · 为 Mac、Windows、Linux 和电视准备的触控板、空中鼠标 &amp; 遥控器</title>
+<meta name="description" content="MouseOS 把你的安卓手机变成 Mac、Windows PC、Linux 电脑以及三星、LG 或 Google TV 电视的无线触控板、空中鼠标、键盘和遥控器。免费，通过 Wi‑Fi — 无需账号，不走云端，没有广告。">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Mathis Zerbib">
+<meta name="theme-color" content="#131311">
+<meta name="color-scheme" content="dark">
+<meta name="application-name" content="MouseOS">
+<meta name="apple-mobile-web-app-title" content="MouseOS">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="canonical" href="https://mouseos.app/zh/">
+<link rel="alternate" hreflang="en" href="https://mouseos.app/">
+<link rel="alternate" hreflang="fr" href="https://mouseos.app/fr/">
+<link rel="alternate" hreflang="pt-BR" href="https://mouseos.app/pt/">
+<link rel="alternate" hreflang="es" href="https://mouseos.app/es/">
+<link rel="alternate" hreflang="de" href="https://mouseos.app/de/">
+<link rel="alternate" hreflang="it" href="https://mouseos.app/it/">
+<link rel="alternate" hreflang="ja" href="https://mouseos.app/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mouseos.app/zh/">
+<link rel="alternate" hreflang="x-default" href="https://mouseos.app/">
+<!-- the social card — 1200×630, rendered by tools/site/og.py — and what iMessage, Slack, X, LinkedIn, WhatsApp say about the link -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MouseOS">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:url" content="https://mouseos.app/zh/">
+<meta property="og:title" content="MouseOS — 手机就是你电脑的鼠标">
+<meta property="og:description" content="为你的 Mac、Windows PC、Linux 电脑和电视准备的触控板、空中鼠标、键盘和遥控器。免费。无需账号，不走云端。">
+<meta property="og:image" content="https://mouseos.app/assets/og.png">
+<meta property="og:image:secure_url" content="https://mouseos.app/assets/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MouseOS — 手机就是你电脑的鼠标。Mac、Windows、Linux、电视 — 免费。一部显示 MouseOS 触控板的手机。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MouseOS — 手机就是你电脑的鼠标">
+<meta name="twitter:description" content="为你的 Mac、Windows PC、Linux 电脑和电视准备的触控板、空中鼠标、键盘和遥控器。免费。无需账号，不走云端。">
+<meta name="twitter:image" content="https://mouseos.app/assets/og.png">
+<meta name="twitter:image:alt" content="MouseOS — 手机就是你电脑的鼠标。Mac、Windows、Linux、电视 — 免费。一部显示 MouseOS 触控板的手机。">
+<link rel="preload" as="image" href="/assets/pad.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Geist+Mono:wght@400..700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script>window.I18N = {"Download for Mac": "下载 Mac 版", "Download for Windows": "下载 Windows 版", "Download for Linux": "下载 Linux 版", "soon": "敬请期待", "Pause": "暂停", "Play": "播放", "Pause the setup animation": "暂停安装动画", "Play the setup animation": "播放安装动画", "Send to your computer": "发送到电脑", "Send to your computer →": "发送到电脑 →", "Link copied — open it on your computer": "链接已复制 — 请在电脑上打开", "MouseOS for your computer": "电脑版 MouseOS", "MouseOS {tab} screen": "MouseOS {tab} 界面", "Google Play": "Google Play", "Google Play →": "Google Play →", "Joining…": "报名中…", "Join the beta": "加入测试版", "Something went wrong.": "出了点问题。", "That doesn't look like an email address.": "这看起来不像一个邮箱地址。", "Too many tries — give it a minute.": "尝试次数过多 — 请等一分钟。", "Open the download, drag MouseOS into Applications": "打开下载的文件，把 MouseOS 拖入应用程序", "First open: macOS stops it once": "首次打开：macOS 会拦截一次", "Privacy & Security → Open Anyway": "隐私与安全性 → 仍要打开", "MouseOS opens": "MouseOS 打开了", "Click ALLOW CONTROL": "点击 ALLOW CONTROL", "Switch MouseOS on": "打开 MouseOS 的开关", "Control allowed — now the phone": "已允许控制 — 轮到手机了", "Open MouseOS on your phone": "在手机上打开 MouseOS", "It finds your Mac by itself": "它会自动找到你的 Mac", "Click ALLOW — once per phone": "点击 ALLOW — 每台手机一次", "Your phone is the mouse": "手机就是鼠标", "Mac": "Mac", "Phone": "手机", "Done": "完成"};</script>
+<script src="/main.js" defer></script>
+<!-- what the page says, for machines: the app, the site, who makes it, and the FAQ word for word -->
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://mouseos.app/#app",
+      "name": "MouseOS",
+      "alternateName": "MouseOS — Mac, PC & TV Remote",
+      "url": "https://mouseos.app/",
+      "image": "https://mouseos.app/assets/og.png",
+      "description": "MouseOS 把安卓手机变成 Mac、Windows PC 或 Linux 电脑的无线触控板、空中鼠标、键盘、媒体遥控器和演示翻页器，也能变成三星、LG 和 Google TV 电视的遥控器。免费，通过本地 Wi‑Fi：无需账号，不走云端，没有广告，没有追踪。",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "遥控器",
+      "operatingSystem": "Android 8.0 或更高版本（手机应用）；Apple 芯片上的 macOS 11 或更高版本、Windows 10 和 11（64 位）、X11 或 Wayland 上的 64 位 Linux（电脑应用）",
+      "softwareVersion": "2.0",
+      "dateModified": "2026-10-06",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "downloadUrl": "https://github.com/MathisZerbib/mouseos/releases/latest",
+      "installUrl": "https://github.com/MathisZerbib/mouseos/releases/latest",
+      "softwareRequirements": "手机和电脑在同一个 Wi‑Fi 网络，或使用手机热点。不需要互联网连接、账号或云服务。",
+      "featureList": [
+        "触控板：轻点即点击，双指滚动或滚动条，按住即拖拽",
+        "空中鼠标：像电视遥控器一样指向屏幕",
+        "遥控器：方向键、播放、电脑音量、下一集",
+        "三星、LG 和 Google TV 的电视遥控器，无需电脑",
+        "键盘：任何语言都能输入，包括重音符号和表情符号",
+        "幻灯片：超大的“下一页”和“上一页”、计时器、音量键翻页",
+        "无需账号，不走云端，没有广告，没有统计：任何数据都不会离开你的 Wi‑Fi",
+        "每台新手机只需在电脑上点一次 ALLOW 即可获准"
+      ],
+      "screenshot": [
+        "https://mouseos.app/assets/pad.webp",
+        "https://mouseos.app/assets/air.webp",
+        "https://mouseos.app/assets/remote.webp",
+        "https://mouseos.app/assets/tv.webp",
+        "https://mouseos.app/assets/keys.webp",
+        "https://mouseos.app/assets/slides.webp"
+      ],
+      "author": {
+        "@id": "https://mouseos.app/#author"
+      },
+      "publisher": {
+        "@id": "https://mouseos.app/#org"
+      },
+      "sameAs": [
+        "https://github.com/MathisZerbib/mouseos"
+      ],
+      "inLanguage": "zh-Hans"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://mouseos.app/#website",
+      "url": "https://mouseos.app/",
+      "name": "MouseOS",
+      "description": "手机就是你电脑的鼠标。为 Mac、Windows、Linux 和电视准备的触控板、空中鼠标、键盘和遥控器。免费，无需账号，不走云端。",
+      "publisher": {
+        "@id": "https://mouseos.app/#org"
+      },
+      "inLanguage": "zh-Hans"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mouseos.app/zh/#webpage",
+      "url": "https://mouseos.app/zh/",
+      "name": "MouseOS — 手机就是你电脑的鼠标",
+      "description": "MouseOS 把你的安卓手机变成 Mac、Windows PC、Linux 电脑以及三星、LG 或 Google TV 电视的无线触控板、空中鼠标、键盘和遥控器。免费，通过 Wi‑Fi — 无需账号，不走云端，没有广告。",
+      "isPartOf": {
+        "@id": "https://mouseos.app/#website"
+      },
+      "about": {
+        "@id": "https://mouseos.app/#app"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://mouseos.app/assets/og.png",
+        "width": 1200,
+        "height": 630
+      },
+      "dateModified": "2026-10-06",
+      "inLanguage": "zh-Hans"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://mouseos.app/#org",
+      "name": "MouseOS",
+      "url": "https://mouseos.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mouseos.app/assets/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "email": "support@mouseos.app",
+      "founder": {
+        "@id": "https://mouseos.app/#author"
+      },
+      "sameAs": [
+        "https://github.com/MathisZerbib/mouseos"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mouseos.app/#author",
+      "name": "Mathis Zerbib",
+      "url": "https://github.com/MathisZerbib",
+      "sameAs": [
+        "https://github.com/MathisZerbib"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mouseos.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "免费吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是的 — 手机应用和电脑应用都免费。没有广告。如果你想表达谢意，设置里有可自愿的打赏。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持哪些电脑？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "搭载 Apple 芯片（M1 及更新）的 Mac，macOS 11 或更高版本。Windows 10 和 11，64 位。Linux，64 位 — Ubuntu、Debian、Fedora 等，X11 或 Wayland。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "怎样获得安卓应用？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "它正在 Google Play 进行封闭测试。在 mouseos.app 用你的 Google 账号邮箱加入测试版：我们把你加入测试，然后 MouseOS 就能像其他应用一样从 Google Play 安装，更新也会自动送达。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "iPhone 呢？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "安卓优先。iPhone 版即将推出。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持哪些电视？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "三星、LG 和 Google TV（索尼、TCL、飞利浦……）。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "需要互联网吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要。手机和电脑通过你的 Wi‑Fi 直接通信 — 不经过任何服务器。不需要互联网，无需账号。手机热点也可以。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "蓝牙还是 Wi‑Fi？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wi‑Fi，不是蓝牙。MouseOS 会在局域网里自动找到你的电脑；在电脑上点一次 ALLOW，配对就完成了。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "电视需要电脑端应用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要。电视界面通过同一个 Wi‑Fi 直接与你的三星、LG 或 Google TV 电视通信。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以用来做演示吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。幻灯片界面有超大的“下一页”和“上一页”、精确到分钟的计时器，手机的音量键也能翻页。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "可以打字和控制音量吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。键盘界面支持任何语言输入，包括重音符号和表情符号。遥控器界面有方向键、播放、电脑音量和下一集。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "别人能控制我的电脑吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不能。每台新手机都需要在电脑上点一次 ALLOW。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "macOS 不让打开",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "系统设置 → 隐私与安全性，向下滚动，点击仍要打开。仅第一次需要。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows 提示已保护你的电脑",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "点击更多信息，再点击仍要运行。仅第一次需要：MouseOS 尚未经过微软签名。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "手机找不到电脑",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "确保在同一个 Wi‑Fi 下，并关闭 VPN。咖啡馆或酒店的 Wi‑Fi 会隐藏设备：打开手机热点，让电脑连接热点。在 Windows 上，Wi‑Fi 必须设为专用网络。或者在手机上点击 TYPE THE ADDRESS。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "指针不动",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mac：系统设置 → 隐私与安全性 → 辅助功能：打开 MouseOS 的开关。Wayland 上的 Linux：打开 MouseOS 并点击 ALLOW CONTROL。更新后，应用会告诉你怎么做。"
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="wordmark" href="#top" aria-label="MouseOS 首页">MOUSE<span>OS</span></a>
+    <nav class="nav-links" aria-label="章节">
+      <a href="#install">安装</a>
+      <a href="#features">功能</a>
+      <a href="#beta">测试版</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <a class="btn btn-signal btn-sm" href="#install">获取 MouseOS</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ——— hero ——— -->
+  <section class="hero">
+    <canvas class="field" aria-hidden="true"></canvas>
+    <div class="wrap hero-row">
+      <div class="hero-copy">
+        <p class="eyebrow" data-intro>Mac · Windows · Linux · 电视 — 免费</p>
+        <h1 data-intro>手机，就是你电脑的<em>鼠标。</em></h1>
+        <p class="lede" data-intro>触控板、空中鼠标、键盘和遥控器 — 用于你的 Mac、PC、Linux 和电视。无需账号，不走云端。</p>
+        <div class="cta" data-intro>
+          <a class="btn btn-signal" data-download="auto" href="https://github.com/MathisZerbib/mouseos/releases/latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M3 14h10"/></svg><span>下载</span></a>
+          <a class="btn btn-line" data-play href="#beta">加入测试版</a>
+        </div>
+        <p class="fine" data-intro><a class="fine-link" href="#platforms">所有平台 ↓</a></p>
+      </div>
+      <div class="hero-device" data-intro>
+        <div class="phone tilt"><img src="/assets/pad.webp" alt="MouseOS 的触控板界面" width="720" height="1280"></div>
+        <p class="hint"><span class="hint-desk">动一动鼠标 —</span><span class="hint-touch">在网格上划一划 —</span> 这就是手机在控制你的电脑。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— works with: the platforms MouseOS drives (marks from Simple Icons, CC0) ——— -->
+  <section class="trust" aria-labelledby="trust-label">
+    <svg width="0" height="0" class="sprite" aria-hidden="true">
+      <symbol id="mk-macos" viewBox="0 9.18 24 5.64"><path d="M0 14.727h.941v-2.453c0-.484.318-.835.771-.835.439 0 .71.276.71.722v2.566h.915V12.25c0-.48.31-.812.764-.812.46 0 .718.28.718.77v2.518h.94v-2.748c0-.801-.517-1.334-1.307-1.334-.578 0-1.054.31-1.247.805h-.023c-.147-.514-.552-.805-1.118-.805-.545 0-.968.306-1.142.771H.903v-.695H0v4.006zm7.82-.646c-.408 0-.68-.208-.68-.537 0-.318.26-.522.714-.552l.926-.057v.307c0 .483-.427.839-.96.839zm-.284.71c.514 0 1.017-.268 1.248-.703h.018v.639h.908v-2.76c0-.804-.647-1.33-1.64-1.33-1.021 0-1.66.537-1.701 1.285h.873c.06-.332.344-.548.79-.548.464 0 .748.242.748.662v.287l-1.058.06c-.976.061-1.524.488-1.524 1.199 0 .721.564 1.209 1.338 1.209zm6.305-2.642c-.065-.843-.719-1.512-1.777-1.512-1.164 0-1.92.805-1.92 2.087 0 1.3.756 2.082 1.928 2.082 1.005 0 1.697-.59 1.772-1.485h-.888c-.087.453-.397.725-.873.725-.597 0-.982-.483-.982-1.322 0-.824.381-1.323.975-1.323.502 0 .8.321.876.748h.889zm2.906-2.967c-1.591 0-2.589 1.085-2.589 2.82 0 1.735.998 2.816 2.59 2.816 1.586 0 2.584-1.081 2.584-2.816 0-1.735-.997-2.82-2.585-2.82zm0 .832c.971 0 1.591.77 1.591 1.988 0 1.213-.62 1.984-1.59 1.984-.976 0-1.592-.77-1.592-1.984 0-1.217.616-1.988 1.591-1.988zm2.982 3.178c.042 1.006.866 1.626 2.12 1.626 1.32 0 2.151-.65 2.151-1.686 0-.813-.469-1.27-1.576-1.523l-.627-.144c-.67-.158-.945-.37-.945-.733 0-.453.415-.756 1.032-.756.623 0 1.05.306 1.096.817h.93c-.023-.96-.817-1.61-2.019-1.61-1.187 0-2.03.653-2.03 1.62 0 .78.477 1.263 1.482 1.494l.707.166c.688.163.967.39.967.782 0 .454-.457.779-1.115.779-.665 0-1.167-.329-1.228-.832h-.945z"/></symbol>
+      <symbol id="mk-windows" viewBox="0 0 24 24"><path d="M0,0H11.377V11.372H0ZM12.623,0H24V11.372H12.623ZM0,12.623H11.377V24H0Zm12.623,0H24V24H12.623"/></symbol>
+      <symbol id="mk-ubuntu" viewBox="0 0.46 24 23.09"><path d="M17.61.455a3.41 3.41 0 0 0-3.41 3.41 3.41 3.41 0 0 0 3.41 3.41 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41zM12.92.8C8.923.777 5.137 2.941 3.148 6.451a4.5 4.5 0 0 1 .26-.007 4.92 4.92 0 0 1 2.585.737A8.316 8.316 0 0 1 12.688 3.6 4.944 4.944 0 0 1 13.723.834 11.008 11.008 0 0 0 12.92.8zm9.226 4.994a4.915 4.915 0 0 1-1.918 2.246 8.36 8.36 0 0 1-.273 8.303 4.89 4.89 0 0 1 1.632 2.54 11.156 11.156 0 0 0 .559-13.089zM3.41 7.932A3.41 3.41 0 0 0 0 11.342a3.41 3.41 0 0 0 3.41 3.409 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41zm2.027 7.866a4.908 4.908 0 0 1-2.915.358 11.1 11.1 0 0 0 7.991 6.698 11.234 11.234 0 0 0 2.422.249 4.879 4.879 0 0 1-.999-2.85 8.484 8.484 0 0 1-.836-.136 8.304 8.304 0 0 1-5.663-4.32zm11.405.928a3.41 3.41 0 0 0-3.41 3.41 3.41 3.41 0 0 0 3.41 3.41 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41z"/></symbol>
+      <symbol id="mk-fedora" viewBox="0 0 24 24"><path d="M12.001 0C5.376 0 .008 5.369.004 11.992H.002v9.287h.002A2.726 2.726 0 0 0 2.73 24h9.275c6.626-.004 11.993-5.372 11.993-11.997C23.998 5.375 18.628 0 12 0zm2.431 4.94c2.015 0 3.917 1.543 3.917 3.671 0 .197.001.395-.03.619a1.002 1.002 0 0 1-1.137.893 1.002 1.002 0 0 1-.842-1.175 2.61 2.61 0 0 0 .013-.337c0-1.207-.987-1.672-1.92-1.672-.934 0-1.775.784-1.777 1.672.016 1.027 0 2.046 0 3.07l1.732-.012c1.352-.028 1.368 2.009.016 1.998l-1.748.013c-.004.826.006.677.002 1.093 0 0 .015 1.01-.016 1.776-.209 2.25-2.124 4.046-4.424 4.046-2.438 0-4.448-1.993-4.448-4.437.073-2.515 2.078-4.492 4.603-4.469l1.409-.01v1.996l-1.409.013h-.007c-1.388.04-2.577.984-2.6 2.47a2.438 2.438 0 0 0 2.452 2.439c1.356 0 2.441-.987 2.441-2.437l-.001-7.557c0-.14.005-.252.02-.407.23-1.848 1.883-3.256 3.754-3.256z"/></symbol>
+      <symbol id="mk-debian" viewBox="2.36 0 19.29 24"><path d="M13.88 12.685c-.4 0 .08.2.601.28.14-.1.27-.22.39-.33a3.001 3.001 0 01-.99.05m2.14-.53c.23-.33.4-.69.47-1.06-.06.27-.2.5-.33.73-.75.47-.07-.27 0-.56-.8 1.01-.11.6-.14.89m.781-2.05c.05-.721-.14-.501-.2-.221.07.04.13.5.2.22M12.38.31c.2.04.45.07.42.12.23-.05.28-.1-.43-.12m.43.12l-.15.03.14-.01V.43m6.633 9.944c.02.64-.2.95-.38 1.5l-.35.181c-.28.54.03.35-.17.78-.44.39-1.34 1.22-1.62 1.301-.201 0 .14-.25.19-.34-.591.4-.481.6-1.371.85l-.03-.06c-2.221 1.04-5.303-1.02-5.253-3.842-.03.17-.07.13-.12.2a3.551 3.552 0 012.001-3.501 3.361 3.362 0 013.732.48 3.341 3.342 0 00-2.721-1.3c-1.18.01-2.281.76-2.651 1.57-.6.38-.67 1.47-.93 1.661-.361 2.601.66 3.722 2.38 5.042.27.19.08.21.12.35a4.702 4.702 0 01-1.53-1.16c.23.33.47.66.8.91-.55-.18-1.27-1.3-1.48-1.35.93 1.66 3.78 2.921 5.261 2.3a6.203 6.203 0 01-2.33-.28c-.33-.16-.77-.51-.7-.57a5.802 5.803 0 005.902-.84c.44-.35.93-.94 1.07-.95-.2.32.04.16-.12.44.44-.72-.2-.3.46-1.24l.24.33c-.09-.6.74-1.321.66-2.262.19-.3.2.3 0 .97.29-.74.08-.85.15-1.46.08.2.18.42.23.63-.18-.7.2-1.2.28-1.6-.09-.05-.28.3-.32-.53 0-.37.1-.2.14-.28-.08-.05-.26-.32-.38-.861.08-.13.22.33.34.34-.08-.42-.2-.75-.2-1.08-.34-.68-.12.1-.4-.3-.34-1.091.3-.25.34-.74.54.77.84 1.96.981 2.46-.1-.6-.28-1.2-.49-1.76.16.07-.26-1.241.21-.37A7.823 7.824 0 0017.702 1.6c.18.17.42.39.33.42-.75-.45-.62-.48-.73-.67-.61-.25-.65.02-1.06 0C15.082.73 14.862.8 13.8.4l.05.23c-.77-.25-.9.1-1.73 0-.05-.04.27-.14.53-.18-.741.1-.701-.14-1.431.03.17-.13.36-.21.55-.32-.6.04-1.44.35-1.18.07C9.6.68 7.847 1.3 6.867 2.22L6.838 2c-.45.54-1.96 1.611-2.08 2.311l-.131.03c-.23.4-.38.85-.57 1.261-.3.52-.45.2-.4.28-.6 1.22-.9 2.251-1.16 3.102.18.27 0 1.65.07 2.76-.3 5.463 3.84 10.776 8.363 12.006.67.23 1.65.23 2.49.25-.99-.28-1.12-.15-2.08-.49-.7-.32-.85-.7-1.34-1.13l.2.35c-.971-.34-.57-.42-1.361-.67l.21-.27c-.31-.03-.83-.53-.97-.81l-.34.01c-.41-.501-.63-.871-.61-1.161l-.111.2c-.13-.21-1.52-1.901-.8-1.511-.13-.12-.31-.2-.5-.55l.14-.17c-.35-.44-.64-1.02-.62-1.2.2.24.32.3.45.33-.88-2.172-.93-.12-1.601-2.202l.15-.02c-.1-.16-.18-.34-.26-.51l.06-.6c-.63-.74-.18-3.102-.09-4.402.07-.54.53-1.1.88-1.981l-.21-.04c.4-.71 2.341-2.872 3.241-2.761.43-.55-.09 0-.18-.14.96-.991 1.26-.7 1.901-.88.7-.401-.6.16-.27-.151 1.2-.3.85-.7 2.421-.85.16.1-.39.14-.52.26 1-.49 3.151-.37 4.562.27 1.63.77 3.461 3.011 3.531 5.132l.08.02c-.04.85.13 1.821-.17 2.711l.2-.42M9.54 13.236l-.05.28c.26.35.47.73.8 1.01-.24-.47-.42-.66-.75-1.3m.62-.02c-.14-.15-.22-.34-.31-.52.08.32.26.6.43.88l-.12-.36m10.945-2.382l-.07.15c-.1.76-.34 1.511-.69 2.212.4-.73.65-1.541.75-2.362M12.45.12c.27-.1.66-.05.95-.12-.37.03-.74.05-1.1.1l.15.02M3.006 5.142c.07.57-.43.8.11.42.3-.66-.11-.18-.1-.42m-.64 2.661c.12-.39.15-.62.2-.84-.35.44-.17.53-.2.83"/></symbol>
+      <symbol id="mk-samsung" viewBox="0 10.17 24 3.67"><path d="M19.8166 10.2808l.0459 2.6934h-.023l-.7793-2.6934h-1.2837v3.3925h.8481l-.0458-2.785h.023l.8366 2.785h1.2264v-3.3925zm-16.149 0l-.6418 3.427h.9284l.4699-3.1175h.0229l.4585 3.1174h.9169l-.6304-3.4269zm5.1805 0l-.424 2.6132h-.023l-.424-2.6132H6.5788l-.0688 3.427h.8596l.023-3.0832h.0114l.573 3.0831h.8711l.5731-3.083h.023l.0228 3.083h.8596l-.0802-3.4269zm-7.2664 2.4527c.0343.0802.0229.1949.0114.2522-.0229.1146-.1031.2292-.3324.2292-.2177 0-.3438-.126-.3438-.3095v-.3323H0v.2636c0 .7679.6074.9971 1.2493.9971.6189 0 1.1346-.2178 1.2149-.7794.0458-.298.0114-.4928 0-.5616-.1605-.722-1.467-.9283-1.5588-1.3295-.0114-.0688-.0114-.1375 0-.1834.023-.1146.1032-.2292.3095-.2292.2063 0 .321.126.321.3095v.2063h.8595v-.2407c0-.745-.6762-.8596-1.1576-.8596-.6074 0-1.1117.2063-1.2034.7564-.023.149-.0344.2866.0114.4585.1376.7106 1.364.9169 1.5358 1.3524m11.152 0c.0343.0803.0228.1834.0114.2522-.023.1146-.1032.2292-.3324.2292-.2178 0-.3438-.126-.3438-.3095v-.3323h-.917v.2636c0 .7564.596.9857 1.2379.9857.6189 0 1.1232-.2063 1.2034-.7794.0459-.298.0115-.4814 0-.5616-.1375-.7106-1.4327-.9284-1.5243-1.318-.0115-.0688-.0115-.1376 0-.1835.0229-.1146.1031-.2292.3094-.2292.1948 0 .321.126.321.3095v.2063h.848v-.2407c0-.745-.6647-.8596-1.146-.8596-.6075 0-1.1004.1948-1.192.7564-.023.149-.023.2866.0114.4585.1376.7106 1.341.9054 1.513 1.3524m2.8882.4585c.2407 0 .3094-.1605.3323-.2522.0115-.0343.0115-.0917.0115-.126v-2.533h.871v2.4642c0 .0688 0 .1948-.0114.2292-.0573.6419-.5616.8482-1.192.8482-.6303 0-1.1346-.2063-1.192-.8482 0-.0344-.0114-.1604-.0114-.2292v-2.4642h.871v2.533c0 .0458 0 .0916.0115.126 0 .0917.0688.2522.3095.2522m7.1518-.0344c.2522 0 .3324-.1605.3553-.2522.0115-.0343.0115-.0917.0115-.126v-.4929h-.3553v-.5043H24v.917c0 .0687 0 .1145-.0115.2292-.0573.6303-.596.8481-1.2034.8481-.6075 0-1.1461-.2178-1.2034-.8481-.0115-.1147-.0115-.1605-.0115-.2293v-1.444c0-.0574.0115-.172.0115-.2293.0802-.6419.596-.8482 1.2034-.8482s1.1347.2063 1.2034.8482c.0115.1031.0115.2292.0115.2292v.1146h-.8596v-.1948s0-.0803-.0115-.1261c-.0114-.0802-.0802-.2521-.3438-.2521-.2521 0-.321.1604-.3438.2521-.0115.0458-.0115.1032-.0115.1605v1.5702c0 .0458 0 .0916.0115.126 0 .0917.0917.2522.3323.2522"/></symbol>
+      <symbol id="mk-lg" viewBox="0 6.71 24 10.58"><path d="M14.522 14.078h3.27v1.33h-4.847v-6.83h1.577v5.5zm6.74-1.274h1.284v1.195c-.236.09-.698.18-1.137.18-1.42 0-1.893-.721-1.893-2.186 0-1.398.45-2.221 1.869-2.221.791 0 1.24.248 1.612.722l.982-.903c-.6-.855-1.646-1.114-2.629-1.114-2.208 0-3.368 1.205-3.368 3.504 0 2.288 1.047 3.528 3.358 3.528 1.06 0 2.096-.27 2.66-.665V11.53h-2.739v1.274zM5.291 6.709a5.29 5.29 0 1 1 0 10.582 5.291 5.291 0 1 1 0-10.582m3.16 8.457a4.445 4.445 0 0 0 1.31-3.161v-.242l-.22.001H6.596v.494h2.662l-.001.015a3.985 3.985 0 0 1-3.965 3.708 3.95 3.95 0 0 1-2.811-1.165 3.952 3.952 0 0 1-1.164-2.811c0-1.061.414-2.059 1.164-2.81a3.951 3.951 0 0 1 2.81-1.164l.252.003v-.495l-.251-.003a4.475 4.475 0 0 0-4.47 4.469c0 1.194.465 2.316 1.309 3.161a4.444 4.444 0 0 0 3.16 1.31 4.444 4.444 0 0 0 3.162-1.31m-2.91-1.297V9.644H5.04v4.72h1.556v-.495H5.543zm-1.265-3.552a.676.676 0 1 0-.675.674.676.676 0 0 0 .675-.674"/></symbol>
+      <symbol id="mk-googletv" viewBox="0 3.24 24 17.51"><path d="M3.11 3.245A3.117 3.117 0 0 0 0 6.355V13.7a1.87 1.87 0 0 0 1.878 1.878h2.588V5.124c0-.73.313-1.399.814-1.879zm3.944 0a1.87 1.87 0 0 0-1.879 1.879V7.71h16.947v.021c.73 0 1.398.313 1.878.814v-2.19a3.117 3.117 0 0 0-3.11-3.11zm12.48 5.176v10.455c0 .73-.313 1.399-.814 1.879h2.17a3.117 3.117 0 0 0 3.11-3.11V10.3a1.87 1.87 0 0 0-1.878-1.878zM0 15.475v2.17a3.117 3.117 0 0 0 3.11 3.11h13.836a1.87 1.87 0 0 0 1.878-1.879V16.29H1.878c-.73 0-1.398-.314-1.878-.814"/></symbol>
+      <symbol id="mk-android" viewBox="0 5.01 24 13.98"><path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/></symbol>
+    </svg>
+    <div class="wrap trust-row">
+      <p class="trust-label" id="trust-label">支持</p>
+      <div class="marquee">
+        <ul class="logos">
+          <li class="logo wm"><svg viewBox="0 0 24 5.64" role="img" aria-label="macOS"><use href="#mk-macos"/></svg></li>
+          <li class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mk-windows"/></svg><span>Windows</span></li>
+          <li class="logo"><svg viewBox="0 0 24 23.09" aria-hidden="true"><use href="#mk-ubuntu"/></svg><span>Ubuntu</span></li>
+          <li class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mk-fedora"/></svg><span>Fedora</span></li>
+          <li class="logo"><svg viewBox="0 0 19.29 24" aria-hidden="true"><use href="#mk-debian"/></svg><span>Debian</span></li>
+          <li class="logo wm wm-wide"><svg viewBox="0 0 24 3.67" role="img" aria-label="三星"><use href="#mk-samsung"/></svg></li>
+          <li class="logo wm wm-tall"><svg viewBox="0 0 24 10.58" role="img" aria-label="LG"><use href="#mk-lg"/></svg></li>
+          <li class="logo"><svg viewBox="0 0 24 17.51" aria-hidden="true"><use href="#mk-googletv"/></svg><span>Google TV</span></li>
+          <li class="logo"><svg viewBox="0 0 24 13.98" aria-hidden="true"><use href="#mk-android"/></svg><span>Android</span></li>
+        </ul>
+        <ul class="logos" aria-hidden="true">
+          <li class="logo wm"><svg viewBox="0 0 24 5.64" aria-hidden="true"><use href="#mk-macos"/></svg></li>
+          <li class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mk-windows"/></svg><span>Windows</span></li>
+          <li class="logo"><svg viewBox="0 0 24 23.09" aria-hidden="true"><use href="#mk-ubuntu"/></svg><span>Ubuntu</span></li>
+          <li class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mk-fedora"/></svg><span>Fedora</span></li>
+          <li class="logo"><svg viewBox="0 0 19.29 24" aria-hidden="true"><use href="#mk-debian"/></svg><span>Debian</span></li>
+          <li class="logo wm wm-wide"><svg viewBox="0 0 24 3.67" aria-hidden="true"><use href="#mk-samsung"/></svg></li>
+          <li class="logo wm wm-tall"><svg viewBox="0 0 24 10.58" aria-hidden="true"><use href="#mk-lg"/></svg></li>
+          <li class="logo"><svg viewBox="0 0 24 17.51" aria-hidden="true"><use href="#mk-googletv"/></svg><span>Google TV</span></li>
+          <li class="logo"><svg viewBox="0 0 24 13.98" aria-hidden="true"><use href="#mk-android"/></svg><span>Android</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— in short: the plain facts, for people who skim and for the machines that read ——— -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>简而言之</p>
+        <h2 data-reveal>MouseOS 是什么。</h2>
+      </header>
+      <div class="about-row">
+        <div class="about-copy">
+          <p data-reveal><b>MouseOS</b> 是一款免费应用，把你的安卓手机变成 Mac、Windows PC 或 Linux 电脑的无线<b>触控板、空中鼠标、键盘、媒体遥控器和演示翻页器</b> — 也能变成三星、LG 或 Google TV 电视的遥控器。</p>
+          <p data-reveal>手机和电脑通过你的 Wi&#8209;Fi 直接通信。不需要互联网，无需账号，不走云端，没有广告，没有追踪。电脑上运行一个小小的免费配套应用；电视则什么都不需要。每台新手机只需在电脑上点一次 ALLOW 即可获准。</p>
+        </div>
+        <dl class="glance" data-reveal>
+          <div><dt>价格</dt><dd>免费，无广告。可自愿打赏。</dd></div>
+          <div><dt>手机</dt><dd>Android 8 或更高版本 — 目前为<a class="link-more" href="#beta">封闭测试</a>。iPhone 版即将推出。</dd></div>
+          <div><dt>电脑</dt><dd>Mac（Apple 芯片，macOS 11+）· Windows 10 &amp; 11 · Linux（X11 或 Wayland）</dd></div>
+          <div><dt>电视</dt><dd>三星 · LG · Google TV — 直接用手机控制</dd></div>
+          <div><dt>连接方式</dt><dd>你的 Wi&#8209;Fi，或手机热点。无需互联网。</dd></div>
+          <div><dt>版本</dt><dd><span data-version>2.0 — 2026年10月</span></dd></div>
+          <div><dt>开发者</dt><dd>Mathis Zerbib，独立开发者 · <a class="link-more" href="mailto:support@mouseos.app">support@mouseos.app</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— platforms ——— -->
+  <section id="platforms" class="section">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>平台</p>
+        <h2 data-reveal>你拥有的每一块屏幕。</h2>
+        <p class="lede" data-reveal>一个手机应用，同时控制电脑和电视。电脑端应用在 Mac、Windows 和 Linux 上均免费。</p>
+      </header>
+      <ul class="platforms" data-reveal>
+        <li class="platform">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="5" y="3" width="22" height="14" rx="1.5"/><path d="M2 21h28"/></svg>
+          <h3>Mac</h3>
+          <p>Apple 芯片 · macOS 11+</p>
+          <a class="link-more" data-download="mac" href="https://github.com/MathisZerbib/mouseos/releases/latest">下载 .dmg →</a>
+        </li>
+        <li class="platform">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="3" y="2" width="26" height="16" rx="1.5"/><path d="M12 22h8M16 18v4"/></svg>
+          <h3>Windows</h3>
+          <p>Windows 10 &amp; 11 · 64 位</p>
+          <a class="link-more" data-download="windows" href="https://github.com/MathisZerbib/mouseos/releases/latest">下载 .msi →</a>
+        </li>
+        <li class="platform">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="3" y="2" width="26" height="18" rx="1.5"/><path d="M8 8l4 3-4 3M14 15h7"/></svg>
+          <h3>Linux</h3>
+          <p>Ubuntu、Fedora 等 · X11 或 Wayland</p>
+          <span class="platform-links"><a class="link-more" data-download="linux" data-ext=".deb" href="https://github.com/MathisZerbib/mouseos/releases/latest">.deb →</a><a class="link-more" data-download="linux" data-ext=".rpm" href="https://github.com/MathisZerbib/mouseos/releases/latest">.rpm →</a></span>
+        </li>
+        <li class="platform">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="2" y="2" width="28" height="17" rx="1.5"/><path d="M11 22h10"/></svg>
+          <h3>电视</h3>
+          <p>三星 · LG · Google TV</p>
+          <span class="platform-note">直接用手机控制</span>
+        </li>
+        <li class="platform">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="10" y="1" width="12" height="22" rx="2"/><path d="M14 19.5h4"/></svg>
+          <h3>Android</h3>
+          <p>Android 8+</p>
+          <a class="link-more" data-play href="#beta">加入测试版 →</a>
+        </li>
+        <li class="platform is-soon">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="10" y="1" width="12" height="22" rx="2"/><path d="M14 19.5h4"/></svg>
+          <h3>iPhone</h3>
+          <p>即将推出</p>
+          <span class="platform-note">敬请期待</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ——— install ——— -->
+  <section id="install" class="section">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>安装</p>
+        <h2 data-reveal>两分钟。只需一次。</h2>
+        <p class="lede" data-reveal>从电脑开始，在手机上完成。两台设备连接同一个 Wi&#8209;Fi。</p>
+      </header>
+
+      <div class="os-tabs" role="tablist" aria-label="你的电脑" hidden>
+        <button type="button" role="tab" data-os="mac">Mac</button>
+        <button type="button" role="tab" data-os="windows">Windows</button>
+        <button type="button" role="tab" data-os="linux">Linux</button>
+      </div>
+
+      <div class="setup setup-staged" data-os-panel="mac">
+        <ol class="steps" data-reveal>
+          <li class="step on">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="2.5" y="1" width="11" height="7.5" rx="1"/><path d="M1 11h14"/></svg>在 Mac 上</p>
+            <h3>下载并打开</h3>
+            <p>把 MouseOS 拖入<b>应用程序</b>并打开。如果第一次被 macOS 拦下：<b>系统设置 → 隐私与安全性 → 仍要打开</b>。</p>
+            <div class="step-cta">
+              <a class="btn btn-signal" data-download="mac" href="https://github.com/MathisZerbib/mouseos/releases/latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M3 14h10"/></svg><span>下载 Mac 版</span></a>
+              <span class="fine">Apple 芯片 · macOS 11+</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="2.5" y="1" width="11" height="7.5" rx="1"/><path d="M1 11h14"/></svg>在 Mac 上</p>
+            <h3>允许控制</h3>
+            <p>点击 <b>ALLOW CONTROL</b>，然后打开 <b>MouseOS</b> 的开关。任何应用要移动指针，macOS 都会先询问一次。</p>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="5" y=".5" width="6" height="11" rx="1.2"/></svg>在手机上</p>
+            <h3>打开手机应用</h3>
+            <p>在安卓手机上安装 MouseOS，在同一个 Wi&#8209;Fi 下打开。它会自动找到你的 Mac。</p>
+            <div class="step-cta">
+              <a class="btn btn-line" data-play href="#beta">加入测试版</a>
+              <span class="fine">Android 8+</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="2.5" y="1" width="11" height="7.5" rx="1"/><path d="M1 11h14"/></svg>回到 Mac 上</p>
+            <h3>点击 ALLOW</h3>
+            <p>每台新手机，Mac 只会询问一次。就这样 — 手机就是你的鼠标。</p>
+          </li>
+        </ol>
+
+        <div class="stage-wrap" data-reveal>
+          <div class="stage" aria-hidden="true">
+            <div class="scene">
+              <div class="cam">
+                <div class="laptop">
+                  <div class="lid">
+                    <div class="display">
+                      <div class="menubar"><i></i><i></i><i></i><i></i><i></i><span>9:41</span></div>
+                      <div class="win win-dmg">
+                        <div class="bar"><i></i><i></i><i></i><span>MouseOS</span></div>
+                        <div class="dmg-body">
+                          <div class="dmg-item dmg-app"><img src="/assets/stage/icon-mac.webp" alt=""><span>MouseOS</span></div>
+                          <svg class="dmg-arrow" viewBox="0 0 60 12"><path d="M2 6h54m-6-5 6 5-6 5"/></svg>
+                          <div class="dmg-item"><span class="dmg-folder"></span><span>应用程序</span></div>
+                        </div>
+                      </div>
+                      <div class="win win-alert">
+                        <img src="/assets/stage/icon-mac.webp" alt="">
+                        <b>未打开“MouseOS”</b>
+                        <p>Apple 无法验证“MouseOS”不包含恶意软件。</p>
+                        <span class="mbtn mbtn-blue alert-done">完成</span>
+                        <span class="mbtn">移到废纸篓</span>
+                      </div>
+                      <div class="win win-privacy">
+                        <div class="bar"><i></i><i></i><i></i><span>隐私与安全性</span></div>
+                        <div class="set">
+                          <div class="side"><i></i><i></i><i></i><i></i><em>隐私与安全性</em><i></i><i></i><i></i><i></i></div>
+                          <div class="pane">
+                            <h5>Privacy &amp; Security</h5>
+                            <p class="grp">安全性</p>
+                            <div class="row"><p>为保护你的 Mac，已阻止“MouseOS”。</p><span class="mbtn open-anyway">仍要打开</span></div>
+                            <div class="row row-blank"></div>
+                            <div class="row row-blank"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="win win-app">
+                        <div class="bar bar-light"><i></i><i></i><i></i><span>MouseOS for Mac</span></div>
+                        <div class="shots">
+                          <img class="shot-allow" src="/assets/stage/mac-allow.webp" alt="">
+                          <img class="shot-waiting" src="/assets/stage/mac-waiting.webp" alt="">
+                          <img class="shot-approve" src="/assets/stage/mac-approve.webp" alt="">
+                        </div>
+                      </div>
+                      <div class="win win-access">
+                        <div class="bar"><i></i><i></i><i></i><span>辅助功能</span></div>
+                        <div class="pane">
+                          <p class="grp">允许下列应用控制你的电脑。</p>
+                          <div class="row"><img src="/assets/stage/icon-mac.webp" alt=""><b>MouseOS</b><span class="toggle"><i></i></span></div>
+                        </div>
+                      </div>
+                      <div class="dock"><i></i><i></i><i></i><i></i><i></i><img class="dock-app" src="/assets/stage/icon-mac.webp" alt=""></div>
+                      <img class="ghost" src="/assets/stage/icon-mac.webp" alt="">
+                      <svg class="trail"><path class="trail-mac"/></svg>
+                      <span class="ring"></span>
+                      <svg class="ptr" viewBox="0 0 12 19"><path d="M1 1v14.2l3.4-3.3 2.5 5.8 2.4-1-2.5-5.6h4.8z"/></svg>
+                    </div>
+                  </div>
+                  <div class="base"></div>
+                </div>
+                <svg class="link" viewBox="0 0 760 470"><path class="wire" d="M676 150C676 92 626 64 552 82"/><path class="pulse" d="M676 150C676 92 626 64 552 82"/></svg>
+                <div class="handset">
+                  <div class="screen">
+                    <div class="home"><span class="status">9:41</span><i></i><i></i><i></i><i></i><i></i><img class="home-app" src="/assets/stage/icon-phone.webp" alt=""><i></i><i></i></div>
+                    <img class="p-intro" src="/assets/stage/phone-intro.webp" alt="">
+                    <img class="p-allow" src="/assets/stage/phone-allow.webp" alt="">
+                    <img class="p-pad" src="/assets/pad.webp" alt="">
+                    <svg class="trail"><path class="trail-pad"/></svg>
+                    <span class="touch"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="stage-bar">
+            <p class="cap" aria-hidden="true"><b>Mac</b><span>点击 ALLOW — 每台手机一次</span><span class="cap-n">4/4</span></p>
+            <button class="play" type="button" aria-pressed="false" aria-label="暂停安装动画">暂停</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="setup setup-solo" data-os-panel="windows">
+        <ol class="steps" data-reveal>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>在 PC 上</p>
+            <h3>下载并安装</h3>
+            <p>打开安装程序 — 无需管理员权限。如果 Windows 提示已保护你的电脑：<b>更多信息 → 仍要运行</b>。仅第一次需要。</p>
+            <div class="step-cta">
+              <a class="btn btn-signal" data-download="windows" href="https://github.com/MathisZerbib/mouseos/releases/latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M3 14h10"/></svg><span>下载 Windows 版</span></a>
+              <span class="fine">Windows 10 &amp; 11 · 64 位</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>在 PC 上</p>
+            <h3>允许网络访问</h3>
+            <p>MouseOS 第一次打开时，Windows 会询问网络访问权限：点击<b>允许</b>。你的 Wi&#8209;Fi 必须设为<b>专用</b>网络。</p>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="5" y=".5" width="6" height="11" rx="1.2"/></svg>在手机上</p>
+            <h3>打开手机应用</h3>
+            <p>在安卓手机上安装 MouseOS，在同一个 Wi&#8209;Fi 下打开。它会自动找到你的电脑。</p>
+            <div class="step-cta">
+              <a class="btn btn-line" data-play href="#beta">加入测试版</a>
+              <span class="fine">Android 8+</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>回到 PC 上</p>
+            <h3>点击 ALLOW</h3>
+            <p>每台新手机，PC 只会询问一次。就这样 — 手机就是你的鼠标。</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="setup setup-solo" data-os-panel="linux">
+        <ol class="steps" data-reveal>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>在电脑上</p>
+            <h3>下载并安装</h3>
+            <p>Ubuntu、Debian、Mint：用 <b>.deb</b>。Fedora、openSUSE：用 <b>.rpm</b>。你的软件中心可以直接打开 — 或者 <code>sudo apt install ./mouseos_*.deb</code>。</p>
+            <div class="step-cta">
+              <a class="btn btn-signal" data-download="linux" data-ext=".deb" href="https://github.com/MathisZerbib/mouseos/releases/latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M3 14h10"/></svg><span>下载 .deb</span></a>
+              <a class="btn btn-line" data-download="linux" data-ext=".rpm" href="https://github.com/MathisZerbib/mouseos/releases/latest"><span>.rpm</span></a>
+              <span class="fine">64 位 · X11 或 Wayland</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>在电脑上</p>
+            <h3>允许控制</h3>
+            <p>在 Wayland 上，点击 <b>ALLOW CONTROL</b> 并输入一次密码。在 X11 上什么都不用做。</p>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="5" y=".5" width="6" height="11" rx="1.2"/></svg>在手机上</p>
+            <h3>打开手机应用</h3>
+            <p>在安卓手机上安装 MouseOS，在同一个 Wi&#8209;Fi 下打开。它会自动找到你的电脑。</p>
+            <div class="step-cta">
+              <a class="btn btn-line" data-play href="#beta">加入测试版</a>
+              <span class="fine">Android 8+</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>回到电脑上</p>
+            <h3>点击 ALLOW</h3>
+            <p>每台新手机，电脑只会询问一次。就这样 — 手机就是你的鼠标。</p>
+          </li>
+        </ol>
+      </div>
+
+      <p class="stuck-link">遇到问题？ <a class="link-more" href="#stuck">快速解决 →</a></p>
+    </div>
+  </section>
+
+  <!-- ——— beta: the Android app, before it's on Google Play for everyone ——— -->
+  <section id="beta" class="section">
+    <div class="wrap beta">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>安卓测试版</p>
+        <h2 data-reveal>抢先获得手机应用。</h2>
+        <p class="lede" data-reveal>MouseOS 安卓版正在 Google Play 进行封闭测试。留下你的 Google 账号邮箱：我们把你加入测试，MouseOS 就能像其他应用一样从 Google Play 安装 — 更新也会自动送达。</p>
+      </header>
+      <form class="beta-form" data-reveal action="https://beta.mouseos.app/join" method="post" novalidate>
+        <label class="beta-field"><span class="fine">Google 账号邮箱</span> <input type="email" name="email" required autocomplete="email" inputmode="email" spellcheck="false" placeholder="you@gmail.com" maxlength="254"></label>
+        <input class="beta-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-signal" type="submit"><span>加入测试版</span></button>
+        <p class="beta-fine">只要一个邮箱，别的都不需要：用来把你加入测试，并在应用上线时通知你。测试结束即删除 — 想提前删除，给 <a class="fine-link" href="mailto:support@mouseos.app">support@mouseos.app</a> 说一声即可。</p>
+      </form>
+      <p class="beta-error" hidden><span>出了点问题。</span> 请重试，或发邮件至 <a class="link-more" href="mailto:support@mouseos.app">support@mouseos.app</a>。</p>
+      <div class="beta-done" hidden>
+        <h3>你已在名单上。</h3>
+        <ol class="beta-next">
+          <li data-step="wait"><b>一天之内</b>，我们会把你加入测试。</li>
+          <li data-step="group" hidden>用这个 Google 账号<a class="link-more beta-group" href="#beta">加入测试者群组</a> — 一键完成。</li>
+          <li>用这个账号打开<a class="link-more beta-optin" href="https://play.google.com/apps/testing/com.mathiszerbib.mouseos">测试页面</a>，点击<b>成为测试人员</b>。</li>
+          <li>从 Google Play 安装 MouseOS。与此同时，<a class="link-more" href="#install">把电脑准备好</a>。</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— features ——— -->
+  <section id="features" class="section section-raised">
+    <div class="wrap features">
+      <div class="features-copy">
+        <p class="eyebrow" data-reveal>六个界面</p>
+        <h2 data-reveal>一切尽在拇指之下。</h2>
+        <div class="tab-items" data-reveal>
+          <article class="tab-item" id="tab-pad" data-tab="PAD" data-shot="/assets/pad.webp"><h3>触控板</h3><p>轻点即点击。双指或滚动条滚动。按住再移动即拖拽。</p></article>
+          <article class="tab-item" id="tab-air" data-tab="AIR" data-shot="/assets/air.webp"><h3>空中鼠标</h3><p>像电视遥控器一样指向屏幕。按住即指向，轻点即点击，在滚动条上滚动。</p></article>
+          <article class="tab-item" id="tab-remote" data-tab="REMOTE" data-shot="/assets/remote.webp"><h3>遥控器</h3><p>方向键、播放、电脑音量、下一集。</p></article>
+          <article class="tab-item" id="tab-tv" data-tab="TV" data-shot="/assets/tv.webp"><h3>电视</h3><p>你的三星、LG 或 Google TV 电视。无需电脑。</p></article>
+          <article class="tab-item" id="tab-keys" data-tab="KEYS" data-shot="/assets/keys.webp"><h3>键盘</h3><p>任何语言都能输入。包括重音符号和表情符号。</p></article>
+          <article class="tab-item" id="tab-slides" data-tab="SLIDES" data-shot="/assets/slides.webp"><h3>幻灯片</h3><p>超大的“下一页”和“上一页”。精确到分钟的计时器。音量键也能翻页。</p></article>
+        </div>
+        <div class="tabbar" role="tablist" aria-label="MouseOS 的界面" hidden></div>
+      </div>
+      <div class="features-device" data-reveal>
+        <div class="phone"><img class="feature-shot" src="/assets/pad.webp" alt="当前选中的 MouseOS 界面" width="720" height="1280" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— privacy ——— -->
+  <section class="section">
+    <div class="wrap privacy">
+      <h2 data-reveal>任何数据都不会离开你的 Wi&#8209;Fi。</h2>
+      <ul class="facts">
+        <li data-reveal><b>无需账号</b><span>打开即用。</span></li>
+        <li data-reveal><b>不走云端</b><span>手机直连电脑。</span></li>
+        <li data-reveal><b>没有追踪</b><span>没有广告，没有统计。</span></li>
+      </ul>
+      <a class="link-more" href="/zh/privacy-policy.html" data-reveal>隐私政策 →</a>
+    </div>
+  </section>
+
+  <!-- ——— faq ——— -->
+  <section id="faq" class="section section-raised">
+    <div class="wrap faq">
+      <h2 data-reveal>常见问题</h2>
+      <details name="faq"><summary>免费吗？</summary><p>是的 — 手机应用和电脑应用都免费。没有广告。如果你想表达谢意，设置里有可自愿的打赏。</p></details>
+      <details name="faq"><summary>支持哪些电脑？</summary><p>搭载 Apple 芯片（M1 及更新）的 Mac，macOS 11 或更高版本。Windows 10 和 11，64 位。Linux，64 位 — Ubuntu、Debian、Fedora 等，X11 或 Wayland。</p></details>
+      <details name="faq"><summary>怎样获得安卓应用？</summary><p>它正在 Google Play 进行封闭测试。用你的 Google 账号邮箱<a class="link-more" href="#beta">加入测试版</a>：我们把你加入测试，然后 MouseOS 就能像其他应用一样从 Google Play 安装，更新也会自动送达。</p></details>
+      <details name="faq"><summary>iPhone 呢？</summary><p>安卓优先。iPhone 版即将推出。</p></details>
+      <details name="faq"><summary>支持哪些电视？</summary><p>三星、LG 和 Google TV（索尼、TCL、飞利浦……）。</p></details>
+      <details name="faq"><summary>需要互联网吗？</summary><p>不需要。手机和电脑通过你的 Wi&#8209;Fi 直接通信 — 不经过任何服务器。不需要互联网，无需账号。手机热点也可以。</p></details>
+      <details name="faq"><summary>蓝牙还是 Wi&#8209;Fi？</summary><p>Wi&#8209;Fi，不是蓝牙。MouseOS 会在局域网里自动找到你的电脑；在电脑上点一次 <b>ALLOW</b>，配对就完成了。</p></details>
+      <details name="faq"><summary>电视需要电脑端应用吗？</summary><p>不需要。电视界面通过同一个 Wi&#8209;Fi 直接与你的三星、LG 或 Google TV 电视通信。</p></details>
+      <details name="faq"><summary>可以用来做演示吗？</summary><p>可以。幻灯片界面有超大的“下一页”和“上一页”、精确到分钟的计时器，手机的音量键也能翻页。</p></details>
+      <details name="faq"><summary>可以打字和控制音量吗？</summary><p>可以。键盘界面支持任何语言输入，包括重音符号和表情符号。遥控器界面有方向键、播放、电脑音量和下一集。</p></details>
+      <details name="faq"><summary>别人能控制我的电脑吗？</summary><p>不能。每台新手机都需要在电脑上点一次 ALLOW。</p></details>
+      <h3 id="stuck">遇到问题？</h3>
+      <details name="faq"><summary>macOS 不让打开</summary><p>系统设置 → 隐私与安全性，向下滚动，点击<b>仍要打开</b>。仅第一次需要。</p></details>
+      <details name="faq"><summary>Windows 提示已保护你的电脑</summary><p>点击<b>更多信息</b>，再点击<b>仍要运行</b>。仅第一次需要：MouseOS 尚未经过微软签名。</p></details>
+      <details name="faq"><summary>手机找不到电脑</summary><p>确保在同一个 Wi&#8209;Fi 下，并关闭 VPN。咖啡馆或酒店的 Wi&#8209;Fi 会隐藏设备：打开手机热点，让电脑连接热点。在 Windows 上，Wi&#8209;Fi 必须设为专用网络。或者在手机上点击 <b>TYPE THE ADDRESS</b>。</p></details>
+      <details name="faq"><summary>指针不动</summary><p>Mac：系统设置 → 隐私与安全性 → 辅助功能：打开 MouseOS 的开关。Wayland 上的 Linux：打开 MouseOS 并点击 <b>ALLOW CONTROL</b>。更新后，应用会告诉你怎么做。</p></details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <a class="wordmark" href="#top">MOUSE<span>OS</span></a>
+    <nav aria-label="页脚">
+      <a href="#install">安装</a>
+      <a href="/zh/phone-as-mouse.html">手机当鼠标</a>
+      <a href="/zh/presentation-remote.html">演示翻页器</a>
+      <a href="/zh/tv-remote.html">电视遥控器</a>
+      <a href="/zh/linux-remote-mouse.html">Linux</a>
+      <a href="/zh/alternatives.html">对比</a>
+      <a href="/zh/privacy-policy.html">隐私</a>
+      <a href="https://github.com/MathisZerbib/mouseos">GitHub</a>
+      <a href="mailto:support@mouseos.app">联系</a>
+    </nav>
+    <nav class="langs" aria-label="语言">
+      <a href="/" hreflang="en" lang="en">English</a>
+      <a href="/fr/" hreflang="fr" lang="fr">Français</a>
+      <a href="/pt/" hreflang="pt-BR" lang="pt-BR">Português</a>
+      <a href="/es/" hreflang="es" lang="es">Español</a>
+      <a href="/de/" hreflang="de" lang="de">Deutsch</a>
+      <a href="/it/" hreflang="it" lang="it">Italiano</a>
+      <a href="/ja/" hreflang="ja" lang="ja">日本語</a>
+      <a href="/zh/" hreflang="zh-Hans" lang="zh-Hans" aria-current="page">中文</a>
+    </nav>
+    <p class="fine">© 2026 MouseOS</p>
+    <p class="fine foot-legal">产品名称和标志均为其所有者的商标。MouseOS 是独立项目 — 与它们没有关联，也未获其背书。</p>
+  </div>
+</footer>
+
+</body>
+</html>

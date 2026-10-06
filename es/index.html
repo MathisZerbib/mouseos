@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MouseOS — Tu teléfono es el ratón de tu ordenador · Trackpad, ratón aéreo &amp; mando para Mac, Windows, Linux y TV</title>
+<meta name="description" content="MouseOS convierte tu teléfono Android en un trackpad, ratón aéreo, teclado y mando inalámbrico para tu Mac, tu PC con Windows, tu ordenador Linux y tu TV Samsung, LG o Google TV. Gratis, por Wi‑Fi: sin cuenta, sin nube, sin anuncios.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Mathis Zerbib">
+<meta name="theme-color" content="#131311">
+<meta name="color-scheme" content="dark">
+<meta name="application-name" content="MouseOS">
+<meta name="apple-mobile-web-app-title" content="MouseOS">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="canonical" href="https://mouseos.app/es/">
+<link rel="alternate" hreflang="en" href="https://mouseos.app/">
+<link rel="alternate" hreflang="fr" href="https://mouseos.app/fr/">
+<link rel="alternate" hreflang="pt-BR" href="https://mouseos.app/pt/">
+<link rel="alternate" hreflang="es" href="https://mouseos.app/es/">
+<link rel="alternate" hreflang="de" href="https://mouseos.app/de/">
+<link rel="alternate" hreflang="it" href="https://mouseos.app/it/">
+<link rel="alternate" hreflang="ja" href="https://mouseos.app/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://mouseos.app/zh/">
+<link rel="alternate" hreflang="x-default" href="https://mouseos.app/">
+<!-- the social card — 1200×630, rendered by tools/site/og.py — and what iMessage, Slack, X, LinkedIn, WhatsApp say about the link -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MouseOS">
+<meta property="og:locale" content="es_ES">
+<meta property="og:url" content="https://mouseos.app/es/">
+<meta property="og:title" content="MouseOS — Tu teléfono es el ratón de tu ordenador">
+<meta property="og:description" content="Trackpad, ratón aéreo, teclado y mando para tu Mac, tu PC con Windows, tu ordenador Linux y tu TV. Gratis. Sin cuenta, sin nube.">
+<meta property="og:image" content="https://mouseos.app/assets/og.png">
+<meta property="og:image:secure_url" content="https://mouseos.app/assets/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MouseOS — Tu teléfono es el ratón de tu ordenador. Mac, Windows, Linux, TV — gratis. Un teléfono que muestra el trackpad de MouseOS.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MouseOS — Tu teléfono es el ratón de tu ordenador">
+<meta name="twitter:description" content="Trackpad, ratón aéreo, teclado y mando para tu Mac, tu PC con Windows, tu ordenador Linux y tu TV. Gratis. Sin cuenta, sin nube.">
+<meta name="twitter:image" content="https://mouseos.app/assets/og.png">
+<meta name="twitter:image:alt" content="MouseOS — Tu teléfono es el ratón de tu ordenador. Mac, Windows, Linux, TV — gratis. Un teléfono que muestra el trackpad de MouseOS.">
+<link rel="preload" as="image" href="/assets/pad.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Geist+Mono:wght@400..700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script>window.I18N = {"Download for Mac": "Descargar para Mac", "Download for Windows": "Descargar para Windows", "Download for Linux": "Descargar para Linux", "soon": "pronto", "Pause": "Pausa", "Play": "Reproducir", "Pause the setup animation": "Pausar la animación de instalación", "Play the setup animation": "Reproducir la animación de instalación", "Send to your computer": "Enviar a tu ordenador", "Send to your computer →": "Enviar a tu ordenador →", "Link copied — open it on your computer": "Enlace copiado: ábrelo en tu ordenador", "MouseOS for your computer": "MouseOS para tu ordenador", "MouseOS {tab} screen": "Pantalla {tab} de MouseOS", "Google Play": "Google Play", "Google Play →": "Google Play →", "Joining…": "Apuntándote…", "Join the beta": "Unirme a la beta", "Something went wrong.": "Algo ha fallado.", "That doesn't look like an email address.": "Eso no parece una dirección de correo.", "Too many tries — give it a minute.": "Demasiados intentos: espera un minuto.", "Open the download, drag MouseOS into Applications": "Abre la descarga y arrastra MouseOS a Aplicaciones", "First open: macOS stops it once": "Primera apertura: macOS lo bloquea una vez", "Privacy & Security → Open Anyway": "Privacidad y seguridad → Abrir igualmente", "MouseOS opens": "MouseOS se abre", "Click ALLOW CONTROL": "Haz clic en ALLOW CONTROL", "Switch MouseOS on": "Activa MouseOS", "Control allowed — now the phone": "Control permitido: ahora el teléfono", "Open MouseOS on your phone": "Abre MouseOS en tu teléfono", "It finds your Mac by itself": "Encuentra tu Mac sola", "Click ALLOW — once per phone": "Haz clic en ALLOW — una vez por teléfono", "Your phone is the mouse": "Tu teléfono es el ratón", "Mac": "Mac", "Phone": "Teléfono", "Done": "Aceptar"};</script>
+<script src="/main.js" defer></script>
+<!-- what the page says, for machines: the app, the site, who makes it, and the FAQ word for word -->
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://mouseos.app/#app",
+      "name": "MouseOS",
+      "alternateName": "MouseOS — Mac, PC & TV Remote",
+      "url": "https://mouseos.app/",
+      "image": "https://mouseos.app/assets/og.png",
+      "description": "MouseOS convierte un teléfono Android en un trackpad, ratón aéreo, teclado, mando multimedia y pasador de diapositivas inalámbrico para un Mac, un PC con Windows o un ordenador Linux, y en un mando para televisores Samsung, LG y Google TV. Gratis, por el Wi‑Fi local: sin cuenta, sin nube, sin anuncios, sin rastreo.",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Mando a distancia",
+      "operatingSystem": "Android 8.0 o posterior (app del teléfono); macOS 11 o posterior en Apple silicon, Windows 10 y 11 (64 bits), Linux de 64 bits en X11 o Wayland (app del ordenador)",
+      "softwareVersion": "2.0",
+      "dateModified": "2026-10-06",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "downloadUrl": "https://github.com/MathisZerbib/mouseos/releases/latest",
+      "installUrl": "https://github.com/MathisZerbib/mouseos/releases/latest",
+      "softwareRequirements": "El teléfono y el ordenador en la misma red Wi‑Fi, o el punto de acceso del teléfono. Sin conexión a internet, cuenta ni servicio en la nube.",
+      "featureList": [
+        "Trackpad: tocar para hacer clic, desplazamiento con dos dedos o tira de desplazamiento, mantener para arrastrar",
+        "Ratón aéreo: apuntar con el teléfono como con un mando de TV",
+        "Mando: flechas, reproducir, el volumen del ordenador, siguiente episodio",
+        "Mando de TV para Samsung, LG y Google TV, sin ordenador",
+        "Teclado: escribir en cualquier idioma, con acentos y emojis",
+        "Diapositivas: siguiente y anterior gigantes, un temporizador, los botones de volumen hacen clic",
+        "Sin cuenta, sin nube, sin anuncios, sin analíticas: nada sale de tu Wi‑Fi",
+        "Cada teléfono nuevo se aprueba una vez, con un clic en ALLOW en el ordenador"
+      ],
+      "screenshot": [
+        "https://mouseos.app/assets/pad.webp",
+        "https://mouseos.app/assets/air.webp",
+        "https://mouseos.app/assets/remote.webp",
+        "https://mouseos.app/assets/tv.webp",
+        "https://mouseos.app/assets/keys.webp",
+        "https://mouseos.app/assets/slides.webp"
+      ],
+      "author": {
+        "@id": "https://mouseos.app/#author"
+      },
+      "publisher": {
+        "@id": "https://mouseos.app/#org"
+      },
+      "sameAs": [
+        "https://github.com/MathisZerbib/mouseos"
+      ],
+      "inLanguage": "es"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://mouseos.app/#website",
+      "url": "https://mouseos.app/",
+      "name": "MouseOS",
+      "description": "Tu teléfono es el ratón de tu ordenador. Trackpad, ratón aéreo, teclado y mando para Mac, Windows, Linux y TV. Gratis, sin cuenta, sin nube.",
+      "publisher": {
+        "@id": "https://mouseos.app/#org"
+      },
+      "inLanguage": "es"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://mouseos.app/es/#webpage",
+      "url": "https://mouseos.app/es/",
+      "name": "MouseOS — Tu teléfono es el ratón de tu ordenador",
+      "description": "MouseOS convierte tu teléfono Android en un trackpad, ratón aéreo, teclado y mando inalámbrico para tu Mac, tu PC con Windows, tu ordenador Linux y tu TV Samsung, LG o Google TV. Gratis, por Wi‑Fi: sin cuenta, sin nube, sin anuncios.",
+      "isPartOf": {
+        "@id": "https://mouseos.app/#website"
+      },
+      "about": {
+        "@id": "https://mouseos.app/#app"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://mouseos.app/assets/og.png",
+        "width": 1200,
+        "height": 630
+      },
+      "dateModified": "2026-10-06",
+      "inLanguage": "es"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://mouseos.app/#org",
+      "name": "MouseOS",
+      "url": "https://mouseos.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mouseos.app/assets/icon-512.png",
+        "width": 512,
+        "height": 512
+      },
+      "email": "support@mouseos.app",
+      "founder": {
+        "@id": "https://mouseos.app/#author"
+      },
+      "sameAs": [
+        "https://github.com/MathisZerbib/mouseos"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mouseos.app/#author",
+      "name": "Mathis Zerbib",
+      "url": "https://github.com/MathisZerbib",
+      "sameAs": [
+        "https://github.com/MathisZerbib"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mouseos.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Es gratis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí: la app del teléfono y la del ordenador. Sin anuncios. Hay una propina opcional en Ajustes si quieres dar las gracias."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué ordenadores?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mac con Apple silicon (M1 y posteriores), macOS 11 o posterior. Windows 10 y 11, de 64 bits. Linux de 64 bits — Ubuntu, Debian, Fedora y compañía, en X11 o Wayland."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo consigo la app de Android?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Está en pruebas cerradas en Google Play. Únete a la beta en mouseos.app con el correo de tu cuenta de Google: te añadimos a la prueba y MouseOS se instala desde Google Play como cualquier app, actualizaciones incluidas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Y el iPhone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Android primero. El iPhone está en camino."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué televisores?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Samsung, LG y Google TV (Sony, TCL, Philips…)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Necesita internet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Tu teléfono y tu ordenador se hablan directamente por tu Wi‑Fi; nada pasa por un servidor. Sin internet, sin cuenta. El punto de acceso del teléfono también sirve."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Bluetooth o Wi‑Fi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wi‑Fi, no Bluetooth. MouseOS encuentra tu ordenador en la red local por sí sola; haces clic en ALLOW en el ordenador una vez, y ese es todo el emparejamiento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿La TV necesita la app del ordenador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. La pantalla TV habla directamente con tu Samsung, LG o Google TV por el mismo Wi‑Fi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Sirve para presentaciones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. La pantalla Diapositivas tiene un siguiente y un anterior gigantes, un temporizador ajustado al minuto, y los botones de volumen del teléfono también hacen clic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo escribir y controlar el volumen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Teclado escribe en cualquier idioma, con acentos y emojis. Mando tiene las flechas, reproducir, el volumen del ordenador y el siguiente episodio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puede otra persona controlar mi ordenador?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Cada teléfono nuevo necesita un clic en ALLOW en el ordenador."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "macOS no lo abre",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ajustes del Sistema → Privacidad y seguridad, baja y haz clic en Abrir igualmente. Solo la primera vez."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows dice que protegió tu PC",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Haz clic en Más información y luego en Ejecutar de todas formas. Solo la primera vez: MouseOS aún no está firmado por Microsoft."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "El teléfono no encuentra el ordenador",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mismo Wi‑Fi, VPN apagada. El Wi‑Fi de una cafetería o un hotel oculta los dispositivos entre sí: activa el punto de acceso del teléfono y conéctate a él desde el ordenador. En Windows, tu Wi‑Fi debe ser una red privada. O toca TYPE THE ADDRESS en el teléfono."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "El puntero no se mueve",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mac: Ajustes del Sistema → Privacidad y seguridad → Accesibilidad: activa MouseOS. Linux con Wayland: abre MouseOS y haz clic en ALLOW CONTROL. Tras una actualización, la app te enseña cómo."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-row">
+    <a class="wordmark" href="#top" aria-label="Inicio de MouseOS">MOUSE<span>OS</span></a>
+    <nav class="nav-links" aria-label="Secciones">
+      <a href="#install">Instalar</a>
+      <a href="#features">Funciones</a>
+      <a href="#beta">Beta</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-signal btn-sm" href="#install">Descargar MouseOS</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ——— hero ——— -->
+  <section class="hero">
+    <canvas class="field" aria-hidden="true"></canvas>
+    <div class="wrap hero-row">
+      <div class="hero-copy">
+        <p class="eyebrow" data-intro>Mac · Windows · Linux · TV — Gratis</p>
+        <h1 data-intro>Tu teléfono es el ratón de tu <em>ordenador.</em></h1>
+        <p class="lede" data-intro>Trackpad, ratón aéreo, teclado y mando — para tu Mac, tu PC, tu Linux y tu TV. Sin cuenta, sin nube.</p>
+        <div class="cta" data-intro>
+          <a class="btn btn-signal" data-download="auto" href="https://github.com/MathisZerbib/mouseos/releases/latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M3 14h10"/></svg><span>Descargar</span></a>
+          <a class="btn btn-line" data-play href="#beta">Unirme a la beta</a>
+        </div>
+        <p class="fine" data-intro><a class="fine-link" href="#platforms">Todas las plataformas ↓</a></p>
+      </div>
+      <div class="hero-device" data-intro>
+        <div class="phone tilt"><img src="/assets/pad.webp" alt="La pantalla de trackpad de MouseOS" width="720" height="1280"></div>
+        <p class="hint"><span class="hint-desk">Mueve el ratón:</span><span class="hint-touch">Desliza por la cuadrícula:</span> así tu teléfono maneja tu ordenador.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— works with: the platforms MouseOS drives (marks from Simple Icons, CC0) ——— -->
+  <section class="trust" aria-labelledby="trust-label">
+    <svg width="0" height="0" class="sprite" aria-hidden="true">
+      <symbol id="mk-macos" viewBox="0 9.18 24 5.64"><path d="M0 14.727h.941v-2.453c0-.484.318-.835.771-.835.439 0 .71.276.71.722v2.566h.915V12.25c0-.48.31-.812.764-.812.46 0 .718.28.718.77v2.518h.94v-2.748c0-.801-.517-1.334-1.307-1.334-.578 0-1.054.31-1.247.805h-.023c-.147-.514-.552-.805-1.118-.805-.545 0-.968.306-1.142.771H.903v-.695H0v4.006zm7.82-.646c-.408 0-.68-.208-.68-.537 0-.318.26-.522.714-.552l.926-.057v.307c0 .483-.427.839-.96.839zm-.284.71c.514 0 1.017-.268 1.248-.703h.018v.639h.908v-2.76c0-.804-.647-1.33-1.64-1.33-1.021 0-1.66.537-1.701 1.285h.873c.06-.332.344-.548.79-.548.464 0 .748.242.748.662v.287l-1.058.06c-.976.061-1.524.488-1.524 1.199 0 .721.564 1.209 1.338 1.209zm6.305-2.642c-.065-.843-.719-1.512-1.777-1.512-1.164 0-1.92.805-1.92 2.087 0 1.3.756 2.082 1.928 2.082 1.005 0 1.697-.59 1.772-1.485h-.888c-.087.453-.397.725-.873.725-.597 0-.982-.483-.982-1.322 0-.824.381-1.323.975-1.323.502 0 .8.321.876.748h.889zm2.906-2.967c-1.591 0-2.589 1.085-2.589 2.82 0 1.735.998 2.816 2.59 2.816 1.586 0 2.584-1.081 2.584-2.816 0-1.735-.997-2.82-2.585-2.82zm0 .832c.971 0 1.591.77 1.591 1.988 0 1.213-.62 1.984-1.59 1.984-.976 0-1.592-.77-1.592-1.984 0-1.217.616-1.988 1.591-1.988zm2.982 3.178c.042 1.006.866 1.626 2.12 1.626 1.32 0 2.151-.65 2.151-1.686 0-.813-.469-1.27-1.576-1.523l-.627-.144c-.67-.158-.945-.37-.945-.733 0-.453.415-.756 1.032-.756.623 0 1.05.306 1.096.817h.93c-.023-.96-.817-1.61-2.019-1.61-1.187 0-2.03.653-2.03 1.62 0 .78.477 1.263 1.482 1.494l.707.166c.688.163.967.39.967.782 0 .454-.457.779-1.115.779-.665 0-1.167-.329-1.228-.832h-.945z"/></symbol>
+      <symbol id="mk-windows" viewBox="0 0 24 24"><path d="M0,0H11.377V11.372H0ZM12.623,0H24V11.372H12.623ZM0,12.623H11.377V24H0Zm12.623,0H24V24H12.623"/></symbol>
+      <symbol id="mk-ubuntu" viewBox="0 0.46 24 23.09"><path d="M17.61.455a3.41 3.41 0 0 0-3.41 3.41 3.41 3.41 0 0 0 3.41 3.41 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41zM12.92.8C8.923.777 5.137 2.941 3.148 6.451a4.5 4.5 0 0 1 .26-.007 4.92 4.92 0 0 1 2.585.737A8.316 8.316 0 0 1 12.688 3.6 4.944 4.944 0 0 1 13.723.834 11.008 11.008 0 0 0 12.92.8zm9.226 4.994a4.915 4.915 0 0 1-1.918 2.246 8.36 8.36 0 0 1-.273 8.303 4.89 4.89 0 0 1 1.632 2.54 11.156 11.156 0 0 0 .559-13.089zM3.41 7.932A3.41 3.41 0 0 0 0 11.342a3.41 3.41 0 0 0 3.41 3.409 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41zm2.027 7.866a4.908 4.908 0 0 1-2.915.358 11.1 11.1 0 0 0 7.991 6.698 11.234 11.234 0 0 0 2.422.249 4.879 4.879 0 0 1-.999-2.85 8.484 8.484 0 0 1-.836-.136 8.304 8.304 0 0 1-5.663-4.32zm11.405.928a3.41 3.41 0 0 0-3.41 3.41 3.41 3.41 0 0 0 3.41 3.41 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41z"/></symbol>
+      <symbol id="mk-fedora" viewBox="0 0 24 24"><path d="M12.001 0C5.376 0 .008 5.369.004 11.992H.002v9.287h.002A2.726 2.726 0 0 0 2.73 24h9.275c6.626-.004 11.993-5.372 11.993-11.997C23.998 5.375 18.628 0 12 0zm2.431 4.94c2.015 0 3.917 1.543 3.917 3.671 0 .197.001.395-.03.619a1.002 1.002 0 0 1-1.137.893 1.002 1.002 0 0 1-.842-1.175 2.61 2.61 0 0 0 .013-.337c0-1.207-.987-1.672-1.92-1.672-.934 0-1.775.784-1.777 1.672.016 1.027 0 2.046 0 3.07l1.732-.012c1.352-.028 1.368 2.009.016 1.998l-1.748.013c-.004.826.006.677.002 1.093 0 0 .015 1.01-.016 1.776-.209 2.25-2.124 4.046-4.424 4.046-2.438 0-4.448-1.993-4.448-4.437.073-2.515 2.078-4.492 4.603-4.469l1.409-.01v1.996l-1.409.013h-.007c-1.388.04-2.577.984-2.6 2.47a2.438 2.438 0 0 0 2.452 2.439c1.356 0 2.441-.987 2.441-2.437l-.001-7.557c0-.14.005-.252.02-.407.23-1.848 1.883-3.256 3.754-3.256z"/></symbol>
+      <symbol id="mk-debian" viewBox="2.36 0 19.29 24"><path d="M13.88 12.685c-.4 0 .08.2.601.28.14-.1.27-.22.39-.33a3.001 3.001 0 01-.99.05m2.14-.53c.23-.33.4-.69.47-1.06-.06.27-.2.5-.33.73-.75.47-.07-.27 0-.56-.8 1.01-.11.6-.14.89m.781-2.05c.05-.721-.14-.501-.2-.221.07.04.13.5.2.22M12.38.31c.2.04.45.07.42.12.23-.05.28-.1-.43-.12m.43.12l-.15.03.14-.01V.43m6.633 9.944c.02.64-.2.95-.38 1.5l-.35.181c-.28.54.03.35-.17.78-.44.39-1.34 1.22-1.62 1.301-.201 0 .14-.25.19-.34-.591.4-.481.6-1.371.85l-.03-.06c-2.221 1.04-5.303-1.02-5.253-3.842-.03.17-.07.13-.12.2a3.551 3.552 0 012.001-3.501 3.361 3.362 0 013.732.48 3.341 3.342 0 00-2.721-1.3c-1.18.01-2.281.76-2.651 1.57-.6.38-.67 1.47-.93 1.661-.361 2.601.66 3.722 2.38 5.042.27.19.08.21.12.35a4.702 4.702 0 01-1.53-1.16c.23.33.47.66.8.91-.55-.18-1.27-1.3-1.48-1.35.93 1.66 3.78 2.921 5.261 2.3a6.203 6.203 0 01-2.33-.28c-.33-.16-.77-.51-.7-.57a5.802 5.803 0 005.902-.84c.44-.35.93-.94 1.07-.95-.2.32.04.16-.12.44.44-.72-.2-.3.46-1.24l.24.33c-.09-.6.74-1.321.66-2.262.19-.3.2.3 0 .97.29-.74.08-.85.15-1.46.08.2.18.42.23.63-.18-.7.2-1.2.28-1.6-.09-.05-.28.3-.32-.53 0-.37.1-.2.14-.28-.08-.05-.26-.32-.38-.861.08-.13.22.33.34.34-.08-.42-.2-.75-.2-1.08-.34-.68-.12.1-.4-.3-.34-1.091.3-.25.34-.74.54.77.84 1.96.981 2.46-.1-.6-.28-1.2-.49-1.76.16.07-.26-1.241.21-.37A7.823 7.824 0 0017.702 1.6c.18.17.42.39.33.42-.75-.45-.62-.48-.73-.67-.61-.25-.65.02-1.06 0C15.082.73 14.862.8 13.8.4l.05.23c-.77-.25-.9.1-1.73 0-.05-.04.27-.14.53-.18-.741.1-.701-.14-1.431.03.17-.13.36-.21.55-.32-.6.04-1.44.35-1.18.07C9.6.68 7.847 1.3 6.867 2.22L6.838 2c-.45.54-1.96 1.611-2.08 2.311l-.131.03c-.23.4-.38.85-.57 1.261-.3.52-.45.2-.4.28-.6 1.22-.9 2.251-1.16 3.102.18.27 0 1.65.07 2.76-.3 5.463 3.84 10.776 8.363 12.006.67.23 1.65.23 2.49.25-.99-.28-1.12-.15-2.08-.49-.7-.32-.85-.7-1.34-1.13l.2.35c-.971-.34-.57-.42-1.361-.67l.21-.27c-.31-.03-.83-.53-.97-.81l-.34.01c-.41-.501-.63-.871-.61-1.161l-.111.2c-.13-.21-1.52-1.901-.8-1.511-.13-.12-.31-.2-.5-.55l.14-.17c-.35-.44-.64-1.02-.62-1.2.2.24.32.3.45.33-.88-2.172-.93-.12-1.601-2.202l.15-.02c-.1-.16-.18-.34-.26-.51l.06-.6c-.63-.74-.18-3.102-.09-4.402.07-.54.53-1.1.88-1.981l-.21-.04c.4-.71 2.341-2.872 3.241-2.761.43-.55-.09 0-.18-.14.96-.991 1.26-.7 1.901-.88.7-.401-.6.16-.27-.151 1.2-.3.85-.7 2.421-.85.16.1-.39.14-.52.26 1-.49 3.151-.37 4.562.27 1.63.77 3.461 3.011 3.531 5.132l.08.02c-.04.85.13 1.821-.17 2.711l.2-.42M9.54 13.236l-.05.28c.26.35.47.73.8 1.01-.24-.47-.42-.66-.75-1.3m.62-.02c-.14-.15-.22-.34-.31-.52.08.32.26.6.43.88l-.12-.36m10.945-2.382l-.07.15c-.1.76-.34 1.511-.69 2.212.4-.73.65-1.541.75-2.362M12.45.12c.27-.1.66-.05.95-.12-.37.03-.74.05-1.1.1l.15.02M3.006 5.142c.07.57-.43.8.11.42.3-.66-.11-.18-.1-.42m-.64 2.661c.12-.39.15-.62.2-.84-.35.44-.17.53-.2.83"/></symbol>
+      <symbol id="mk-samsung" viewBox="0 10.17 24 3.67"><path d="M19.8166 10.2808l.0459 2.6934h-.023l-.7793-2.6934h-1.2837v3.3925h.8481l-.0458-2.785h.023l.8366 2.785h1.2264v-3.3925zm-16.149 0l-.6418 3.427h.9284l.4699-3.1175h.0229l.4585 3.1174h.9169l-.6304-3.4269zm5.1805 0l-.424 2.6132h-.023l-.424-2.6132H6.5788l-.0688 3.427h.8596l.023-3.0832h.0114l.573 3.0831h.8711l.5731-3.083h.023l.0228 3.083h.8596l-.0802-3.4269zm-7.2664 2.4527c.0343.0802.0229.1949.0114.2522-.0229.1146-.1031.2292-.3324.2292-.2177 0-.3438-.126-.3438-.3095v-.3323H0v.2636c0 .7679.6074.9971 1.2493.9971.6189 0 1.1346-.2178 1.2149-.7794.0458-.298.0114-.4928 0-.5616-.1605-.722-1.467-.9283-1.5588-1.3295-.0114-.0688-.0114-.1375 0-.1834.023-.1146.1032-.2292.3095-.2292.2063 0 .321.126.321.3095v.2063h.8595v-.2407c0-.745-.6762-.8596-1.1576-.8596-.6074 0-1.1117.2063-1.2034.7564-.023.149-.0344.2866.0114.4585.1376.7106 1.364.9169 1.5358 1.3524m11.152 0c.0343.0803.0228.1834.0114.2522-.023.1146-.1032.2292-.3324.2292-.2178 0-.3438-.126-.3438-.3095v-.3323h-.917v.2636c0 .7564.596.9857 1.2379.9857.6189 0 1.1232-.2063 1.2034-.7794.0459-.298.0115-.4814 0-.5616-.1375-.7106-1.4327-.9284-1.5243-1.318-.0115-.0688-.0115-.1376 0-.1835.0229-.1146.1031-.2292.3094-.2292.1948 0 .321.126.321.3095v.2063h.848v-.2407c0-.745-.6647-.8596-1.146-.8596-.6075 0-1.1004.1948-1.192.7564-.023.149-.023.2866.0114.4585.1376.7106 1.341.9054 1.513 1.3524m2.8882.4585c.2407 0 .3094-.1605.3323-.2522.0115-.0343.0115-.0917.0115-.126v-2.533h.871v2.4642c0 .0688 0 .1948-.0114.2292-.0573.6419-.5616.8482-1.192.8482-.6303 0-1.1346-.2063-1.192-.8482 0-.0344-.0114-.1604-.0114-.2292v-2.4642h.871v2.533c0 .0458 0 .0916.0115.126 0 .0917.0688.2522.3095.2522m7.1518-.0344c.2522 0 .3324-.1605.3553-.2522.0115-.0343.0115-.0917.0115-.126v-.4929h-.3553v-.5043H24v.917c0 .0687 0 .1145-.0115.2292-.0573.6303-.596.8481-1.2034.8481-.6075 0-1.1461-.2178-1.2034-.8481-.0115-.1147-.0115-.1605-.0115-.2293v-1.444c0-.0574.0115-.172.0115-.2293.0802-.6419.596-.8482 1.2034-.8482s1.1347.2063 1.2034.8482c.0115.1031.0115.2292.0115.2292v.1146h-.8596v-.1948s0-.0803-.0115-.1261c-.0114-.0802-.0802-.2521-.3438-.2521-.2521 0-.321.1604-.3438.2521-.0115.0458-.0115.1032-.0115.1605v1.5702c0 .0458 0 .0916.0115.126 0 .0917.0917.2522.3323.2522"/></symbol>
+      <symbol id="mk-lg" viewBox="0 6.71 24 10.58"><path d="M14.522 14.078h3.27v1.33h-4.847v-6.83h1.577v5.5zm6.74-1.274h1.284v1.195c-.236.09-.698.18-1.137.18-1.42 0-1.893-.721-1.893-2.186 0-1.398.45-2.221 1.869-2.221.791 0 1.24.248 1.612.722l.982-.903c-.6-.855-1.646-1.114-2.629-1.114-2.208 0-3.368 1.205-3.368 3.504 0 2.288 1.047 3.528 3.358 3.528 1.06 0 2.096-.27 2.66-.665V11.53h-2.739v1.274zM5.291 6.709a5.29 5.29 0 1 1 0 10.582 5.291 5.291 0 1 1 0-10.582m3.16 8.457a4.445 4.445 0 0 0 1.31-3.161v-.242l-.22.001H6.596v.494h2.662l-.001.015a3.985 3.985 0 0 1-3.965 3.708 3.95 3.95 0 0 1-2.811-1.165 3.952 3.952 0 0 1-1.164-2.811c0-1.061.414-2.059 1.164-2.81a3.951 3.951 0 0 1 2.81-1.164l.252.003v-.495l-.251-.003a4.475 4.475 0 0 0-4.47 4.469c0 1.194.465 2.316 1.309 3.161a4.444 4.444 0 0 0 3.16 1.31 4.444 4.444 0 0 0 3.162-1.31m-2.91-1.297V9.644H5.04v4.72h1.556v-.495H5.543zm-1.265-3.552a.676.676 0 1 0-.675.674.676.676 0 0 0 .675-.674"/></symbol>
+      <symbol id="mk-googletv" viewBox="0 3.24 24 17.51"><path d="M3.11 3.245A3.117 3.117 0 0 0 0 6.355V13.7a1.87 1.87 0 0 0 1.878 1.878h2.588V5.124c0-.73.313-1.399.814-1.879zm3.944 0a1.87 1.87 0 0 0-1.879 1.879V7.71h16.947v.021c.73 0 1.398.313 1.878.814v-2.19a3.117 3.117 0 0 0-3.11-3.11zm12.48 5.176v10.455c0 .73-.313 1.399-.814 1.879h2.17a3.117 3.117 0 0 0 3.11-3.11V10.3a1.87 1.87 0 0 0-1.878-1.878zM0 15.475v2.17a3.117 3.117 0 0 0 3.11 3.11h13.836a1.87 1.87 0 0 0 1.878-1.879V16.29H1.878c-.73 0-1.398-.314-1.878-.814"/></symbol>
+      <symbol id="mk-android" viewBox="0 5.01 24 13.98"><path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/></symbol>
+    </svg>
+    <div class="wrap trust-row">
+      <p class="trust-label" id="trust-label">Compatible con</p>
+      <div class="marquee">
+        <ul class="logos">
+          <li class="logo wm"><svg viewBox="0 0 24 5.64" role="img" aria-label="macOS"><use href="#mk-macos"/></svg></li>
+          <li class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mk-windows"/></svg><span>Windows</span></li>
+          <li class="logo"><svg viewBox="0 0 24 23.09" aria-hidden="true"><use href="#mk-ubuntu"/></svg><span>Ubuntu</span></li>
+          <li class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mk-fedora"/></svg><span>Fedora</span></li>
+          <li class="logo"><svg viewBox="0 0 19.29 24" aria-hidden="true"><use href="#mk-debian"/></svg><span>Debian</span></li>
+          <li class="logo wm wm-wide"><svg viewBox="0 0 24 3.67" role="img" aria-label="Samsung"><use href="#mk-samsung"/></svg></li>
+          <li class="logo wm wm-tall"><svg viewBox="0 0 24 10.58" role="img" aria-label="LG"><use href="#mk-lg"/></svg></li>
+          <li class="logo"><svg viewBox="0 0 24 17.51" aria-hidden="true"><use href="#mk-googletv"/></svg><span>Google TV</span></li>
+          <li class="logo"><svg viewBox="0 0 24 13.98" aria-hidden="true"><use href="#mk-android"/></svg><span>Android</span></li>
+        </ul>
+        <ul class="logos" aria-hidden="true">
+          <li class="logo wm"><svg viewBox="0 0 24 5.64" aria-hidden="true"><use href="#mk-macos"/></svg></li>
+          <li class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mk-windows"/></svg><span>Windows</span></li>
+          <li class="logo"><svg viewBox="0 0 24 23.09" aria-hidden="true"><use href="#mk-ubuntu"/></svg><span>Ubuntu</span></li>
+          <li class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#mk-fedora"/></svg><span>Fedora</span></li>
+          <li class="logo"><svg viewBox="0 0 19.29 24" aria-hidden="true"><use href="#mk-debian"/></svg><span>Debian</span></li>
+          <li class="logo wm wm-wide"><svg viewBox="0 0 24 3.67" aria-hidden="true"><use href="#mk-samsung"/></svg></li>
+          <li class="logo wm wm-tall"><svg viewBox="0 0 24 10.58" aria-hidden="true"><use href="#mk-lg"/></svg></li>
+          <li class="logo"><svg viewBox="0 0 24 17.51" aria-hidden="true"><use href="#mk-googletv"/></svg><span>Google TV</span></li>
+          <li class="logo"><svg viewBox="0 0 24 13.98" aria-hidden="true"><use href="#mk-android"/></svg><span>Android</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— in short: the plain facts, for people who skim and for the machines that read ——— -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>En resumen</p>
+        <h2 data-reveal>Qué es MouseOS.</h2>
+      </header>
+      <div class="about-row">
+        <div class="about-copy">
+          <p data-reveal><b>MouseOS</b> es una app gratuita que convierte tu teléfono Android en un <b>trackpad, ratón aéreo, teclado, mando multimedia y pasador de diapositivas</b> inalámbrico para tu Mac, tu PC con Windows o tu ordenador Linux — y en un mando para tu TV Samsung, LG o Google TV.</p>
+          <p data-reveal>El teléfono y el ordenador se hablan directamente por tu Wi&#8209;Fi. Sin internet, sin cuenta, sin nube, sin anuncios, sin rastreo. El ordenador ejecuta una pequeña app gratuita; las TV no necesitan nada. Cada teléfono nuevo se aprueba una vez, con un clic en ALLOW en el ordenador.</p>
+        </div>
+        <dl class="glance" data-reveal>
+          <div><dt>Precio</dt><dd>Gratis, sin anuncios. Una propina, si quieres.</dd></div>
+          <div><dt>Teléfono</dt><dd>Android 8 o posterior — en <a class="link-more" href="#beta">beta cerrada</a>. iPhone en camino.</dd></div>
+          <div><dt>Ordenador</dt><dd>Mac (Apple silicon, macOS 11+) · Windows 10 y 11 · Linux (X11 o Wayland)</dd></div>
+          <div><dt>TV</dt><dd>Samsung · LG · Google TV — directamente desde el teléfono</dd></div>
+          <div><dt>Conexión</dt><dd>Tu Wi&#8209;Fi, o el punto de acceso del teléfono. Sin internet.</dd></div>
+          <div><dt>Versión</dt><dd><span data-version>2.0 — octubre de 2026</span></dd></div>
+          <div><dt>Creado por</dt><dd>Mathis Zerbib, desarrollador independiente · <a class="link-more" href="mailto:support@mouseos.app">support@mouseos.app</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— platforms ——— -->
+  <section id="platforms" class="section">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>Plataformas</p>
+        <h2 data-reveal>Todas tus pantallas.</h2>
+        <p class="lede" data-reveal>Una sola app en el teléfono maneja tu ordenador y tu TV. La app para el ordenador es gratuita en Mac, Windows y Linux.</p>
+      </header>
+      <ul class="platforms" data-reveal>
+        <li class="platform">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="5" y="3" width="22" height="14" rx="1.5"/><path d="M2 21h28"/></svg>
+          <h3>Mac</h3>
+          <p>Apple silicon · macOS 11+</p>
+          <a class="link-more" data-download="mac" href="https://github.com/MathisZerbib/mouseos/releases/latest">Descargar el .dmg →</a>
+        </li>
+        <li class="platform">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="3" y="2" width="26" height="16" rx="1.5"/><path d="M12 22h8M16 18v4"/></svg>
+          <h3>Windows</h3>
+          <p>Windows 10 y 11 · 64&#8209;bits</p>
+          <a class="link-more" data-download="windows" href="https://github.com/MathisZerbib/mouseos/releases/latest">Descargar el .msi →</a>
+        </li>
+        <li class="platform">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="3" y="2" width="26" height="18" rx="1.5"/><path d="M8 8l4 3-4 3M14 15h7"/></svg>
+          <h3>Linux</h3>
+          <p>Ubuntu, Fedora y compañía · X11 o Wayland</p>
+          <span class="platform-links"><a class="link-more" data-download="linux" data-ext=".deb" href="https://github.com/MathisZerbib/mouseos/releases/latest">.deb →</a><a class="link-more" data-download="linux" data-ext=".rpm" href="https://github.com/MathisZerbib/mouseos/releases/latest">.rpm →</a></span>
+        </li>
+        <li class="platform">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="2" y="2" width="28" height="17" rx="1.5"/><path d="M11 22h10"/></svg>
+          <h3>TV</h3>
+          <p>Samsung · LG · Google TV</p>
+          <span class="platform-note">Directamente desde el teléfono</span>
+        </li>
+        <li class="platform">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="10" y="1" width="12" height="22" rx="2"/><path d="M14 19.5h4"/></svg>
+          <h3>Android</h3>
+          <p>Android 8+</p>
+          <a class="link-more" data-play href="#beta">Unirme a la beta →</a>
+        </li>
+        <li class="platform is-soon">
+          <svg class="glyph" viewBox="0 0 32 24" aria-hidden="true"><rect x="10" y="1" width="12" height="22" rx="2"/><path d="M14 19.5h4"/></svg>
+          <h3>iPhone</h3>
+          <p>En camino</p>
+          <span class="platform-note">Pronto</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ——— install ——— -->
+  <section id="install" class="section">
+    <div class="wrap">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>Instalar</p>
+        <h2 data-reveal>Dos minutos. Una sola vez.</h2>
+        <p class="lede" data-reveal>Empieza en el ordenador, termina en el teléfono. Mantén los dos en el mismo Wi&#8209;Fi.</p>
+      </header>
+
+      <div class="os-tabs" role="tablist" aria-label="Tu ordenador" hidden>
+        <button type="button" role="tab" data-os="mac">Mac</button>
+        <button type="button" role="tab" data-os="windows">Windows</button>
+        <button type="button" role="tab" data-os="linux">Linux</button>
+      </div>
+
+      <div class="setup setup-staged" data-os-panel="mac">
+        <ol class="steps" data-reveal>
+          <li class="step on">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="2.5" y="1" width="11" height="7.5" rx="1"/><path d="M1 11h14"/></svg>En tu Mac</p>
+            <h3>Descarga y abre</h3>
+            <p>Arrastra MouseOS a <b>Aplicaciones</b> y ábrelo. Si macOS lo bloquea la primera vez: <b>Ajustes del Sistema → Privacidad y seguridad → Abrir igualmente</b>.</p>
+            <div class="step-cta">
+              <a class="btn btn-signal" data-download="mac" href="https://github.com/MathisZerbib/mouseos/releases/latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M3 14h10"/></svg><span>Descargar para Mac</span></a>
+              <span class="fine">Apple silicon · macOS 11+</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="2.5" y="1" width="11" height="7.5" rx="1"/><path d="M1 11h14"/></svg>En tu Mac</p>
+            <h3>Permite el control</h3>
+            <p>Haz clic en <b>ALLOW CONTROL</b> y activa <b>MouseOS</b>. macOS lo pregunta una vez antes de que una app pueda mover el puntero.</p>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="5" y=".5" width="6" height="11" rx="1.2"/></svg>En tu teléfono</p>
+            <h3>Abre la app en el teléfono</h3>
+            <p>Instala MouseOS en tu teléfono Android y ábrela en el mismo Wi&#8209;Fi. Encuentra tu Mac sola.</p>
+            <div class="step-cta">
+              <a class="btn btn-line" data-play href="#beta">Unirme a la beta</a>
+              <span class="fine">Android 8+</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="2.5" y="1" width="11" height="7.5" rx="1"/><path d="M1 11h14"/></svg>De vuelta en tu Mac</p>
+            <h3>Haz clic en ALLOW</h3>
+            <p>Tu Mac lo pregunta una vez por cada teléfono nuevo. Y ya está: tu teléfono es el ratón.</p>
+          </li>
+        </ol>
+
+        <div class="stage-wrap" data-reveal>
+          <div class="stage" aria-hidden="true">
+            <div class="scene">
+              <div class="cam">
+                <div class="laptop">
+                  <div class="lid">
+                    <div class="display">
+                      <div class="menubar"><i></i><i></i><i></i><i></i><i></i><span>9:41</span></div>
+                      <div class="win win-dmg">
+                        <div class="bar"><i></i><i></i><i></i><span>MouseOS</span></div>
+                        <div class="dmg-body">
+                          <div class="dmg-item dmg-app"><img src="/assets/stage/icon-mac.webp" alt=""><span>MouseOS</span></div>
+                          <svg class="dmg-arrow" viewBox="0 0 60 12"><path d="M2 6h54m-6-5 6 5-6 5"/></svg>
+                          <div class="dmg-item"><span class="dmg-folder"></span><span>Aplicaciones</span></div>
+                        </div>
+                      </div>
+                      <div class="win win-alert">
+                        <img src="/assets/stage/icon-mac.webp" alt="">
+                        <b>No se ha abierto “MouseOS”</b>
+                        <p>Apple no ha podido verificar que “MouseOS” no contenga software malicioso.</p>
+                        <span class="mbtn mbtn-blue alert-done">Aceptar</span>
+                        <span class="mbtn">Trasladar a la papelera</span>
+                      </div>
+                      <div class="win win-privacy">
+                        <div class="bar"><i></i><i></i><i></i><span>Privacidad y seguridad</span></div>
+                        <div class="set">
+                          <div class="side"><i></i><i></i><i></i><i></i><em>Privacidad y seguridad</em><i></i><i></i><i></i><i></i></div>
+                          <div class="pane">
+                            <h5>Privacy &amp; Security</h5>
+                            <p class="grp">Seguridad</p>
+                            <div class="row"><p>Se ha bloqueado “MouseOS” para proteger tu Mac.</p><span class="mbtn open-anyway">Abrir igualmente</span></div>
+                            <div class="row row-blank"></div>
+                            <div class="row row-blank"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="win win-app">
+                        <div class="bar bar-light"><i></i><i></i><i></i><span>MouseOS para Mac</span></div>
+                        <div class="shots">
+                          <img class="shot-allow" src="/assets/stage/mac-allow.webp" alt="">
+                          <img class="shot-waiting" src="/assets/stage/mac-waiting.webp" alt="">
+                          <img class="shot-approve" src="/assets/stage/mac-approve.webp" alt="">
+                        </div>
+                      </div>
+                      <div class="win win-access">
+                        <div class="bar"><i></i><i></i><i></i><span>Accesibilidad</span></div>
+                        <div class="pane">
+                          <p class="grp">Permitir que las siguientes aplicaciones controlen el ordenador.</p>
+                          <div class="row"><img src="/assets/stage/icon-mac.webp" alt=""><b>MouseOS</b><span class="toggle"><i></i></span></div>
+                        </div>
+                      </div>
+                      <div class="dock"><i></i><i></i><i></i><i></i><i></i><img class="dock-app" src="/assets/stage/icon-mac.webp" alt=""></div>
+                      <img class="ghost" src="/assets/stage/icon-mac.webp" alt="">
+                      <svg class="trail"><path class="trail-mac"/></svg>
+                      <span class="ring"></span>
+                      <svg class="ptr" viewBox="0 0 12 19"><path d="M1 1v14.2l3.4-3.3 2.5 5.8 2.4-1-2.5-5.6h4.8z"/></svg>
+                    </div>
+                  </div>
+                  <div class="base"></div>
+                </div>
+                <svg class="link" viewBox="0 0 760 470"><path class="wire" d="M676 150C676 92 626 64 552 82"/><path class="pulse" d="M676 150C676 92 626 64 552 82"/></svg>
+                <div class="handset">
+                  <div class="screen">
+                    <div class="home"><span class="status">9:41</span><i></i><i></i><i></i><i></i><i></i><img class="home-app" src="/assets/stage/icon-phone.webp" alt=""><i></i><i></i></div>
+                    <img class="p-intro" src="/assets/stage/phone-intro.webp" alt="">
+                    <img class="p-allow" src="/assets/stage/phone-allow.webp" alt="">
+                    <img class="p-pad" src="/assets/pad.webp" alt="">
+                    <svg class="trail"><path class="trail-pad"/></svg>
+                    <span class="touch"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="stage-bar">
+            <p class="cap" aria-hidden="true"><b>Mac</b><span>Haz clic en ALLOW — una vez por teléfono</span><span class="cap-n">4/4</span></p>
+            <button class="play" type="button" aria-pressed="false" aria-label="Pausar la animación de instalación">Pausa</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="setup setup-solo" data-os-panel="windows">
+        <ol class="steps" data-reveal>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>En tu PC</p>
+            <h3>Descarga e instala</h3>
+            <p>Abre el instalador: no hacen falta permisos de administrador. Si Windows dice que protegió tu PC: <b>Más información → Ejecutar de todas formas</b>. Solo la primera vez.</p>
+            <div class="step-cta">
+              <a class="btn btn-signal" data-download="windows" href="https://github.com/MathisZerbib/mouseos/releases/latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M3 14h10"/></svg><span>Descargar para Windows</span></a>
+              <span class="fine">Windows 10 y 11 · 64&#8209;bits</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>En tu PC</p>
+            <h3>Permite el acceso a la red</h3>
+            <p>La primera vez que se abre MouseOS, Windows pregunta por el acceso a la red: haz clic en <b>Permitir</b>. Tu Wi&#8209;Fi debe ser una red <b>privada</b>.</p>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="5" y=".5" width="6" height="11" rx="1.2"/></svg>En tu teléfono</p>
+            <h3>Abre la app en el teléfono</h3>
+            <p>Instala MouseOS en tu teléfono Android y ábrela en el mismo Wi&#8209;Fi. Encuentra tu ordenador sola.</p>
+            <div class="step-cta">
+              <a class="btn btn-line" data-play href="#beta">Unirme a la beta</a>
+              <span class="fine">Android 8+</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>De vuelta en tu PC</p>
+            <h3>Haz clic en ALLOW</h3>
+            <p>Tu PC lo pregunta una vez por cada teléfono nuevo. Y ya está: tu teléfono es el ratón.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="setup setup-solo" data-os-panel="linux">
+        <ol class="steps" data-reveal>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>En tu ordenador</p>
+            <h3>Descarga e instala</h3>
+            <p>Ubuntu, Debian, Mint: el <b>.deb</b>. Fedora, openSUSE: el <b>.rpm</b>. Tu centro de software lo abre — o <code>sudo apt install ./mouseos_*.deb</code>.</p>
+            <div class="step-cta">
+              <a class="btn btn-signal" data-download="linux" data-ext=".deb" href="https://github.com/MathisZerbib/mouseos/releases/latest"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9m-4-4 4 4 4-4M3 14h10"/></svg><span>Descargar el .deb</span></a>
+              <a class="btn btn-line" data-download="linux" data-ext=".rpm" href="https://github.com/MathisZerbib/mouseos/releases/latest"><span>.rpm</span></a>
+              <span class="fine">64&#8209;bits · X11 o Wayland</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>En tu ordenador</p>
+            <h3>Permite el control</h3>
+            <p>En Wayland, haz clic en <b>ALLOW CONTROL</b> y escribe tu contraseña una vez. En X11 no hay nada que hacer.</p>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="5" y=".5" width="6" height="11" rx="1.2"/></svg>En tu teléfono</p>
+            <h3>Abre la app en el teléfono</h3>
+            <p>Instala MouseOS en tu teléfono Android y ábrela en el mismo Wi&#8209;Fi. Encuentra tu ordenador sola.</p>
+            <div class="step-cta">
+              <a class="btn btn-line" data-play href="#beta">Unirme a la beta</a>
+              <span class="fine">Android 8+</span>
+            </div>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><i></i></span>
+            <p class="dev"><svg viewBox="0 0 16 12" aria-hidden="true"><rect x="1.5" y=".5" width="13" height="8" rx="1"/><path d="M6 11.5h4M8 8.5v3"/></svg>De vuelta en tu ordenador</p>
+            <h3>Haz clic en ALLOW</h3>
+            <p>Tu ordenador lo pregunta una vez por cada teléfono nuevo. Y ya está: tu teléfono es el ratón.</p>
+          </li>
+        </ol>
+      </div>
+
+      <p class="stuck-link">¿Algo falla? <a class="link-more" href="#stuck">Soluciones rápidas →</a></p>
+    </div>
+  </section>
+
+  <!-- ——— beta: the Android app, before it's on Google Play for everyone ——— -->
+  <section id="beta" class="section">
+    <div class="wrap beta">
+      <header class="section-head">
+        <p class="eyebrow" data-reveal>Beta de Android</p>
+        <h2 data-reveal>Ten la app del teléfono antes que nadie.</h2>
+        <p class="lede" data-reveal>MouseOS para Android está en pruebas cerradas en Google Play. Deja el correo de tu cuenta de Google: te añadimos a la prueba y MouseOS se instala desde Google Play como cualquier app, actualizaciones incluidas.</p>
+      </header>
+      <form class="beta-form" data-reveal action="https://beta.mouseos.app/join" method="post" novalidate>
+        <label class="beta-field"><span class="fine">Correo de tu cuenta de Google</span> <input type="email" name="email" required autocomplete="email" inputmode="email" spellcheck="false" placeholder="tu@gmail.com" maxlength="254"></label>
+        <input class="beta-trap" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-signal" type="submit"><span>Unirme a la beta</span></button>
+        <p class="beta-fine">Un correo, nada más: sirve para añadirte a la prueba y avisarte cuando la app salga. Se borra al terminar la beta — o antes, con un mensaje a <a class="fine-link" href="mailto:support@mouseos.app">support@mouseos.app</a>.</p>
+      </form>
+      <p class="beta-error" hidden><span>Algo ha fallado.</span> Inténtalo de nuevo, o escribe a <a class="link-more" href="mailto:support@mouseos.app">support@mouseos.app</a>.</p>
+      <div class="beta-done" hidden>
+        <h3>Estás en la lista.</h3>
+        <ol class="beta-next">
+          <li data-step="wait"><b>En menos de un día</b> te añadimos a la prueba.</li>
+          <li data-step="group" hidden><a class="link-more beta-group" href="#beta">Únete al grupo de probadores</a> con esa cuenta de Google — un clic.</li>
+          <li>Abre <a class="link-more beta-optin" href="https://play.google.com/apps/testing/com.mathiszerbib.mouseos">la página de la prueba</a> con esa cuenta y toca <b>Convertirme en probador</b>.</li>
+          <li>Instala MouseOS desde Google Play. Mientras tanto, <a class="link-more" href="#install">prepara tu ordenador</a>.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— features ——— -->
+  <section id="features" class="section section-raised">
+    <div class="wrap features">
+      <div class="features-copy">
+        <p class="eyebrow" data-reveal>Seis pantallas</p>
+        <h2 data-reveal>Todo bajo tu pulgar.</h2>
+        <div class="tab-items" data-reveal>
+          <article class="tab-item" id="tab-pad" data-tab="PAD" data-shot="/assets/pad.webp"><h3>Trackpad</h3><p>Toca para hacer clic. Desplázate con dos dedos o con la tira. Mantén pulsado y mueve para arrastrar.</p></article>
+          <article class="tab-item" id="tab-air" data-tab="AIR" data-shot="/assets/air.webp"><h3>Ratón aéreo</h3><p>Apunta con el teléfono como con un mando de TV. Mantén para apuntar, toca para hacer clic, desplázate en la tira.</p></article>
+          <article class="tab-item" id="tab-remote" data-tab="REMOTE" data-shot="/assets/remote.webp"><h3>Mando</h3><p>Flechas, reproducir, el volumen del ordenador, siguiente episodio.</p></article>
+          <article class="tab-item" id="tab-tv" data-tab="TV" data-shot="/assets/tv.webp"><h3>TV</h3><p>Tu TV Samsung, LG o Google TV. Sin ordenador.</p></article>
+          <article class="tab-item" id="tab-keys" data-tab="KEYS" data-shot="/assets/keys.webp"><h3>Teclado</h3><p>Escribe en cualquier idioma. Con acentos y emojis.</p></article>
+          <article class="tab-item" id="tab-slides" data-tab="SLIDES" data-shot="/assets/slides.webp"><h3>Diapositivas</h3><p>Un siguiente y un anterior gigantes. Un temporizador ajustado al minuto. Los botones de volumen hacen clic.</p></article>
+        </div>
+        <div class="tabbar" role="tablist" aria-label="Pantallas de MouseOS" hidden></div>
+      </div>
+      <div class="features-device" data-reveal>
+        <div class="phone"><img class="feature-shot" src="/assets/pad.webp" alt="La pantalla de MouseOS seleccionada" width="720" height="1280" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ——— privacy ——— -->
+  <section class="section">
+    <div class="wrap privacy">
+      <h2 data-reveal>Nada sale de tu Wi&#8209;Fi.</h2>
+      <ul class="facts">
+        <li data-reveal><b>Sin cuenta</b><span>Ábrela y listo.</span></li>
+        <li data-reveal><b>Sin nube</b><span>Del teléfono al ordenador, directo.</span></li>
+        <li data-reveal><b>Sin rastreo</b><span>Ni anuncios, ni analíticas.</span></li>
+      </ul>
+      <a class="link-more" href="/es/privacy-policy.html" data-reveal>Política de privacidad →</a>
+    </div>
+  </section>
+
+  <!-- ——— faq ——— -->
+  <section id="faq" class="section section-raised">
+    <div class="wrap faq">
+      <h2 data-reveal>Preguntas</h2>
+      <details name="faq"><summary>¿Es gratis?</summary><p>Sí: la app del teléfono y la del ordenador. Sin anuncios. Hay una propina opcional en Ajustes si quieres dar las gracias.</p></details>
+      <details name="faq"><summary>¿Qué ordenadores?</summary><p>Mac con Apple silicon (M1 y posteriores), macOS 11 o posterior. Windows 10 y 11, de 64&#8209;bits. Linux de 64&#8209;bits — Ubuntu, Debian, Fedora y compañía, en X11 o Wayland.</p></details>
+      <details name="faq"><summary>¿Cómo consigo la app de Android?</summary><p>Está en pruebas cerradas en Google Play. <a class="link-more" href="#beta">Únete a la beta</a> con el correo de tu cuenta de Google: te añadimos a la prueba y MouseOS se instala desde Google Play como cualquier app, actualizaciones incluidas.</p></details>
+      <details name="faq"><summary>¿Y el iPhone?</summary><p>Android primero. El iPhone está en camino.</p></details>
+      <details name="faq"><summary>¿Qué televisores?</summary><p>Samsung, LG y Google TV (Sony, TCL, Philips…).</p></details>
+      <details name="faq"><summary>¿Necesita internet?</summary><p>No. Tu teléfono y tu ordenador se hablan directamente por tu Wi&#8209;Fi; nada pasa por un servidor. Sin internet, sin cuenta. El punto de acceso del teléfono también sirve.</p></details>
+      <details name="faq"><summary>¿Bluetooth o Wi&#8209;Fi?</summary><p>Wi&#8209;Fi, no Bluetooth. MouseOS encuentra tu ordenador en la red local por sí sola; haces clic en <b>ALLOW</b> en el ordenador una vez, y ese es todo el emparejamiento.</p></details>
+      <details name="faq"><summary>¿La TV necesita la app del ordenador?</summary><p>No. La pantalla TV habla directamente con tu Samsung, LG o Google TV por el mismo Wi&#8209;Fi.</p></details>
+      <details name="faq"><summary>¿Sirve para presentaciones?</summary><p>Sí. La pantalla Diapositivas tiene un siguiente y un anterior gigantes, un temporizador ajustado al minuto, y los botones de volumen del teléfono también hacen clic.</p></details>
+      <details name="faq"><summary>¿Puedo escribir y controlar el volumen?</summary><p>Sí. Teclado escribe en cualquier idioma, con acentos y emojis. Mando tiene las flechas, reproducir, el volumen del ordenador y el siguiente episodio.</p></details>
+      <details name="faq"><summary>¿Puede otra persona controlar mi ordenador?</summary><p>No. Cada teléfono nuevo necesita un clic en ALLOW en el ordenador.</p></details>
+      <h3 id="stuck">¿Algo falla?</h3>
+      <details name="faq"><summary>macOS no lo abre</summary><p>Ajustes del Sistema → Privacidad y seguridad, baja y haz clic en <b>Abrir igualmente</b>. Solo la primera vez.</p></details>
+      <details name="faq"><summary>Windows dice que protegió tu PC</summary><p>Haz clic en <b>Más información</b> y luego en <b>Ejecutar de todas formas</b>. Solo la primera vez: MouseOS aún no está firmado por Microsoft.</p></details>
+      <details name="faq"><summary>El teléfono no encuentra el ordenador</summary><p>Mismo Wi&#8209;Fi, VPN apagada. El Wi&#8209;Fi de una cafetería o un hotel oculta los dispositivos entre sí: activa el punto de acceso del teléfono y conéctate a él desde el ordenador. En Windows, tu Wi&#8209;Fi debe ser una red privada. O toca <b>TYPE THE ADDRESS</b> en el teléfono.</p></details>
+      <details name="faq"><summary>El puntero no se mueve</summary><p>Mac: Ajustes del Sistema → Privacidad y seguridad → Accesibilidad: activa MouseOS. Linux con Wayland: abre MouseOS y haz clic en <b>ALLOW CONTROL</b>. Tras una actualización, la app te enseña cómo.</p></details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <a class="wordmark" href="#top">MOUSE<span>OS</span></a>
+    <nav aria-label="Pie de página">
+      <a href="#install">Instalar</a>
+      <a href="/es/phone-as-mouse.html">El teléfono como ratón</a>
+      <a href="/es/presentation-remote.html">Pasador de diapositivas</a>
+      <a href="/es/tv-remote.html">Mando de TV</a>
+      <a href="/es/linux-remote-mouse.html">Linux</a>
+      <a href="/es/alternatives.html">Comparar</a>
+      <a href="/es/privacy-policy.html">Privacidad</a>
+      <a href="https://github.com/MathisZerbib/mouseos">GitHub</a>
+      <a href="mailto:support@mouseos.app">Contacto</a>
+    </nav>
+    <nav class="langs" aria-label="Idioma">
+      <a href="/" hreflang="en" lang="en">English</a>
+      <a href="/fr/" hreflang="fr" lang="fr">Français</a>
+      <a href="/pt/" hreflang="pt-BR" lang="pt-BR">Português</a>
+      <a href="/es/" hreflang="es" lang="es" aria-current="page">Español</a>
+      <a href="/de/" hreflang="de" lang="de">Deutsch</a>
+      <a href="/it/" hreflang="it" lang="it">Italiano</a>
+      <a href="/ja/" hreflang="ja" lang="ja">日本語</a>
+      <a href="/zh/" hreflang="zh-Hans" lang="zh-Hans">中文</a>
+    </nav>
+    <p class="fine">© 2026 MouseOS</p>
+    <p class="fine foot-legal">Los nombres de productos y los logotipos son marcas de sus propietarios. MouseOS es independiente: ni está afiliado a ellos ni lo respaldan.</p>
+  </div>
+</footer>
+
+</body>
+</html>

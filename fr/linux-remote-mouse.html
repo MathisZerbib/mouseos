@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le téléphone en souris pour Linux — X11 et Wayland, GNOME &amp; KDE · MouseOS</title>
+<meta name="description" content="Un trackpad, une souris gyroscopique et un clavier sans fil pour Linux depuis votre téléphone Android — sous X11 et sous Wayland (GNOME, KDE Plasma). .deb et .rpm gratuits, par le réseau local, sans compte.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#131311">
+<link rel="icon" href="/assets/favicon.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="canonical" href="https://mouseos.app/fr/linux-remote-mouse.html">
+<link rel="alternate" hreflang="en" href="https://mouseos.app/linux-remote-mouse.html">
+<link rel="alternate" hreflang="fr" href="https://mouseos.app/fr/linux-remote-mouse.html">
+<link rel="alternate" hreflang="pt-BR" href="https://mouseos.app/pt/linux-remote-mouse.html">
+<link rel="alternate" hreflang="es" href="https://mouseos.app/es/linux-remote-mouse.html">
+<link rel="alternate" hreflang="de" href="https://mouseos.app/de/linux-remote-mouse.html">
+<link rel="alternate" hreflang="it" href="https://mouseos.app/it/linux-remote-mouse.html">
+<link rel="alternate" hreflang="ja" href="https://mouseos.app/ja/linux-remote-mouse.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://mouseos.app/zh/linux-remote-mouse.html">
+<link rel="alternate" hreflang="x-default" href="https://mouseos.app/linux-remote-mouse.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="MouseOS"><meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://mouseos.app/fr/linux-remote-mouse.html"><meta property="og:title" content="Votre téléphone en souris pour Linux — Wayland compris">
+<meta property="og:description" content="Trackpad, souris gyroscopique et clavier pour Linux sous X11 et Wayland. .deb et .rpm gratuits, réseau local uniquement.">
+<meta property="og:image" content="https://mouseos.app/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://mouseos.app/fr/linux-remote-mouse.html#webpage",
+      "url": "https://mouseos.app/fr/linux-remote-mouse.html",
+      "name": "Le téléphone en souris pour Linux — X11 et Wayland",
+      "isPartOf": {
+        "@id": "https://mouseos.app/#website"
+      },
+      "about": {
+        "@id": "https://mouseos.app/#app"
+      },
+      "dateModified": "2026-10-07",
+      "inLanguage": "fr"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mouseos.app/linux-remote-mouse.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ça marche sous Wayland ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Wayland ne laisse pas les apps déplacer le pointeur, alors MouseOS utilise un périphérique d'entrée virtuel (uinput), comme une vraie souris et un vrai clavier. Cliquez sur ALLOW CONTROL une fois et saisissez votre mot de passe : cela ajoute une règle udev qui donne à l'utilisateur connecté l'accès à /dev/uinput."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles distributions ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Linux 64 bits : un .deb pour Ubuntu, Debian et Mint (Ubuntu 22.04, Mint 21, Debian 12 et suivants), un .rpm pour Fedora et openSUSE."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels ports utilise-t-il ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TCP 53317 (WebSocket pour les clics, les touches et l'état) et UDP 53318 (pointeur et défilement), sur le réseau local uniquement. La découverte utilise mDNS et une balise UDP."
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Geist+Mono:wght@400..700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head><body class="doc">
+<header class="nav"><div class="wrap nav-row"><a class="wordmark" href="/fr/">MOUSE<span>OS</span></a><a class="nav-link" href="/fr/">← Retour à MouseOS</a></div></header>
+<main class="wrap prose">
+<p class="eyebrow">Guide · Linux · X11 · Wayland</p>
+<h1>Votre téléphone en souris pour Linux — Wayland compris</h1>
+<p class="lede">La plupart des apps « téléphone-souris » s'arrêtent à X11. MouseOS pilote aussi GNOME et KDE Plasma sous Wayland : trackpad, souris gyroscopique, clavier et touches multimédia, depuis un téléphone Android, par votre réseau.</p>
+
+<div class="gallery">
+  <figure><img src="/assets/pad.webp" alt="L'écran trackpad de MouseOS" width="720" height="1280" loading="lazy"><figcaption>Pad</figcaption></figure>
+  <figure><img src="/assets/remote.webp" alt="L'écran télécommande multimédia de MouseOS" width="720" height="1280" loading="lazy"><figcaption>Télécommande</figcaption></figure>
+</div>
+
+<h2>Installer</h2>
+<ol>
+<li>Téléchargez le <a href="https://github.com/MathisZerbib/mouseos/releases/latest">.deb</a> (Ubuntu, Debian, Mint) ou le <a href="https://github.com/MathisZerbib/mouseos/releases/latest">.rpm</a> (Fedora, openSUSE) et installez-le avec votre gestionnaire de paquets.</li>
+<li>Ouvrez MouseOS. Sous <strong>Wayland</strong>, cliquez sur <strong>ALLOW CONTROL</strong> et saisissez votre mot de passe une fois (détails ci-dessous). Sous X11, il n'y a rien à autoriser.</li>
+<li>Ouvrez MouseOS sur le téléphone, même réseau. Cliquez sur <strong>ALLOW</strong> sur l'ordinateur pour ce téléphone. C'est fait.</li>
+</ol>
+
+<h2>Comment ça marche selon la session</h2>
+<div class="table"><table>
+<thead><tr><th>Session</th><th>Comment les entrées arrivent</th></tr></thead>
+<tbody>
+<tr><td><strong>X11</strong></td><td>XTest — pointeur, boutons, les deux axes de défilement, saisie Unicode quelle que soit la disposition du clavier.</td></tr>
+<tr><td><strong>Wayland</strong></td><td>Une souris et un clavier virtuels via <code>uinput</code>, vus par le compositeur comme du vrai matériel. ALLOW CONTROL exécute une étape <code>pkexec</code> qui ajoute une règle udev marquant <code>/dev/uinput</code> avec <code>uaccess</code> — accès réservé à l'utilisateur connecté — et charge le module au démarrage.</td></tr>
+</tbody></table></div>
+<p>Vous préférez le faire à la main ? L'app affiche les trois commandes qu'elle exécuterait. Le volume passe par PipeWire ou PulseAudio ; les touches multimédia atteignent le lecteur au premier plan.</p>
+
+<h2>Réseau</h2>
+<ul>
+<li>Clics, touches et état : WebSocket sur TCP <strong>53317</strong>. Pointeur et défilement : UDP <strong>53318</strong>, accepté uniquement d'un téléphone que vous avez autorisé.</li>
+<li>Découverte : mDNS plus une balise UDP — aucune IP à saisir. Si votre pare-feu la bloque, ouvrez ces deux ports pour votre réseau local, ou saisissez l'adresse affichée par l'app.</li>
+<li>Pas de serveur, pas de compte, pas de télémétrie. Rien ne sort de votre réseau.</li>
+</ul>
+
+<div class="cta">
+  <a class="btn btn-signal" href="https://github.com/MathisZerbib/mouseos/releases/latest">Télécharger le .deb / .rpm</a>
+  <a class="btn btn-line" href="./#install">Guide d'installation</a>
+</div>
+
+<div class="more">
+<p><strong>Autres guides :</strong> <a href="/fr/phone-as-mouse.html">le téléphone en souris</a> · <a href="/fr/presentation-remote.html">le téléphone en télécommande de présentation</a> · <a href="/fr/tv-remote.html">le téléphone en télécommande TV</a> · <a href="/fr/alternatives.html">MouseOS face aux autres apps de télécommande</a></p>
+</div>
+<div class="langs-row"><nav class="langs" aria-label="Langue">
+      <a href="/linux-remote-mouse.html" hreflang="en" lang="en">English</a>
+      <a href="/fr/linux-remote-mouse.html" hreflang="fr" lang="fr" aria-current="page">Français</a>
+      <a href="/pt/linux-remote-mouse.html" hreflang="pt-BR" lang="pt-BR">Português</a>
+      <a href="/es/linux-remote-mouse.html" hreflang="es" lang="es">Español</a>
+      <a href="/de/linux-remote-mouse.html" hreflang="de" lang="de">Deutsch</a>
+      <a href="/it/linux-remote-mouse.html" hreflang="it" lang="it">Italiano</a>
+      <a href="/ja/linux-remote-mouse.html" hreflang="ja" lang="ja">日本語</a>
+      <a href="/zh/linux-remote-mouse.html" hreflang="zh-Hans" lang="zh-Hans">中文</a>
+    </nav></div>
+</main>
+<footer class="foot"><div class="wrap foot-row"><a class="wordmark" href="/fr/">MOUSE<span>OS</span></a><nav aria-label="Pied de page"><a href="./#install">Installer</a><a href="/fr/privacy-policy.html">Confidentialité</a><a href="https://github.com/MathisZerbib/mouseos">GitHub</a><a href="mailto:support@mouseos.app">Contact</a></nav><p class="fine">© 2026 MouseOS</p></div></footer>
+</body></html>

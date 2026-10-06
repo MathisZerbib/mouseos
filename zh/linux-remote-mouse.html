@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-Hans"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>手机当 Linux 的鼠标 — X11 和 Wayland，GNOME &amp; KDE · MouseOS</title>
+<meta name="description" content="用安卓手机为 Linux 提供无线触控板、空中鼠标和键盘 — X11 和 Wayland（GNOME、KDE Plasma）均支持。免费的 .deb 和 .rpm，通过局域网，无需账号。">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#131311">
+<link rel="icon" href="/assets/favicon.png"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="canonical" href="https://mouseos.app/zh/linux-remote-mouse.html">
+<link rel="alternate" hreflang="en" href="https://mouseos.app/linux-remote-mouse.html">
+<link rel="alternate" hreflang="fr" href="https://mouseos.app/fr/linux-remote-mouse.html">
+<link rel="alternate" hreflang="pt-BR" href="https://mouseos.app/pt/linux-remote-mouse.html">
+<link rel="alternate" hreflang="es" href="https://mouseos.app/es/linux-remote-mouse.html">
+<link rel="alternate" hreflang="de" href="https://mouseos.app/de/linux-remote-mouse.html">
+<link rel="alternate" hreflang="it" href="https://mouseos.app/it/linux-remote-mouse.html">
+<link rel="alternate" hreflang="ja" href="https://mouseos.app/ja/linux-remote-mouse.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://mouseos.app/zh/linux-remote-mouse.html">
+<link rel="alternate" hreflang="x-default" href="https://mouseos.app/linux-remote-mouse.html">
+<meta property="og:type" content="article"><meta property="og:site_name" content="MouseOS"><meta property="og:locale" content="zh_CN">
+<meta property="og:url" content="https://mouseos.app/zh/linux-remote-mouse.html"><meta property="og:title" content="手机当 Linux 的鼠标 — 包括 Wayland">
+<meta property="og:description" content="为 X11 和 Wayland 上的 Linux 提供触控板、空中鼠标和键盘。免费的 .deb 和 .rpm，仅限局域网。">
+<meta property="og:image" content="https://mouseos.app/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://mouseos.app/zh/linux-remote-mouse.html#webpage",
+      "url": "https://mouseos.app/zh/linux-remote-mouse.html",
+      "name": "手机当 Linux 的鼠标 — X11 和 Wayland",
+      "isPartOf": {
+        "@id": "https://mouseos.app/#website"
+      },
+      "about": {
+        "@id": "https://mouseos.app/#app"
+      },
+      "dateModified": "2026-10-07",
+      "inLanguage": "zh-Hans"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mouseos.app/linux-remote-mouse.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "在 Wayland 上能用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。Wayland 不允许应用移动指针，所以 MouseOS 使用虚拟输入设备（uinput），就像真实的鼠标和键盘一样。点击一次 ALLOW CONTROL 并输入密码：它会添加一条 udev 规则，让已登录用户可以访问 /dev/uinput。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "支持哪些发行版？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "64 位 Linux：Ubuntu、Debian 和 Mint 用 .deb（Ubuntu 22.04、Mint 21、Debian 12 及更新），Fedora 和 openSUSE 用 .rpm。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "使用哪些端口？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TCP 53317（用于点击、按键和状态的 WebSocket）和 UDP 53318（指针和滚动），仅限局域网。发现使用 mDNS 和 UDP 信标。"
+          }
+        }
+      ]
+    }
+  ]
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mona+Sans:wdth,wght@75..125,200..900&family=Geist+Mono:wght@400..700&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head><body class="doc">
+<header class="nav"><div class="wrap nav-row"><a class="wordmark" href="/zh/">MOUSE<span>OS</span></a><a class="nav-link" href="/zh/">← 返回 MouseOS</a></div></header>
+<main class="wrap prose">
+<p class="eyebrow">指南 · Linux · X11 · Wayland</p>
+<h1>手机当 Linux 的鼠标 — 包括 Wayland</h1>
+<p class="lede">大多数手机鼠标应用止步于 X11。MouseOS 还能控制 Wayland 上的 GNOME 和 KDE Plasma：触控板、空中鼠标、键盘和媒体键，从安卓手机，通过你的网络。</p>
+
+<div class="gallery">
+  <figure><img src="/assets/pad.webp" alt="MouseOS 触控板界面" width="720" height="1280" loading="lazy"><figcaption>Pad</figcaption></figure>
+  <figure><img src="/assets/remote.webp" alt="MouseOS 媒体遥控器界面" width="720" height="1280" loading="lazy"><figcaption>遥控器</figcaption></figure>
+</div>
+
+<h2>安装</h2>
+<ol>
+<li>下载 <a href="https://github.com/MathisZerbib/mouseos/releases/latest">.deb</a>（Ubuntu、Debian、Mint）或 <a href="https://github.com/MathisZerbib/mouseos/releases/latest">.rpm</a>（Fedora、openSUSE），用你的包管理器安装。</li>
+<li>打开 MouseOS。在 <strong>Wayland</strong> 上，点击 <strong>ALLOW CONTROL</strong> 并输入一次密码（详见下文）。在 X11 上不需要任何授权。</li>
+<li>在同一个网络下打开手机上的 MouseOS。在电脑上为这台手机点击 <strong>ALLOW</strong>。完成。</li>
+</ol>
+
+<h2>在各种会话下的工作原理</h2>
+<div class="table"><table>
+<thead><tr><th>会话</th><th>输入如何送达</th></tr></thead>
+<tbody>
+<tr><td><strong>X11</strong></td><td>XTest — 指针、按键、两个滚动轴、任意键盘布局下的 Unicode 输入。</td></tr>
+<tr><td><strong>Wayland</strong></td><td>通过 <code>uinput</code> 创建虚拟鼠标和键盘，合成器把它们当作真实硬件。ALLOW CONTROL 会执行一步 <code>pkexec</code>，添加一条 udev 规则，给 <code>/dev/uinput</code> 打上 <code>uaccess</code> 标签 — 仅允许已登录用户访问 — 并在开机时加载模块。</td></tr>
+</tbody></table></div>
+<p>想手动操作？应用会显示它将运行的三条命令。音量通过 PipeWire 或 PulseAudio 控制；媒体键会送达前台的播放器。</p>
+
+<h2>网络</h2>
+<ul>
+<li>点击、按键和状态：TCP <strong>53317</strong> 上的 WebSocket。指针和滚动：UDP <strong>53318</strong>，只接受你允许过的手机。</li>
+<li>发现：mDNS 加 UDP 信标 — 不用输入 IP。如果防火墙拦截，就为局域网开放这两个端口，或者输入应用显示的地址。</li>
+<li>没有服务器，无需账号，没有遥测。任何数据都不会离开你的网络。</li>
+</ul>
+
+<div class="cta">
+  <a class="btn btn-signal" href="https://github.com/MathisZerbib/mouseos/releases/latest">下载 .deb / .rpm</a>
+  <a class="btn btn-line" href="./#install">安装指南</a>
+</div>
+
+<div class="more">
+<p><strong>更多指南：</strong><a href="/zh/phone-as-mouse.html">手机当鼠标</a> · <a href="/zh/presentation-remote.html">手机当演示翻页器</a> · <a href="/zh/tv-remote.html">手机当电视遥控器</a> · <a href="/zh/alternatives.html">MouseOS 与其他遥控应用</a></p>
+</div>
+<div class="langs-row"><nav class="langs" aria-label="语言">
+      <a href="/linux-remote-mouse.html" hreflang="en" lang="en">English</a>
+      <a href="/fr/linux-remote-mouse.html" hreflang="fr" lang="fr">Français</a>
+      <a href="/pt/linux-remote-mouse.html" hreflang="pt-BR" lang="pt-BR">Português</a>
+      <a href="/es/linux-remote-mouse.html" hreflang="es" lang="es">Español</a>
+      <a href="/de/linux-remote-mouse.html" hreflang="de" lang="de">Deutsch</a>
+      <a href="/it/linux-remote-mouse.html" hreflang="it" lang="it">Italiano</a>
+      <a href="/ja/linux-remote-mouse.html" hreflang="ja" lang="ja">日本語</a>
+      <a href="/zh/linux-remote-mouse.html" hreflang="zh-Hans" lang="zh-Hans" aria-current="page">中文</a>
+    </nav></div>
+</main>
+<footer class="foot"><div class="wrap foot-row"><a class="wordmark" href="/zh/">MOUSE<span>OS</span></a><nav aria-label="页脚"><a href="./#install">安装</a><a href="/zh/privacy-policy.html">隐私</a><a href="https://github.com/MathisZerbib/mouseos">GitHub</a><a href="mailto:support@mouseos.app">联系</a></nav><p class="fine">© 2026 MouseOS</p></div></footer>
+</body></html>

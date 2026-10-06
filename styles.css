@@ -502,6 +502,13 @@ details p { padding: 0 0 24px; color: var(--dim); max-width: 44em; }
 .foot nav a:hover { color: var(--bone); }
 .foot .fine { margin-left: auto; }
 .foot .foot-legal { flex-basis: 100%; margin-left: 0; text-transform: none; letter-spacing: .02em; }
+/* the same page in the other languages (tools/site/i18n.py writes website/<lang>/) */
+.langs { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.foot .langs a, .langs a { font: 500 12px/1.6 var(--sans); letter-spacing: 0; text-transform: none; color: var(--faint); text-decoration: none; }
+.foot .langs a:hover, .langs a:hover { color: var(--bone); }
+.foot .langs a[aria-current], .langs a[aria-current] { color: var(--bone); border-bottom: 1px solid var(--signal); }
+.langs-row { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line); }
+.langs-row .langs { margin: 0; }
 
 /* ——— privacy policy page ——— */
 .doc .nav-link { margin-left: auto; font-size: 12px; color: var(--dim); text-decoration: none; }
