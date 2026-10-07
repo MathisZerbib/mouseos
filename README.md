@@ -39,7 +39,7 @@
 |---|---|---|
 | **Mac** — Apple silicon, macOS 11+ ([.dmg](https://github.com/MathisZerbib/mouseos/releases/latest)) | **Samsung** | **Android** 8+ — closed beta, [join it](https://mouseos.app/#beta) |
 | **Windows** — 10 & 11, 64‑bit ([.msi](https://github.com/MathisZerbib/mouseos/releases/latest)) | **LG** | **iPhone** — on the way |
-| **Linux** — 64‑bit, X11 or Wayland ([.deb / .rpm](https://github.com/MathisZerbib/mouseos/releases/latest)) | **Google TV** (Sony, TCL, Philips…) | |
+| **Linux** — x86_64 and arm64 (Raspberry Pi), X11 or Wayland ([.deb / .rpm](https://github.com/MathisZerbib/mouseos/releases/latest)) | **Google TV** (Sony, TCL, Philips…) | |
 
 ## Install — two minutes, once
 
@@ -68,7 +68,7 @@ Start on your computer, finish on your phone. Keep both on the same Wi‑Fi. The
 
 **On Windows** — run the `.msi` (no admin rights needed). If Windows says it protected your PC: **More info → Run anyway**. The first time MouseOS opens, allow network access, and make sure your Wi‑Fi is a **Private** network. Then steps 3 and 4.
 
-**On Linux** — install the `.deb` (Ubuntu, Debian, Mint) or the `.rpm` (Fedora, openSUSE). On Wayland, click **ALLOW CONTROL** in MouseOS and type your password once; on X11 there's nothing to do. Then steps 3 and 4.
+**On Linux** — install the `.deb` (Ubuntu, Debian, Mint; `arm64` for Raspberry Pi OS) or the `.rpm` (Fedora, openSUSE): the package grants Wayland's `uinput` and starts MouseOS with your session. Then steps 3 and 4. No mouse on that computer? Over SSH, `mouseos allow --next 2m` lets the first phone in (`mouseos status | list | forget` too).
 
 ## Private by design
 
