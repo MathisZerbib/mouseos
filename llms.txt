@@ -12,7 +12,7 @@
 - The six screens: PAD (trackpad: tap to click, two‑finger scroll or scroll strip, hold to drag), AIR (air mouse: aim the phone like a TV remote, gyroscope), REMOTE (arrows, play/pause, the computer's volume, next episode), TV, KEYS (keyboard in any language, accents and emoji), SLIDES (presentation clicker: giant next/previous, a timer, the volume buttons click).
 - Connection: the phone and the computer talk directly over the local Wi‑Fi network, or over the phone's hotspot. No internet, no server, no account. The computer finds the phone by itself; each new phone is approved once with one ALLOW click on the computer.
 - Privacy: no account, no cloud, no analytics, no advertising SDK. Nothing leaves your network. Policy: https://mouseos.app/privacy-policy.html
-- Version: 2.3.1 (October 2026).
+- Version: 2.3.2 (October 2026).
 - Developer: Mathis Zerbib, independent. Contact: support@mouseos.app
 - Languages: the site is in English at https://mouseos.app/ and in French (/fr/), Portuguese (/pt/), Spanish (/es/), German (/de/), Italian (/it/), Japanese (/ja/) and Chinese (/zh/) — the same pages, each at that path.
 

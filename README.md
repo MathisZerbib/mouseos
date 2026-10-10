@@ -78,7 +78,7 @@ Start on your computer, finish on your phone. Keep both on the same Wi‑Fi. The
 
 ## Stuck?
 
-- **macOS won't open it** — System Settings → Privacy & Security, scroll down, **Open Anyway**. Only the first time: MouseOS isn't notarized yet.
+- **macOS won't open it** ("Apple could not verify…") — close the warning, then System Settings → Privacy & Security, scroll down, **Open Anyway**. Or in Terminal: `xattr -dr com.apple.quarantine /Applications/MouseOS.app`. Once per download: MouseOS isn't notarized yet.
 - **Windows says it protected your PC** — **More info → Run anyway**. Only the first time: MouseOS isn't signed by Microsoft yet.
 - **The phone doesn't find the computer** — same Wi‑Fi, VPN off. Café or hotel Wi‑Fi hides devices from each other: turn on your phone's hotspot and join it from the computer, or tap **TYPE THE ADDRESS** on the phone. On Windows, your Wi‑Fi must be a Private network.
 - **The pointer doesn't move** — Mac: System Settings → Privacy & Security → Accessibility: switch MouseOS on. Linux on Wayland: open MouseOS and click **ALLOW CONTROL**.
