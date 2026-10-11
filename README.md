@@ -70,6 +70,13 @@ Start on your computer, finish on your phone. Keep both on the same Wi‑Fi. The
 
 **On Linux** — install the `.deb` (Ubuntu, Debian, Mint; `arm64` for Raspberry Pi OS) or the `.rpm` (Fedora, openSUSE): the package grants Wayland's `uinput` and starts MouseOS with your session. Then steps 3 and 4. No mouse on that computer? Over SSH, `mouseos allow --next 2m` lets the first phone in (`mouseos status | list | forget` too).
 
+**From the command line** — on a Mac with [Homebrew](https://brew.sh) (no "Open Anyway" needed this way):
+
+```sh
+brew tap mathiszerbib/mouseos https://github.com/MathisZerbib/mouseos
+brew install --cask mouseos
+```
+
 ## Private by design
 
 - **No account, no cloud, no tracking.** Phone and Mac talk directly over your Wi‑Fi.
