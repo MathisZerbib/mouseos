@@ -1,6 +1,6 @@
 Mona Sans is licensed under the SIL Open Font License 1.1.
 Copyright (c) 2022 GitHub Inc. — https://github.com/github/mona-sans
-The file here is one instance (weight 700, width 112 %), Latin only, of the build Google Fonts serves, made with fontTools.
+The files here are instances (weight 700, width 112 %, Latin only; weight 800, width 112 %, digits only) of the build Google Fonts serves, made with fontTools.
 
 Copyright (c) 2023, GitHub https://github.com/github/mona-sans
 with Reserved Font Name "Mona Sans"
