@@ -1,7 +1,7 @@
 {
   "name": "MouseOS",
   "short_name": "MouseOS",
-  "description": "Your phone is your computer's mouse. Trackpad, air mouse, keyboard and remote for Mac, Windows, Linux and TV. Free, no account, no cloud.",
+  "description": "Your phone is your computer's mouse. Trackpad, air mouse, keyboard and remote for Mac, Windows, Linux and TV. Free, no ads.",
   "start_url": "/",
   "display": "browser",
   "background_color": "#131311",

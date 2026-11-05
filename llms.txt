@@ -1,17 +1,17 @@
 # MouseOS
 
-> MouseOS turns an Android phone into a wireless trackpad, air mouse, keyboard, media remote and presentation clicker for a Mac, a Windows PC or a Linux computer — and into a remote for Samsung, LG and Google TVs. It is free, works over the local Wi‑Fi with no internet connection, and has no account, no cloud, no ads and no tracking. Website: https://mouseos.app/
+> MouseOS turns an Android phone into a wireless trackpad, air mouse, keyboard, media remote and presentation clicker for a Mac, a Windows PC or a Linux computer — and into a remote for Samsung, LG and Google TVs. It is free and works over the local Wi‑Fi (the internet is needed only to sign in once), with no cloud, no ads and no tracking. Website: https://mouseos.app/
 
 ## Facts
 
 - Name: MouseOS (on Google Play: "MouseOS — Mac, PC & TV Remote")
-- Price: free, no ads. An optional tip can be left in the app's Settings.
+- Price: free, no ads. The phone app asks for a free MouseOS account (email and password, or Google), which can be deleted in one tap.
 - Phone app: Android 8 or later. In closed beta on Google Play: join at https://mouseos.app/#beta with a Google account email, get added to the test, install from Google Play. iPhone: on the way.
 - Computer app (free, required for computers, not for TVs): macOS 11 or later on Apple silicon (.dmg), Windows 10 and 11 64‑bit (.msi), Linux 64‑bit on X11 or Wayland (.deb for Ubuntu/Debian/Mint, .rpm for Fedora/openSUSE). Downloads: https://github.com/MathisZerbib/mouseos/releases/latest
 - TVs: Samsung, LG and Google TV (Sony, TCL, Philips…), controlled straight from the phone over the same Wi‑Fi.
 - The six screens: PAD (trackpad: tap to click, two‑finger scroll or scroll strip, hold to drag), AIR (air mouse: aim the phone like a TV remote, gyroscope), REMOTE (arrows, play/pause, the computer's volume, next episode), TV, KEYS (keyboard in any language, accents and emoji), SLIDES (presentation clicker: giant next/previous, a timer, the volume buttons click).
-- Connection: the phone and the computer talk directly over the local Wi‑Fi network, or over the phone's hotspot. No internet, no server, no account. The computer finds the phone by itself; each new phone is approved once with one ALLOW click on the computer.
-- Privacy: no account, no cloud, no analytics, no advertising SDK. Nothing leaves your network. Policy: https://mouseos.app/privacy-policy.html
+- Connection: the phone and the computer talk directly over the local Wi‑Fi network, or over the phone's hotspot. No server: the internet is needed only to sign in once. The computer finds the phone by itself; each new phone is approved once with one ALLOW click on the computer.
+- Privacy: no cloud, no analytics, no advertising SDK. What you do never leaves your network; the only data kept is the account (email address), in the EU. Policy: https://mouseos.app/privacy-policy.html · Terms: https://mouseos.app/terms.html
 - Version: 2.10.0 (November 2026).
 - Developer: Mathis Zerbib, independent. Contact: support@mouseos.app
 - Languages: the site is in English at https://mouseos.app/ and in French (/fr/), Portuguese (/pt/), Spanish (/es/), German (/de/), Italian (/it/), Japanese (/ja/) and Chinese (/zh/) — the same pages, each at that path.
