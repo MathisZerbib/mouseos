@@ -19,7 +19,7 @@ cask "mouseos" do
 
   app "MouseOS.app"
 
-  # Ad-hoc signed, not notarized: without this, macOS asks for "Open anyway" first.
+  # Notarized since 2.16.0; kept for self-signed builds, where macOS would ask "Open anyway" first.
   postflight do
     system_command "/usr/bin/xattr",
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/MouseOS.app"],
