@@ -36,15 +36,14 @@
 
 | Computer | Phone | TV |
 |---|---|---|
-| **Mac** · macOS 11+, Apple silicon · [.dmg](https://github.com/MathisZerbib/mouseos/releases/latest) | **Android** 8+ · [Google Play](https://mouseos.app/#beta) | **Samsung** |
+| **Mac** · macOS 11+, Apple silicon · [.dmg](https://github.com/MathisZerbib/mouseos/releases) | **Android** 8+ · [Google Play](https://mouseos.app/#beta) | **Samsung** |
 | **Windows** · 10 & 11 · [.msi](https://github.com/MathisZerbib/mouseos/releases/latest) | **iPhone** · coming soon | **LG** |
 | **Linux** · x86_64 & arm64 · [.deb / .rpm](https://github.com/MathisZerbib/mouseos/releases/latest) | | **Google TV** |
 
 On a Mac with [Homebrew](https://brew.sh):
 
 ```sh
-brew tap mathiszerbib/mouseos https://github.com/MathisZerbib/mouseos
-brew install --cask mouseos
+brew install mathiszerbib/mouseos/mouseos
 ```
 
 ## Three steps
@@ -59,7 +58,6 @@ Phone and computer talk directly over your Wi‑Fi. No tracking. Every new phone
 
 ## Stuck?
 
-- **Mac won't open it** → System Settings → Privacy & Security → **Open Anyway**.
 - **Windows protected your PC** → **More info → Run anyway**.
 - **Phone doesn't find the computer** → same Wi‑Fi, VPN off, or turn on your phone's hotspot.
 - **Anything else** → [support@mouseos.app](mailto:support@mouseos.app) · [FAQ](https://mouseos.app/#faq)
