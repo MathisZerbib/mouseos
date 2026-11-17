@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" class="ok">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>MouseOS</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preload" as="image" href="assets/mouse-signin.webp">
+<style>
+:root{
+  --page:#f0f4f8;--face:#f1f5f9;--shade:#c8d7e7;--glow:#fff;--rim:#dce5ef;
+  --ink:#1e1f1f;--soft:#6b7280;--signal:#ff4d00;--ok:#2fc868;--bad:#ff4d00;
+}
+@media (prefers-color-scheme:dark){:root{
+  --page:#334155;--face:#364459;--shade:#1e2836;--glow:#475669;--rim:#475569;
+  --ink:#f1f5f9;--soft:#94a3b8;
+}}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:32px 20px;background:var(--page);color:var(--ink);text-align:center;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Hiragino Sans","PingFang SC","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+main{width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center}
+
+/* The mouse: rises, clicks, and the result lands on it. */
+.stage{position:relative;width:120px;height:214px;margin-bottom:36px;animation:rise .7s cubic-bezier(.2,.9,.25,1.15) both}
+.mouse{width:100%;height:100%;display:block;transform-origin:50% 90%;animation:click .32s ease-in-out .78s both}
+.bad .mouse{animation:shake .5s ease-in-out .8s both}
+.ring{position:absolute;left:50%;top:22%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;
+  border:3px solid var(--signal);opacity:0;animation:ring .8s ease-out .86s both}
+.badge{position:absolute;right:-14px;bottom:30px;width:50px;height:50px;border-radius:50%;
+  display:grid;place-items:center;background:var(--face);
+  box-shadow:5px 5px 12px var(--shade),-5px -5px 12px var(--glow);
+  transform:scale(0);animation:pop .45s cubic-bezier(.3,1.6,.5,1) 1.05s both}
+.badge svg{width:26px;height:26px;fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
+.ok .badge svg{stroke:var(--ok)}
+.bad .badge svg{stroke:var(--bad)}
+.badge path{stroke-dasharray:30;stroke-dashoffset:30;animation:draw .35s ease-out 1.3s forwards}
+
+h1{margin:0 0 12px;font-size:30px;line-height:1.15;font-weight:800;letter-spacing:-.4px;
+  opacity:0;animation:fade .5s ease-out .95s both}
+p.text{margin:0;font-size:17px;line-height:1.5;color:var(--soft);max-width:360px;
+  opacity:0;animation:fade .5s ease-out 1.05s both}
+
+/* The way to close the tab, as keys. */
+.hint{margin-top:32px;display:inline-flex;align-items:center;gap:10px;padding:12px 18px 12px 14px;border-radius:999px;
+  background:var(--page);box-shadow:inset 3px 3px 7px var(--shade),inset -3px -3px 7px var(--glow);
+  font-size:14px;color:var(--soft);opacity:0;animation:fade .5s ease-out 1.25s both}
+kbd{font:600 13px/1 inherit;font-family:inherit;color:var(--ink);min-width:28px;padding:7px 9px;border-radius:9px;
+  background:var(--face);box-shadow:2px 2px 5px var(--shade),-2px -2px 5px var(--glow)}
+.keys{display:inline-flex;gap:6px}
+
+footer{position:fixed;bottom:24px;left:0;right:0;font:900 13px/1 -apple-system,"Segoe UI",Roboto,sans-serif;
+  letter-spacing:2.5px;color:var(--soft);opacity:.7}
+footer span{color:var(--signal)}
+
+@keyframes rise{from{opacity:0;transform:translateY(40px) scale(.94)}to{opacity:1;transform:none}}
+@keyframes click{50%{transform:scale(.965,.95)}}
+@keyframes ring{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(2.6)}}
+@keyframes pop{to{transform:scale(1)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes shake{0%,100%{transform:none}20%{transform:rotate(-7deg)}45%{transform:rotate(6deg)}70%{transform:rotate(-3deg)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important}}
+@media (max-height:560px){.stage{width:84px;height:150px;margin-bottom:24px}.badge{width:40px;height:40px;right:-12px;bottom:20px}}
+</style>
+</head>
+<body data-no-analytics>
+<main>
+  <div class="stage" aria-hidden="true">
+    <img class="mouse" alt="" src="assets/mouse-signin.webp" width="240" height="429">
+    <span class="ring"></span>
+    <span class="badge"><svg viewBox="0 0 24 24"><path id="icon" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+  </div>
+  <h1 id="title">You're signed in</h1>
+  <p class="text" id="text">All set, head back to MouseOS.</p>
+  <div class="hint"><span class="keys" id="keys"><kbd>Ctrl</kbd><kbd>W</kbd></span><span id="close">to close this tab</span></div>
+</main>
+<footer>MOUSE<span>OS</span></footer>
+<script>
+/* The page MouseOS on the computer sends the browser to once Google or Apple signed in:
+   ?s=ok|cancel|fail&lang=fr&os=mac (composeApp/src/desktopMain/kotlin/remote/LoopbackSignIn.kt). */
+(function(){
+var W={
+en:["You're signed in","All set, head back to MouseOS.","Sign-in cancelled","Head back to MouseOS to try again.","Sign-in didn't work","Head back to MouseOS and try again.","to close this tab"],
+fr:["Vous êtes connecté","Tout est prêt, revenez sur MouseOS.","Connexion annulée","Revenez sur MouseOS pour réessayer.","La connexion a échoué","Revenez sur MouseOS et réessayez.","pour fermer cet onglet"],
+de:["Sie sind angemeldet","Alles bereit, kehren Sie zu MouseOS zurück.","Anmeldung abgebrochen","Kehren Sie zu MouseOS zurück, um es erneut zu versuchen.","Anmeldung fehlgeschlagen","Kehren Sie zu MouseOS zurück und versuchen Sie es erneut.","um diesen Tab zu schließen"],
+es:["Has iniciado sesión","Todo listo, vuelve a MouseOS.","Inicio de sesión cancelado","Vuelve a MouseOS para intentarlo de nuevo.","No se pudo iniciar sesión","Vuelve a MouseOS e inténtalo de nuevo.","para cerrar esta pestaña"],
+it:["Accesso effettuato","Tutto pronto, torna su MouseOS.","Accesso annullato","Torna su MouseOS per riprovare.","Accesso non riuscito","Torna su MouseOS e riprova.","per chiudere questa scheda"],
+pt:["Você entrou","Tudo pronto, volte para o MouseOS.","Login cancelado","Volte para o MouseOS para tentar de novo.","Não foi possível entrar","Volte para o MouseOS e tente de novo.","para fechar esta aba"],
+ja:["ログインしました","準備完了です。MouseOS に戻ってください。","ログインがキャンセルされました","MouseOS に戻って、もう一度お試しください。","ログインできませんでした","MouseOS に戻って、もう一度お試しください。","でこのタブを閉じます"],
+zh:["登录成功","一切就绪，请返回 MouseOS。","登录已取消","请返回 MouseOS 重试。","登录失败","请返回 MouseOS 再试一次。","关闭此标签页"]};
+var q=new URLSearchParams(location.search),s=q.get("s")||"ok";
+var lang=(q.get("lang")||navigator.language||"en").slice(0,2).toLowerCase();if(!W[lang])lang="en";
+var w=W[lang],i=s==="cancel"?2:s==="fail"?4:0,$=function(id){return document.getElementById(id)};
+document.documentElement.lang=lang;document.documentElement.className=i?"bad":"ok";
+$("title").textContent=w[i];$("text").textContent=w[i+1];$("close").textContent=w[6];document.title=w[i]+" · MouseOS";
+if(i)$("icon").setAttribute("d","M12 5v9M12 19v.5");
+var mac=(q.get("os")||"")==="mac"||(!q.get("os")&&/Mac/.test(navigator.platform));
+if(mac)$("keys").innerHTML="<kbd>⌘</kbd><kbd>W</kbd>";
+/* the one-time code never stays in the address bar or the history */
+if(history.replaceState)history.replaceState(null,"",location.pathname);
+if(!i)setTimeout(function(){window.close()},4000);
+})();
+</script>
+</body>
+</html>
