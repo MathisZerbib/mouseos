@@ -5,13 +5,13 @@
 ## Facts
 
 - Name: MouseOS (on Google Play: "MouseOS — Mac, PC & TV Remote")
-- Price: free, no ads. The phone app asks for a free MouseOS account (email and password, or Google), which can be deleted in one tap.
+- Price: free, no ads. MouseOS Pro (one-time purchase or subscription) adds Bluetooth mode, more than one computer, the talk timer, the laser pointer and speaker notes. The phone app asks for a free MouseOS account (email and password, or Google), which can be deleted in one tap.
 - Phone app: Android 8 or later. In closed beta on Google Play: join at https://mouseos.app/#beta with a Google account email, get added to the test, install from Google Play. iPhone: on the way.
 - Computer app (free, required for computers, not for TVs): macOS 11 or later on Apple silicon (.dmg), Windows 10 and 11 64‑bit (.msi), Linux 64‑bit on X11 or Wayland (.deb for Ubuntu/Debian/Mint, .rpm for Fedora/openSUSE). Downloads: https://github.com/MathisZerbib/mouseos/releases/latest
 - TVs: Samsung, LG and Google TV (Sony, TCL, Philips…), controlled straight from the phone over the same Wi‑Fi.
-- The six screens: PAD (trackpad: tap to click, two‑finger scroll or scroll strip, hold to drag), AIR (air mouse: aim the phone like a TV remote, gyroscope), REMOTE (arrows, play/pause, the computer's volume, next episode), TV, KEYS (keyboard in any language, accents and emoji), SLIDES (presentation clicker: giant next/previous, a timer, the volume buttons click).
+- The six screens: PAD (trackpad: tap to click, two‑finger scroll or scroll strip, hold to drag), AIR (air mouse: aim the phone like a TV remote, gyroscope), REMOTE (arrows, play/pause, the computer's volume, next episode), TV, KEYS (keyboard in any language, accents and emoji), SLIDES (presentation clicker: giant next/previous, the volume buttons click; talk timer with Pro).
 - Connection: the phone and the computer talk directly over the local Wi‑Fi network, or over the phone's hotspot. No server: the internet is needed only to sign in once. The computer finds the phone by itself; each new phone is approved once with one ALLOW click on the computer.
-- Privacy: no cloud, no analytics, no advertising SDK. What you do never leaves your network; the only data kept is the account (email address), in the EU. Policy: https://mouseos.app/privacy-policy.html · Terms: https://mouseos.app/terms.html
+- Privacy: no cloud, no advertising SDK. What you do never leaves your network. The apps send anonymous usage counts (PostHog, can be turned off) and crash reports; the account (email address) is kept in the EU. Policy: https://mouseos.app/privacy-policy.html · Terms: https://mouseos.app/terms.html
 - Version: 2.17.0 (November 2026).
 - Developer: Mathis Zerbib, independent. Contact: support@mouseos.app
 - Languages: the site is in English at https://mouseos.app/ and in French (/fr/), Portuguese (/pt/), Spanish (/es/), German (/de/), Italian (/it/), Japanese (/ja/) and Chinese (/zh/) — the same pages, each at that path.
@@ -26,7 +26,7 @@
 
 - [MouseOS](https://mouseos.app/): download, the install guide for Mac, Windows and Linux, the six screens, FAQ
 - [Use your phone as a mouse](https://mouseos.app/phone-as-mouse.html): set up a trackpad, air mouse and keyboard for Mac, Windows or Linux
-- [Phone as a presentation clicker](https://mouseos.app/presentation-remote.html): Keynote, PowerPoint, Google Slides; volume buttons turn slides, a timer that buzzes
+- [Phone as a presentation clicker](https://mouseos.app/presentation-remote.html): Keynote, PowerPoint, Google Slides; volume buttons turn slides, a talk timer with MouseOS Pro
 - [Phone as a TV remote](https://mouseos.app/tv-remote.html): Samsung, LG and Google TV over Wi‑Fi, pairing for each
 - [Linux, X11 and Wayland](https://mouseos.app/linux-remote-mouse.html): how input works on each session (XTest, uinput), ports, packages
 - [MouseOS and other remote apps](https://mouseos.app/alternatives.html): what it does differently from Unified Remote, Remote Mouse and KDE Connect, and when they fit better
