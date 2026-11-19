@@ -3,110 +3,184 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="color-scheme" content="light dark">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#09090d">
 <title>MouseOS</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="referrer" content="no-referrer">
-<link rel="icon" href="assets/favicon.png">
-<link rel="preload" as="image" href="assets/mouse-signin.webp">
+<link rel="icon" href="/favicon.png">
 <style>
-:root{
-  --page:#f0f4f8;--face:#f1f5f9;--shade:#c8d7e7;--glow:#fff;--rim:#dce5ef;
-  --ink:#1e1f1f;--soft:#6b7280;--signal:#ff4d00;--ok:#2fc868;--bad:#ff4d00;
-}
-@media (prefers-color-scheme:dark){:root{
-  --page:#334155;--face:#364459;--shade:#1e2836;--glow:#475669;--rim:#475569;
-  --ink:#f1f5f9;--soft:#94a3b8;
-}}
+/* The page the browser shows once Google or Apple signed in, in the art direction of the landing: the giant
+   MOUSEOS behind, the phone in 3D turning round to show the result on its screen, the two keys that close the tab
+   floating beside it. The tab never closes by itself: the button does it, or the keys. */
+@font-face{font-family:"Mona Sans";font-weight:700;font-stretch:112%;src:url(/fonts/mona-sans-display.woff2) format("woff2");font-display:swap}
+@font-face{font-family:"Mona Sans Digits";font-weight:800;font-stretch:112%;src:url(/fonts/mona-sans-digits.woff2) format("woff2");font-display:swap}
+:root{--page:#09090d;--ink:#f5f1ea;--soft:#b9b3aa;--signal:#ff4d00;--rim:rgba(255,255,255,.12);--ok:#2fc868}
 *{box-sizing:border-box}
 html,body{margin:0;height:100%}
 body{
-  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:32px 20px;background:var(--page);color:var(--ink);text-align:center;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Hiragino Sans","PingFang SC","Microsoft YaHei",sans-serif;
+  min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:var(--page);color:var(--soft);overflow-x:hidden;
+  background-image:radial-gradient(70% 46% at 50% 108%,rgba(255,90,20,.3),transparent 70%);background-repeat:no-repeat;background-attachment:fixed;
+  font:400 16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Sans","PingFang SC","Microsoft YaHei",sans-serif;
   -webkit-font-smoothing:antialiased;
 }
-main{width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center}
+header{padding:26px 32px;position:relative;z-index:3}
+.logo{font:700 20px/1 "Mona Sans",system-ui,sans-serif;font-stretch:112%;letter-spacing:.01em;color:var(--ink);text-decoration:none}
+.logo b{color:var(--signal)}
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 20px 64px}
 
-/* The mouse: rises, clicks, and the result lands on it. */
-.stage{position:relative;width:120px;height:214px;margin-bottom:36px;animation:rise .7s cubic-bezier(.2,.9,.25,1.15) both}
-.mouse{width:100%;height:100%;display:block;transform-origin:50% 90%;animation:click .32s ease-in-out .78s both}
-.bad .mouse{animation:shake .5s ease-in-out .8s both}
-.ring{position:absolute;left:50%;top:22%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;
-  border:3px solid var(--signal);opacity:0;animation:ring .8s ease-out .86s both}
-.badge{position:absolute;right:-14px;bottom:30px;width:50px;height:50px;border-radius:50%;
-  display:grid;place-items:center;background:var(--face);
-  box-shadow:5px 5px 12px var(--shade),-5px -5px 12px var(--glow);
-  transform:scale(0);animation:pop .45s cubic-bezier(.3,1.6,.5,1) 1.05s both}
-.badge svg{width:26px;height:26px;fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round}
-.ok .badge svg{stroke:var(--ok)}
-.bad .badge svg{stroke:var(--bad)}
-.badge path{stroke-dasharray:30;stroke-dashoffset:30;animation:draw .35s ease-out 1.3s forwards}
+/* The stage, as on the landing: a giant word behind, the phone in front, a few things floating around. */
+.stage{position:relative;width:100%;max-width:1100px;display:grid;place-items:center;font-size:var(--s);user-select:none;-webkit-user-select:none}
+.big{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;white-space:nowrap;line-height:.8;color:rgba(245,241,234,.085);animation:big 1s cubic-bezier(.2,.8,.2,1) both}
+.big b{color:var(--signal);font-weight:inherit}
+.chip{position:absolute;z-index:2;font-size:max(.07em,11px);animation:pop .6s cubic-bezier(.3,1.5,.5,1) both,bob 6s ease-in-out infinite}
+.chip>span{display:grid;place-items:center;height:2.4em;min-width:2.4em;padding:0 .62em;border-radius:.66em;transform:rotate(var(--r,0deg));
+  background:linear-gradient(145deg,#25262f,#15161b);border:1px solid var(--rim);box-shadow:0 1.1em 2em -.7em rgba(0,0,0,.8),0 1px 0 rgba(255,255,255,.08) inset;
+  color:var(--ink);font-weight:650;font-size:1em;line-height:1;white-space:nowrap}
+.chip.pill>span{display:flex;gap:.55em;height:auto;padding:.72em 1.05em;border-radius:.8em;font-size:.56em}
+.chip.pill i{width:.6em;height:.6em;border-radius:50%;background:var(--dot,var(--signal));box-shadow:0 0 0 .28em color-mix(in srgb,var(--dot,var(--signal)) 25%,transparent)}
+.chip.hot>span{background:linear-gradient(145deg,#ff7a3d,#ff4d00);border-color:rgba(255,255,255,.3);color:#fff}
+.dot{position:absolute;z-index:2;width:.05em;height:.05em;min-width:14px;min-height:14px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 .022em rgba(255,77,0,.25);animation:pulse 2.4s ease-in-out infinite}
 
-h1{margin:0 0 12px;font-size:30px;line-height:1.15;font-weight:800;letter-spacing:-.4px;
-  opacity:0;animation:fade .5s ease-out .95s both}
-p.text{margin:0;font-size:17px;line-height:1.5;color:var(--soft);max-width:360px;
-  opacity:0;animation:fade .5s ease-out 1.05s both}
-
-/* The way to close the tab, as keys. */
-.hint{margin-top:32px;display:inline-flex;align-items:center;gap:10px;padding:12px 18px 12px 14px;border-radius:999px;
-  background:var(--page);box-shadow:inset 3px 3px 7px var(--shade),inset -3px -3px 7px var(--glow);
-  font-size:14px;color:var(--soft);opacity:0;animation:fade .5s ease-out 1.25s both}
-kbd{font:600 13px/1 inherit;font-family:inherit;color:var(--ink);min-width:28px;padding:7px 9px;border-radius:9px;
-  background:var(--face);box-shadow:2px 2px 5px var(--shade),-2px -2px 5px var(--glow)}
-.keys{display:inline-flex;gap:6px}
-
-footer{position:fixed;bottom:24px;left:0;right:0;font:900 13px/1 -apple-system,"Segoe UI",Roboto,sans-serif;
-  letter-spacing:2.5px;color:var(--soft);opacity:.7}
-footer span{color:var(--signal)}
-
-@keyframes rise{from{opacity:0;transform:translateY(40px) scale(.94)}to{opacity:1;transform:none}}
-@keyframes click{50%{transform:scale(.965,.95)}}
-@keyframes ring{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(2.6)}}
-@keyframes pop{to{transform:scale(1)}}
+/* The phone, in volume: a front, a back, and a stack of slices between them that makes the metal band. */
+/* the fade-in sits on the scene, never on the phone: an animated opacity would flatten its volume */
+.scene{position:relative;perspective:1000px;animation:float 5s ease-in-out infinite,appear .5s ease-out both}
+@keyframes appear{from{opacity:0}}
+.lean,.flip{display:block;transform-style:preserve-3d}
+.lean{transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .3s ease-out}
+.flip{transform:rotateY(var(--f,0deg));transition:transform 1s cubic-bezier(.3,.9,.3,1)}
+.ph{display:block;position:relative;width:var(--pw);aspect-ratio:540/1150;transform-style:preserve-3d;--t:calc(var(--pw)*.15)}
+.ph>*{position:absolute;inset:0;border-radius:calc(var(--pw)*.155)}
+/* brushed titanium: light along the top and one side, darker toward the other */
+.ph .sl{transform:translateZ(calc(var(--t)*var(--k)));
+  background:linear-gradient(100deg,#8d929d,#4a4e58 12%,#2b2e36 50%,#565a65 88%,#a3a8b3);box-shadow:0 0 0 1px rgba(255,255,255,.07) inset}
+/* the buttons on the edges: thin plates standing out of the band */
+.ph .bt{inset:auto;left:100%;top:var(--y);width:calc(var(--t)*.5);height:var(--h);border-radius:calc(var(--pw)*.012);
+  transform-origin:0 50%;transform:translateZ(calc(var(--t)*.25)) rotateY(90deg) translateZ(calc(var(--pw)*.012));background:linear-gradient(#9a9faa,#454954)}
+.ph .bt.l{left:auto;right:100%;transform-origin:100% 50%;transform:translateZ(calc(var(--t)*.25)) rotateY(-90deg) translateZ(calc(var(--pw)*.012))}
+.ph .bt::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#6c717c;transform:rotateY(90deg) translateZ(calc(var(--pw)*.006))}
+.ph .front{background:#050608;padding:calc(var(--pw)*.034);transform:translateZ(calc(var(--t)/2 + 1px));backface-visibility:hidden;
+  box-shadow:0 0 0 calc(var(--pw)*.012) #7d828d inset,0 0 0 calc(var(--pw)*.02) #17181d inset}
+.ph .front::after{content:"";position:absolute;top:calc(var(--pw)*.056);left:50%;width:25%;height:calc(var(--pw)*.064);transform:translateX(-50%);background:#000;border-radius:99px;box-shadow:0 0 0 1px rgba(255,255,255,.05)}
+.ph .front::before{content:"";position:absolute;inset:0;border-radius:inherit;z-index:2;pointer-events:none;
+  background:linear-gradient(112deg,rgba(255,255,255,.22),rgba(255,255,255,.04) 26%,transparent 42%,transparent 72%,rgba(255,255,255,.07))}
+.ph .scr{position:relative;display:block;width:100%;height:100%;border-radius:calc(var(--pw)*.122);overflow:hidden;background:#101116}
+.ph .scr img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.ph .back{transform:rotateY(180deg) translateZ(calc(var(--t)/2 + 1px));backface-visibility:hidden;transform-style:preserve-3d;
+  background:linear-gradient(150deg,#3a3e48,#17191e 55%,#262930);box-shadow:0 0 0 calc(var(--pw)*.012) #7d828d inset;display:grid;place-items:center}
+/* the size of the word is set on the word itself: --pw can be in em, and must not be read against a smaller font */
+.ph .back>span{font:700 calc(var(--pw)*.085)/1 "Mona Sans",system-ui,sans-serif;font-stretch:112%;letter-spacing:.02em;color:#f1f1f1}
+.ph .back b{color:#ff4d00}
+/* the camera block stands out of the back, its lenses out of the block */
+.ph .back i{position:absolute;left:8%;top:4.5%;width:40%;aspect-ratio:1;border-radius:27%;transform:translateZ(calc(var(--t)*.14));
+  background:linear-gradient(150deg,#2c2f38,#101115);box-shadow:0 0 0 1.5px #555a65 inset,0 calc(var(--pw)*.02) calc(var(--pw)*.05) rgba(0,0,0,.6)}
+.ph .back i::before,.ph .back i::after{content:"";position:absolute;width:40%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 35% 32%,#5d6b86,#0b0d12 46%,#000 62%,#2a2d35 66%,#0c0d10 72%);box-shadow:0 0 0 calc(var(--pw)*.008) #6a6f7a}
+.ph .back i::before{left:9%;top:9%}.ph .back i::after{right:9%;bottom:9%}
+.ground{position:absolute;left:50%;bottom:calc(var(--pw)*-.3);width:calc(var(--pw)*1.7);height:calc(var(--pw)*.3);margin-left:calc(var(--pw)*-.85);border-radius:50%;
+  background:radial-gradient(closest-side,rgba(0,0,0,.8),transparent);animation:ground 5s ease-in-out infinite;pointer-events:none}
+@keyframes float{50%{translate:0 calc(var(--pw)*-.07)}}
+@keyframes ground{50%{transform:scale(.86);opacity:.7}}
+header{text-align:center}
+.stage{--s:min(21.5vw,34vh,290px);--pw:clamp(96px,20vh,150px);height:calc(var(--pw)*2.3);margin-bottom:34px}
+.big{top:42%;font:700 1em/.8 "Mona Sans",system-ui,sans-serif;font-stretch:112%;letter-spacing:-.03em}
+.ph{animation:turn 1.2s cubic-bezier(.2,.85,.25,1) .1s both,sway 6s ease-in-out 1.7s infinite alternate}
+.bad .ph{animation:turn 1.2s cubic-bezier(.2,.85,.25,1) .1s both,shake .5s ease-in-out 1.35s}
+.ph .scr{display:grid;place-items:center;background:radial-gradient(90% 60% at 50% 46%,var(--tone),transparent 70%),#101116}
+.ring{position:absolute;left:50%;top:50%;width:46%;aspect-ratio:1;margin:-23% 0 0 -23%;border-radius:50%;border:3px solid var(--tone-solid);opacity:0;animation:ring .9s ease-out 1.3s both}
+.badge{width:46%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:var(--tone-solid);
+  transform:scale(0);animation:land .45s cubic-bezier(.3,1.6,.5,1) 1.25s both}
+.badge svg{width:54%;height:54%;fill:none;stroke:#09090d;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round}
+.badge path{stroke-dasharray:30;stroke-dashoffset:30;animation:draw .35s ease-out 1.5s forwards}
+.ok{--tone:rgba(47,200,104,.22);--tone-solid:var(--ok);--dot:var(--ok)}
+.bad{--tone:rgba(255,77,0,.24);--tone-solid:var(--signal);--dot:var(--signal)}
+.bad .badge svg{stroke:#fff}
+.chip{font-size:max(.105em,12px)}
+.c1{left:calc(50% - 9.5em);top:8%;--r:-9deg;animation-delay:1.5s,0s}
+.c2{left:calc(50% + 5.6em);top:26%;--r:8deg;animation-delay:1.62s,-2s}
+.c3{font-size:max(.105em,22px);left:calc(50% - 12.5em);top:66%;--r:-4deg;animation-delay:1.74s,-4s}
+.dot{left:calc(50% + .62em);top:76%;background:var(--tone-solid);box-shadow:0 0 0 .03em var(--tone);animation:none}
+.cta{flex-direction:column;align-items:center;gap:16px}
+.btn{min-width:230px}
+.hint{font-size:14px;color:var(--soft)}
+.hint b{color:var(--ink);font-weight:650}
+.stay .chip:not(.pill)>span{animation:nudge .6s ease-in-out 2}
+.stay .hint{color:var(--ink)}
+@keyframes turn{from{transform:rotateY(-205deg) rotateX(12deg) scale(.7)}to{transform:rotateY(-34deg) rotateX(8deg)}}
+@keyframes sway{from{transform:rotateY(-34deg) rotateX(8deg)}to{transform:rotateY(-12deg) rotateX(3deg)}}
+@keyframes shake{0%,100%{transform:rotateY(-34deg) rotateX(8deg)}20%{transform:rotateY(-34deg) rotateX(8deg) rotateZ(-7deg)}45%{transform:rotateY(-34deg) rotateX(8deg) rotateZ(6deg)}70%{transform:rotateY(-34deg) rotateX(8deg) rotateZ(-3deg)}}
+@keyframes ring{0%{opacity:.9;transform:scale(.5)}100%{opacity:0;transform:scale(2.2)}}
+@keyframes land{to{transform:scale(1)}}
 @keyframes draw{to{stroke-dashoffset:0}}
-@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@keyframes shake{0%,100%{transform:none}20%{transform:rotate(-7deg)}45%{transform:rotate(6deg)}70%{transform:rotate(-3deg)}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important}}
-@media (max-height:560px){.stage{width:84px;height:150px;margin-bottom:24px}.badge{width:40px;height:40px;right:-12px;bottom:20px}}
+@keyframes nudge{50%{transform:rotate(var(--r,0deg)) scale(1.18);border-color:#ff9447}}
+
+h1{margin:0 0 12px;font:700 clamp(28px,4.4vw,48px)/1.05 "Mona Sans",system-ui,sans-serif;font-stretch:112%;letter-spacing:-.03em;color:var(--ink);text-wrap:balance;animation:fade .6s ease-out .5s both}
+p.text{margin:0;font-size:19px;line-height:1.5;color:var(--soft);max-width:440px;animation:fade .6s ease-out .6s both}
+.cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px;animation:fade .6s ease-out .7s both}
+.btn{all:unset;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 24px;border-radius:16px;font-size:16px;font-weight:650;text-decoration:none;white-space:nowrap;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .2s,box-shadow .2s,transform .2s}
+.btn svg{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.btn:active{transform:scale(.97)}
+.btn-signal{background:var(--signal);color:#fff;box-shadow:0 14px 34px -12px rgba(255,77,0,.7)}
+.btn-signal:hover{background:#ff6a29}
+.btn-line{color:var(--ink);background:rgba(255,255,255,.04);box-shadow:0 0 0 1px rgba(255,255,255,.2) inset}
+.btn-line:hover{box-shadow:0 0 0 1px rgba(255,255,255,.5) inset}
+a:focus-visible,.btn:focus-visible{outline:2px solid #ff9447;outline-offset:3px}
+
+@keyframes big{from{opacity:0;transform:translate(-50%,-42%) scale(.94)}to{opacity:1;transform:translate(-50%,-50%)}}
+@keyframes pop{from{opacity:0;scale:.4}to{opacity:1;scale:1}}
+@keyframes bob{50%{translate:0 -.5em}}
+@keyframes pulse{50%{box-shadow:0 0 0 .05em rgba(255,77,0,.12)}}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (max-width:640px){.stage{--s:min(23vw,30vh)}.c1{left:3%}.c2{left:auto;right:3%}.c3{left:0}.dot{left:auto;right:8%}.btn{align-self:stretch}}
+@media (max-height:640px){header{display:none}.stage{margin-bottom:22px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important}.ph{animation:none!important;transform:rotateY(-34deg) rotateX(8deg)}}
 </style>
 </head>
 <body data-no-analytics>
+<header><span class="logo" aria-hidden="true">MOUSE<b>OS</b></span></header>
 <main>
   <div class="stage" aria-hidden="true">
-    <img class="mouse" alt="" src="assets/mouse-signin.webp" width="240" height="429">
-    <span class="ring"></span>
-    <span class="badge"><svg viewBox="0 0 24 24"><path id="icon" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+    <span class="big">MOUSE<b>OS</b></span>
+    <span class="scene" id="zero"><span class="lean"><span class="flip"><span class="ph"><span class="back"><i></i><span>MOUSE<b>OS</b></span></span><span class="sl" style="--k:-0.440"></span><span class="sl" style="--k:-0.398"></span><span class="sl" style="--k:-0.356"></span><span class="sl" style="--k:-0.314"></span><span class="sl" style="--k:-0.272"></span><span class="sl" style="--k:-0.230"></span><span class="sl" style="--k:-0.189"></span><span class="sl" style="--k:-0.147"></span><span class="sl" style="--k:-0.105"></span><span class="sl" style="--k:-0.063"></span><span class="sl" style="--k:-0.021"></span><span class="sl" style="--k:0.021"></span><span class="sl" style="--k:0.063"></span><span class="sl" style="--k:0.105"></span><span class="sl" style="--k:0.147"></span><span class="sl" style="--k:0.189"></span><span class="sl" style="--k:0.230"></span><span class="sl" style="--k:0.272"></span><span class="sl" style="--k:0.314"></span><span class="sl" style="--k:0.356"></span><span class="sl" style="--k:0.398"></span><span class="sl" style="--k:0.440"></span><span class="bt" style="--y:27%;--h:13%"></span><span class="bt l" style="--y:21%;--h:5%"></span><span class="bt l" style="--y:30%;--h:8%"></span><span class="bt l" style="--y:40%;--h:8%"></span><span class="front"><span class="scr"><span class="ring"></span><span class="badge"><svg viewBox="0 0 24 24"><path id="icon" d="M5 12.5l4.5 4.5L19 7.5"/></svg></span></span></span></span></span></span><span class="ground"></span></span>
+    <span class="chip c1"><span id="k1">Ctrl</span></span>
+    <span class="chip hot c2"><span>W</span></span>
+    <span class="chip pill c3"><span><i></i><span id="pill">Signed in</span></span></span>
+    <span class="dot"></span>
   </div>
   <h1 id="title">You're signed in</h1>
   <p class="text" id="text">All set, head back to MouseOS.</p>
-  <div class="hint"><span class="keys" id="keys"><kbd>Ctrl</kbd><kbd>W</kbd></span><span id="close">to close this tab</span></div>
+  <div class="cta">
+    <button class="btn btn-signal" id="btn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg><span id="btn-t">Close this tab</span></button>
+    <span class="hint"><b id="keys">Ctrl W</b> <span id="close">to close this tab</span></span>
+  </div>
 </main>
-<footer>MOUSE<span>OS</span></footer>
 <script>
 /* The page MouseOS on the computer sends the browser to once Google or Apple signed in:
    ?s=ok|cancel|fail&lang=fr&os=mac (composeApp/src/desktopMain/kotlin/remote/LoopbackSignIn.kt). */
 (function(){
 var W={
-en:["You're signed in","All set, head back to MouseOS.","Sign-in cancelled","Head back to MouseOS to try again.","Sign-in didn't work","Head back to MouseOS and try again.","to close this tab"],
-fr:["Vous êtes connecté","Tout est prêt, revenez sur MouseOS.","Connexion annulée","Revenez sur MouseOS pour réessayer.","La connexion a échoué","Revenez sur MouseOS et réessayez.","pour fermer cet onglet"],
-de:["Sie sind angemeldet","Alles bereit, kehren Sie zu MouseOS zurück.","Anmeldung abgebrochen","Kehren Sie zu MouseOS zurück, um es erneut zu versuchen.","Anmeldung fehlgeschlagen","Kehren Sie zu MouseOS zurück und versuchen Sie es erneut.","um diesen Tab zu schließen"],
-es:["Has iniciado sesión","Todo listo, vuelve a MouseOS.","Inicio de sesión cancelado","Vuelve a MouseOS para intentarlo de nuevo.","No se pudo iniciar sesión","Vuelve a MouseOS e inténtalo de nuevo.","para cerrar esta pestaña"],
-it:["Accesso effettuato","Tutto pronto, torna su MouseOS.","Accesso annullato","Torna su MouseOS per riprovare.","Accesso non riuscito","Torna su MouseOS e riprova.","per chiudere questa scheda"],
-pt:["Você entrou","Tudo pronto, volte para o MouseOS.","Login cancelado","Volte para o MouseOS para tentar de novo.","Não foi possível entrar","Volte para o MouseOS e tente de novo.","para fechar esta aba"],
-ja:["ログインしました","準備完了です。MouseOS に戻ってください。","ログインがキャンセルされました","MouseOS に戻って、もう一度お試しください。","ログインできませんでした","MouseOS に戻って、もう一度お試しください。","でこのタブを閉じます"],
-zh:["登录成功","一切就绪，请返回 MouseOS。","登录已取消","请返回 MouseOS 重试。","登录失败","请返回 MouseOS 再试一次。","关闭此标签页"]};
+en:["You're signed in","All set, head back to MouseOS.","Sign-in cancelled","Head back to MouseOS to try again.","Sign-in didn't work","Head back to MouseOS and try again.","to close this tab","Close this tab"],
+fr:["Vous êtes connecté","Tout est prêt, revenez sur MouseOS.","Connexion annulée","Revenez sur MouseOS pour réessayer.","La connexion a échoué","Revenez sur MouseOS et réessayez.","pour fermer cet onglet","Fermer cet onglet"],
+de:["Sie sind angemeldet","Alles bereit, kehren Sie zu MouseOS zurück.","Anmeldung abgebrochen","Kehren Sie zu MouseOS zurück, um es erneut zu versuchen.","Anmeldung fehlgeschlagen","Kehren Sie zu MouseOS zurück und versuchen Sie es erneut.","um diesen Tab zu schließen","Tab schließen"],
+es:["Has iniciado sesión","Todo listo, vuelve a MouseOS.","Inicio de sesión cancelado","Vuelve a MouseOS para intentarlo de nuevo.","No se pudo iniciar sesión","Vuelve a MouseOS e inténtalo de nuevo.","para cerrar esta pestaña","Cerrar esta pestaña"],
+it:["Accesso effettuato","Tutto pronto, torna su MouseOS.","Accesso annullato","Torna su MouseOS per riprovare.","Accesso non riuscito","Torna su MouseOS e riprova.","per chiudere questa scheda","Chiudi questa scheda"],
+pt:["Você entrou","Tudo pronto, volte para o MouseOS.","Login cancelado","Volte para o MouseOS para tentar de novo.","Não foi possível entrar","Volte para o MouseOS e tente de novo.","para fechar esta aba","Fechar esta aba"],
+ja:["ログインしました","準備完了です。MouseOS に戻ってください。","ログインがキャンセルされました","MouseOS に戻って、もう一度お試しください。","ログインできませんでした","MouseOS に戻って、もう一度お試しください。","でこのタブを閉じます","このタブを閉じる"],
+zh:["登录成功","一切就绪，请返回 MouseOS。","登录已取消","请返回 MouseOS 重试。","登录失败","请返回 MouseOS 再试一次。","也可关闭此标签页","关闭此标签页"]};
+var P={en:["Signed in","Cancelled","Failed"],fr:["Connecté","Annulé","Échec"],de:["Angemeldet","Abgebrochen","Fehlgeschlagen"],es:["Conectado","Cancelado","Error"],
+it:["Connesso","Annullato","Errore"],pt:["Conectado","Cancelado","Erro"],ja:["ログイン済み","キャンセル","失敗"],zh:["已登录","已取消","失败"]};
 var q=new URLSearchParams(location.search),s=q.get("s")||"ok";
 var lang=(q.get("lang")||navigator.language||"en").slice(0,2).toLowerCase();if(!W[lang])lang="en";
 var w=W[lang],i=s==="cancel"?2:s==="fail"?4:0,$=function(id){return document.getElementById(id)};
 document.documentElement.lang=lang;document.documentElement.className=i?"bad":"ok";
-$("title").textContent=w[i];$("text").textContent=w[i+1];$("close").textContent=w[6];document.title=w[i]+" · MouseOS";
+$("title").textContent=w[i];$("text").textContent=w[i+1];$("close").textContent=w[6];$("btn-t").textContent=w[7];$("pill").textContent=P[lang][i/2];document.title=w[i]+" · MouseOS";
 if(i)$("icon").setAttribute("d","M12 5v9M12 19v.5");
 var mac=(q.get("os")||"")==="mac"||(!q.get("os")&&/Mac/.test(navigator.platform));
-if(mac)$("keys").innerHTML="<kbd>⌘</kbd><kbd>W</kbd>";
+if(mac){$("k1").textContent="⌘";$("keys").textContent="⌘ W"}
 /* the one-time code never stays in the address bar or the history */
 if(history.replaceState)history.replaceState(null,"",location.pathname);
-if(!i)setTimeout(function(){window.close()},4000);
+/* The button closes the tab. A browser may refuse that to a page: then the two keys light up. Nothing closes by itself. */
+$("btn").addEventListener("click",function(){window.close();var h=document.documentElement;h.classList.remove("stay");setTimeout(function(){h.classList.add("stay")},350)});
 })();
 </script>
 </body>
