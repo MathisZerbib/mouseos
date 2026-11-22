@@ -1,11 +1,11 @@
 # MouseOS
 
-> MouseOS turns an Android phone into a wireless trackpad, air mouse, keyboard, media remote and presentation clicker for a Mac, a Windows PC or a Linux computer — and into a remote for Samsung, LG and Google TVs. It is free and works over the local Wi‑Fi (the internet is needed only to sign in once), with no cloud, no ads and no tracking. Website: https://mouseos.app/
+> MouseOS turns an Android phone into a wireless trackpad, air mouse, keyboard, media remote and presentation clicker for a Mac, a Windows PC or a Linux computer — and into a remote for Samsung, LG and Google TVs. It is free for the basics and works over the local Wi‑Fi (the internet is needed only to sign in once), with no cloud, no ads and no tracking. Website: https://mouseos.app/
 
 ## Facts
 
 - Name: MouseOS (on Google Play: "MouseOS — Mac, PC & TV Remote")
-- Price: free, no ads. MouseOS Pro (one-time purchase or subscription) adds Bluetooth mode, more than one computer, the talk timer, the laser pointer and speaker notes. The phone app asks for a free MouseOS account (email and password, or Google), which can be deleted in one tap.
+- Price: the basics are free, with no ads: trackpad, air mouse, keyboard, remote, TV, copy-paste, shortcuts, slides (next, back, black screen), one computer and one TV. MouseOS Pro, bought in the phone app, adds several computers and TVs, the slides timer, notes, drawing and laser pointer, keeping the computer awake, and the Bluetooth mouse mode: €7.99 a year with a 7-day free trial, or €1.99 a month. The computer app and the browser helper are free. The phone app asks for a free MouseOS account (email and password, or Google), which can be deleted in one tap.
 - Phone app: Android 8 or later. In closed beta on Google Play: join at https://mouseos.app/#beta with a Google account email, get added to the test, install from Google Play. iPhone: on the way.
 - Computer app (free, required for computers, not for TVs): macOS 11 or later on Apple silicon (.dmg), Windows 10 and 11 64‑bit (.msi), Linux 64‑bit on X11 or Wayland (.deb for Ubuntu/Debian/Mint, .rpm for Fedora/openSUSE). Downloads: https://github.com/MathisZerbib/mouseos/releases/latest
 - TVs: Samsung, LG and Google TV (Sony, TCL, Philips…), controlled straight from the phone over the same Wi‑Fi.

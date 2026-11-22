@@ -79,14 +79,22 @@ else
   $SUDO zypper --non-interactive install --allow-unsigned-rpm "$file"
 fi
 
-# ——— the phone's screen view: ffmpeg (X11), wf-recorder (Wayland on a Pi, sway…) ———
-# Each on its own: a distribution without one still gets the other.
+# ——— the phone's screen view: ffmpeg (X11), wf-recorder (Wayland on a Pi, sway…),
+# GStreamer (Wayland on GNOME and KDE: Ubuntu, Fedora…, through the desktop's portal) ———
+# Each on its own: a distribution without one still gets the others.
 if [ "$kind" = deb ]; then
-  for extra in ffmpeg wf-recorder; do
+  for extra in ffmpeg wf-recorder gstreamer1.0-tools gstreamer1.0-pipewire gstreamer1.0-plugins-good \
+               gstreamer1.0-plugins-ugly gstreamer1.0-plugins-bad; do
     $SUDO env DEBIAN_FRONTEND=noninteractive apt-get install -y -qq "$extra" >/dev/null 2>&1 || true
   done
 elif command -v dnf >/dev/null 2>&1; then
-  $SUDO dnf install -y -q ffmpeg-free wf-recorder >/dev/null 2>&1 || $SUDO dnf install -y -q ffmpeg-free >/dev/null 2>&1 || true
+  for extra in ffmpeg-free wf-recorder gstreamer1 pipewire-gstreamer gstreamer1-plugin-openh264 gstreamer1-plugins-bad-free; do
+    $SUDO dnf install -y -q "$extra" >/dev/null 2>&1 || true
+  done
+elif command -v zypper >/dev/null 2>&1; then
+  for extra in gstreamer gstreamer-plugin-pipewire gstreamer-plugins-bad gstreamer-plugin-openh264; do
+    $SUDO zypper --non-interactive install "$extra" >/dev/null 2>&1 || true
+  done
 fi
 
 # ——— the firewall: phones reach 53317/tcp (link), 53318/udp (pointer), 53319/udp (discovery) ———
