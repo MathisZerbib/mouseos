@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-a3flCFX2flPt9i7vKTj0v95ZjwtJPheGB8ad4e7EKF0='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src https://jibdmooeeldffnxwuyxi.supabase.co; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-YWagz9JrT+DD6mgaeJTZNPRJvArmijWZpgKTI2ZmsL0='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src https://jibdmooeeldffnxwuyxi.supabase.co; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="dark light">
 <title>MouseOS Admin</title>
@@ -204,7 +204,10 @@ tbody tr:first-child td{border-top:0}
     $("mfaSetup").hidden = !!factor;
     if (!factor) {
       const e = await authPost("factors", first.access, { factor_type: "totp", friendly_name: "MouseOS Admin " + new Date().toISOString().slice(0, 16), issuer: "MouseOS" });
-      factor = { id: e.id }; $("qr").src = e.totp.qr_code; $("secret").textContent = e.totp.secret;
+      factor = { id: e.id };
+      // Supabase sends the QR code as a raw SVG in a data: URL; its "#" colours cut the URL short, so it is re-encoded.
+      const raw = String(e.totp.qr_code || ""), at = raw.indexOf("<svg");
+      $("qr").src = at >= 0 ? "data:image/svg+xml;charset=utf-8," + encodeURIComponent(raw.slice(at)) : raw; $("secret").textContent = e.totp.secret;
     }
     $("code").focus();
   }
