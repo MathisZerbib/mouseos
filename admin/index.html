@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-I13rAla35aJgQwOR5bi9QW93tez/HWg2DNEFHa70YNs='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src https://jibdmooeeldffnxwuyxi.supabase.co; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-56whSp4SKm5YgT+ZP/YfrW14dM2J6UF//sbfHyAuu68='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src https://jibdmooeeldffnxwuyxi.supabase.co; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="dark light">
 <title>MouseOS Admin</title>
@@ -282,7 +282,9 @@ tbody tr:first-child td{border-top:0}
                            prod9c7be37932: "Mensuel", prod75fbc89935: "Mensuel", prode2b82c0f0f: "Mensuel" })[pid] || "Pro";
   function status(a) {
     const r = { kind: "free", pill: "p-free", state: "Gratuit", plan: "–", store: "", test: false, date: "" };
-    const subs = a.subscriptions || [], buys = a.purchases || [], ents = a.entitlements || [];
+    // Pro offered from here shows up in RevenueCat as a "promotional" subscription that never renews:
+    // it is a gift, not a cancelled subscription, so it is read from the entitlement below.
+    const subs = (a.subscriptions || []).filter((x) => x.store !== "promotional"), buys = (a.purchases || []).filter((x) => x.store !== "promotional"), ents = a.entitlements || [];
     const by = (x, y) => new Date(y.starts_at || 0) - new Date(x.starts_at || 0);
     const live = subs.filter((s) => s.gives_access).sort(by);
     const s = live.find((x) => x.environment === "production") || live[0];
