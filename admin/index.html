@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-YWagz9JrT+DD6mgaeJTZNPRJvArmijWZpgKTI2ZmsL0='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src https://jibdmooeeldffnxwuyxi.supabase.co; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-auwjZHAgFZjYsrGglR/BOZdqHIBBdrkTztKvoNMg72c='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src https://jibdmooeeldffnxwuyxi.supabase.co; form-action 'none'; base-uri 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="dark light">
 <title>MouseOS Admin</title>
@@ -85,6 +85,21 @@ tbody tr:first-child td{border-top:0}
 .hb b{font-variant-numeric:tabular-nums;font-weight:600}
 .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12.5px;color:var(--soft)}.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px;vertical-align:0}
 .toast{position:fixed;left:50%;bottom:max(20px,env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:14px;z-index:20}
+.alerts{display:flex;flex-direction:column;gap:8px}
+.alert{display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:start;padding:12px 14px;border-radius:12px;background:var(--chip)}
+.alert .dot{width:10px;height:10px;border-radius:50%;margin-top:6px;background:var(--soft)}
+.alert.bad .dot{background:var(--bad)}.alert.warn .dot{background:var(--warn)}.alert.ok .dot{background:var(--ok)}
+.alert b{font-weight:650}.alert .n{font-variant-numeric:tabular-nums;font-weight:700;font-size:18px;text-align:right;line-height:1.1}
+.alert .n small{display:block;font-size:11px;font-weight:500;color:var(--soft)}
+.alert .fix,.ptbl .fix{display:inline-block;margin-top:4px;font-size:12px;font-weight:600;color:var(--ok);background:var(--ok-soft);border-radius:6px;padding:1px 7px}
+.alert a{color:var(--signal);font-size:12.5px}
+.ptbl{width:100%;border-collapse:collapse;min-width:640px;font-size:13.5px}.ptbl td,.ptbl th{padding:8px 10px}.ptbl tbody tr{cursor:default}
+.ptbl td{border-top:1px solid var(--line);vertical-align:top}.ptbl .num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.scroll{overflow-x:auto;margin:0 -4px}
+.funnel{display:grid;grid-template-columns:minmax(0,12em) 1fr auto;gap:8px 10px;align-items:center;font-size:14px}
+.funnel .track{height:22px;background:var(--chip);border-radius:7px;overflow:hidden}.funnel .fill{height:100%;background:var(--signal);border-radius:7px;opacity:.85}
+.funnel b{font-variant-numeric:tabular-nums}.funnel .drop{grid-column:2/4;font-size:12px;color:var(--bad);margin:-6px 0 0}
+.tile.bad b{color:var(--bad)}.tile.good b{color:var(--ok)}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -128,12 +143,19 @@ tbody tr:first-child td{border-top:0}
   <section id="usage" hidden>
     <div id="uWarn" class="notice" hidden></div>
     <div class="tiles" id="uTiles"></div>
+    <div class="panel" style="margin-bottom:12px"><h2>À regarder en premier</h2><div class="alerts" id="uAlerts"></div>
+      <div class="note">Classés par nombre d'appareils touchés, 30 jours. Un « plantage » ferme l'app ; une « erreur » est rattrapée par l'app.</div></div>
+    <div class="grid2">
+      <div class="panel"><h2>Problèmes par jour</h2><div id="uTrouble"></div><div class="legend" id="uTroubleLegend"></div></div>
+      <div class="panel"><h2>Premier lancement sur téléphone</h2><div class="funnel" id="uFunnel"></div><div class="note">Appareils arrivés à chaque étape, 30 jours.</div></div>
+    </div>
+    <div class="panel" style="margin-bottom:12px"><h2>Plantages et erreurs</h2><div class="scroll"><table class="ptbl"><thead><tr><th>Problème</th><th>Où</th><th>Versions</th><th class="num">Appareils</th><th class="num">Fois</th><th class="num">7 j</th><th>Dernière fois</th></tr></thead><tbody id="uCrash"></tbody></table></div></div>
+    <div class="panel" style="margin-bottom:12px"><h2>Connexions et achats</h2><div class="scroll"><table class="ptbl"><thead><tr><th>Problème</th><th>Détail</th><th>Où</th><th class="num">Appareils</th><th class="num">Fois</th><th class="num">7 j</th><th>Dernière fois</th></tr></thead><tbody id="uLinks"></tbody></table></div></div>
     <div class="grid2">
       <div class="panel"><h2>Appareils actifs par jour</h2><div id="uDaily"></div><div class="legend" id="uLegend"></div></div>
       <div class="panel"><h2>Fonctions utilisées</h2><div class="hb" id="uFeat"></div><div class="note">Appareils qui ont utilisé chaque fonction, 30 jours.</div></div>
     </div>
     <div class="grid2">
-      <div class="panel"><h2>Problèmes cette semaine</h2><div class="hb" id="uProb"></div></div>
       <div class="panel"><h2>Versions en service</h2><div class="hb" id="uVer"></div><div class="note">Appareils actifs, 7 jours.</div></div>
       <div class="panel"><h2>Pays</h2><div class="hb" id="uCountry"></div><div class="note">30 jours.</div></div>
     </div>
@@ -291,7 +313,11 @@ tbody tr:first-child td{border-top:0}
     try {
       data = await api("overview");
       rows = data.accounts.map((a) => ({ a, s: status(a) }));
-      $("warn").hidden = data.revenuecat; $("warn").textContent = "RevenueCat n'est pas encore branché : ajoute la clé REVENUECAT_SECRET_KEY dans Supabase (Edge Functions → Secrets). Les comptes s'affichent, les abonnements non.";
+      const rcErr = data.revenuecat_error ? String(data.revenuecat_error) : "";
+      const hint = /_(401|403)/.test(rcErr) ? " La clé REVENUECAT_SECRET_KEY de Supabase est refusée : recrée une clé secrète v2 dans RevenueCat (Project settings → API keys) avec « Customer information » en lecture et écriture et « Charts & metrics » en lecture, puis colle-la dans Supabase (Edge Functions → Secrets)." : "";
+      $("warn").hidden = data.revenuecat && !rcErr;
+      $("warn").textContent = !data.revenuecat ? "RevenueCat n'est pas encore branché : ajoute la clé REVENUECAT_SECRET_KEY dans Supabase (Edge Functions → Secrets). Les comptes s'affichent, les abonnements non."
+        : "RevenueCat a refusé : " + rcErr + "." + hint;
       render();
     } catch (e) { if (e.message !== "forbidden" && e.message !== "session") toast(e.message); }
     finally { $("reload").disabled = false; $("reload").textContent = "Actualiser"; }
@@ -327,7 +353,7 @@ tbody tr:first-child td{border-top:0}
       const c2 = el("td"); c2.append(el("span", "pill " + s.pill, s.state));
       const c3 = el("td"); c3.append(el("div", null, s.plan)); if (s.store) { const st = el("div", "sub", s.store); if (s.test) st.append(el("span", "chip", "test")); c3.append(st); }
       const c4 = el("td", null, s.date);
-      const c5 = el("td"); c5.append(el("div", null, a.platform ? (a.platform === "iOS" ? "iPhone" : a.platform === "android" ? "Android" : a.platform) : "–"), el("div", "sub", a.seen ? "vu " + ago(a.last_seen_at) : "app jamais ouverte"));
+      const c5 = el("td"); c5.append(el("div", null, a.platform ? (a.platform === "iOS" ? "iPhone" : a.platform === "android" ? "Android" : a.platform) : "–"), el("div", "sub", a.seen ? "vu " + ago(a.last_seen_at) : a.error ? "RevenueCat sans réponse" : "app jamais ouverte"));
       const c6 = el("td", "sub", fmt(a.created_at));
       tr.append(c1, c2, c3, c4, c5, c6);
       tr.onclick = () => open(r); tr.onkeydown = (e) => { if (e.key === "Enter") open(r); };
@@ -368,7 +394,8 @@ tbody tr:first-child td{border-top:0}
       gr.append(b);
     }
     g.append(gr);
-    if (!a.seen) g.append(el("div", "sub", "Possible une fois que la personne a ouvert l'app avec ce compte."));
+    if (a.error) g.append(el("div", "sub", "RevenueCat n'a pas répondu pour ce compte (" + a.error + ")."));
+    else if (!a.seen) g.append(el("div", "sub", "Possible une fois que la personne a ouvert l'app avec ce compte."));
     if (s.kind === "gift") { const rv = el("button", "danger", "Retirer le Pro offert"); rv.type = "button"; rv.onclick = async () => { rv.disabled = true; try { await api("revoke", { user_id: a.id }); toast("Pro offert retiré"); await load(); reopen(a.id); } catch (e) { toast(e.message); rv.disabled = false; } }; g.append(rv); }
     d.append(g);
 
@@ -406,7 +433,6 @@ tbody tr:first-child td{border-top:0}
   const PLAT = { android: "Android", ios: "iPhone", macos: "Mac", windows: "Windows", linux: "Linux" };
   const COLORS = { android: "#3ddc84", ios: "#8e8e93", macos: "#ff5a14", windows: "#2b88d8", linux: "#e9b000" };
   const FEAT = { pad: "Pavé tactile", keyboard: "Clavier", media: "Médias", music: "Musique", scroll: "Défilement", laser: "Laser", launcher: "Raccourcis", settings: "Réglages", slides: "Présentation", tv: "Télé", air: "Air", screen: "Écran", clipboard: "Presse-papiers" };
-  const PROB = { computer_not_found: "Ordinateur introuvable", computer_link_failed: "Connexion échouée", computer_link_lost: "Connexion perdue", $exception: "Plantages et erreurs" };
   function bars(box, items) {
     box.textContent = ""; const max = Math.max(1, ...items.map((x) => x[1]));
     if (!items.length) { box.append(el("span", "sub", "Rien pour l'instant.")); return; }
@@ -416,6 +442,123 @@ tbody tr:first-child td{border-top:0}
     }
   }
   function ok(x) { return Array.isArray(x) ? x : []; }
+  // A stacked bar per day over 30 days: rows are [day, key, value].
+  function stacked(box, legend, list, prefer, colors, labels) {
+    const days = {}, keys0 = new Set();
+    for (const [d, k, v] of list) { (days[d] = days[d] || {})[k] = ((days[d] || {})[k] || 0) + v; keys0.add(k); }
+    const keys = []; for (let i = 29; i >= 0; i--) { const d = new Date(Date.now() - i * 864e5); keys.push(d.toISOString().slice(0, 10)); }
+    const tot = keys.map((k) => Object.values(days[k] || {}).reduce((x, y) => x + y, 0)); const max = Math.max(1, ...tot);
+    const W = 600, H = 180, pad = 22, bw = (W - pad) / keys.length;
+    const ns = "http://www.w3.org/2000/svg", svg = document.createElementNS(ns, "svg"); svg.setAttribute("viewBox", `0 0 ${W} ${H + 18}`); svg.setAttribute("class", "chart");
+    const order = prefer.filter((p) => keys0.has(p)).concat([...keys0].filter((p) => !prefer.includes(p)));
+    for (const g of [0, 0.5, 1]) { const y = H - g * (H - 10); const ln = document.createElementNS(ns, "line"); ln.setAttribute("x1", pad); ln.setAttribute("x2", W); ln.setAttribute("y1", y); ln.setAttribute("y2", y); ln.setAttribute("stroke", "currentColor"); ln.setAttribute("opacity", ".12"); svg.append(ln);
+      const tx = document.createElementNS(ns, "text"); tx.setAttribute("x", 0); tx.setAttribute("y", y + 4); tx.setAttribute("font-size", "11"); tx.setAttribute("fill", "currentColor"); tx.setAttribute("opacity", ".6"); tx.textContent = Math.round(g * max); svg.append(tx); }
+    keys.forEach((k, i) => { let y = H; for (const p of order) { const v = (days[k] || {})[p] || 0; if (!v) continue; const h = v / max * (H - 10); const r = document.createElementNS(ns, "rect");
+        r.setAttribute("x", pad + i * bw + 1.5); r.setAttribute("width", Math.max(1, bw - 3)); r.setAttribute("y", y - h); r.setAttribute("height", h); r.setAttribute("fill", colors[p] || "#999"); r.setAttribute("rx", "2");
+        const ti = document.createElementNS(ns, "title"); ti.textContent = fmt(k) + " · " + (labels[p] || p) + " : " + v; r.append(ti); svg.append(r); y -= h; } });
+    for (const i of [0, 14, 29]) { const tx = document.createElementNS(ns, "text"); tx.setAttribute("x", Math.min(W - 40, pad + i * bw)); tx.setAttribute("y", H + 15); tx.setAttribute("font-size", "11"); tx.setAttribute("fill", "currentColor"); tx.setAttribute("opacity", ".6"); tx.textContent = new Date(keys[i]).toLocaleDateString("fr-FR", { day: "numeric", month: "short" }); svg.append(tx); }
+    box.textContent = ""; if (!list.length) { box.append(el("span", "sub", "Rien sur 30 jours.")); legend.textContent = ""; return; } box.append(svg);
+    legend.textContent = ""; for (const p of order) { const s = el("span"); const i = el("i"); i.style.background = colors[p] || "#999"; s.append(i, document.createTextNode(labels[p] || p)); legend.append(s); }
+  }
+
+  // ---- Problems: crashes grouped by what and where, connection and purchase trouble explained ----
+  const PH_ISSUE = "https://eu.posthog.com/project/353979/error_tracking/";
+  const TCOL = { $exception: "#d23e00", computer_not_found: "#e9b000", computer_link_failed: "#2b88d8", computer_link_lost: "#8e8e93", purchase_failed: "#b42318" };
+  const TLAB = { $exception: "Plantages et erreurs", computer_not_found: "Ordinateur introuvable", computer_link_failed: "Connexion échouée", computer_link_lost: "Connexion perdue", purchase_failed: "Achat échoué", purchase_cancelled: "Achat annulé" };
+  // the app's screens, by the Kotlin file the crash came from
+  const SCREEN = { WelcomeScene: "Écran d'accueil (1er lancement)", Onboarding: "Premier lancement", SlidesScreen: "Présentation", PadScreen: "Pavé tactile", ScreenView: "Vue de l'écran", Settings: "Réglages", TvScreen: "Télé", App: "App" };
+  const TYPE = (t) => { const n = (t || "").split(".").pop(); return ({ ArrayIndexOutOfBoundsException: "Index hors limites", IndexOutOfBoundsException: "Index hors limites", NullPointerException: "Valeur manquante (null)", HeadlessException: "Lancée sans affichage", NoClassDefFoundError: "Classe introuvable au démarrage", ExceptionInInitializerError: "Échec d'initialisation", IllegalStateException: "État inattendu", OutOfMemoryError: "Mémoire pleine", SecurityException: "Permission refusée" })[n] || n || "Erreur"; };
+  const vcmp = (a, b) => { const x = String(a).split(/[.-]/).map(Number), y = String(b).split(/[.-]/).map(Number); for (let i = 0; i < 3; i++) { if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) - (y[i] || 0); } return 0; };
+  // known problems already fixed in code, by where they crash: [last version that has it, note]
+  const FIXED = { "WelcomeSceneKt.slide": ["2.20.0", "Corrigé, part avec la prochaine version"] };
+  const utc = (x) => x ? new Date(String(x).replace(" ", "T") + (/[zZ+]/.test(String(x).slice(19)) ? "" : "Z")) : null;
+  const when = (x) => { const d = utc(x); return d && !isNaN(d) ? ago(d.toISOString()) : "–"; };
+  const arr = (x) => { if (Array.isArray(x)) return x; try { const v = JSON.parse(x); return Array.isArray(v) ? v : []; } catch (_) { return []; } };
+  const plats = (ps) => ps.map((p) => PLAT[p] || p).join(", ");
+  const durS = (sec) => sec == null || isNaN(sec) ? "" : sec < 60 ? Math.round(sec) + " s" : sec < 3600 ? Math.round(sec / 60) + " min" : Math.round(sec / 3600) + " h";
+
+  function crashGroups() {
+    const g = {};
+    for (const [i, t, m, f, ps, vs, c, u, w, t0, t1, fresh, handled] of ok(usage.crashes)) {
+      const type = arr(t)[0] || "", msg = arr(m)[0] || "", fns = arr(f), top = fns.find((x) => String(x).startsWith("remote.")) || fns[0] || "";
+      const short = String(top).replace(/^remote\.(ui\.)?/, "");
+      const file = short.split(".")[0].replace(/Kt$/, "");
+      const key = TYPE(type) + "|" + short + "|" + msg;
+      const x = g[key] = g[key] || { type, msg, top: short, file, ps: new Set(), vs: new Set(), c: 0, u: 0, w: 0, t1: "", fresh: 0, handled: 0, issue: i };
+      ps.forEach((p) => x.ps.add(p)); vs.forEach((v) => x.vs.add(v)); x.c += c; x.u += u; x.w += w; x.fresh += fresh; x.handled += handled;
+      if (String(t1) > x.t1) { x.t1 = String(t1); x.issue = i; }
+    }
+    return Object.values(g).sort((a, b) => b.u - a.u || b.c - a.c);
+  }
+  function linkWhy(ev, r, l, never, c, med) {
+    if (ev === "computer_not_found") return never >= c * 0.8 ? "Aucun ordinateur jamais relié : l'app n'est sans doute pas installée sur l'ordi" : never ? never + " fois sans ordinateur déjà relié" : "Ordinateur déjà connu mais pas trouvé sur le Wi-Fi";
+    if (ev === "computer_link_failed") return ({ no_answer: "L'ordinateur n'a pas répondu", dropped: "Coupée pendant la connexion", refused: "Refusée par l'ordinateur" })[r] || r || "Échec";
+    if (ev === "computer_link_lost") return "Coupée " + (med != null ? "après " + durS(med) + " en moyenne" : "") + (l ? " · " + (l === "wifi" ? "Wi-Fi" : l) : "");
+    if (ev === "purchase_failed") return ({ declined: "Paiement refusé", failed: "Erreur du store", network: "Pas de réseau" })[r] || r || "Échec";
+    if (ev === "purchase_cancelled") return "La personne a annulé";
+    return r;
+  }
+  function problems() {
+    const crashes = crashGroups(), links = ok(usage.links), alerts = [];
+    // crashes table
+    const cb = $("uCrash"); cb.textContent = "";
+    if (!crashes.length) { const tr = el("tr"); const td = el("td", "empty", "Aucun plantage sur 30 jours."); td.colSpan = 7; tr.append(td); cb.append(tr); }
+    for (const x of crashes) {
+      const vs = [...x.vs].sort(vcmp), fix = Object.entries(FIXED).find(([k]) => x.top.startsWith(k));
+      const fixed = fix && vcmp(vs[vs.length - 1], fix[1][0]) <= 0 ? fix[1][1] : "";
+      const where = SCREEN[x.file] || x.file || "";
+      const kind = x.handled >= x.c ? "Erreur" : "Plantage";
+      const tr = el("tr");
+      const c1 = el("td"); c1.append(el("div", "email", kind + " · " + TYPE(x.type))); if (x.msg) c1.append(el("div", "sub mono", x.msg.trim().slice(0, 140)));
+      if (x.top) c1.append(el("div", "sub mono", x.top)); if (fixed) { c1.append(el("div")); c1.lastChild.append(el("span", "fix", "✓ " + fixed)); }
+      const c2 = el("td"); c2.append(el("div", where ? null : "sub", where || "Pas de détail"), el("div", where ? "sub" : null, plats([...x.ps])));
+      const lk = el("a", null, "PostHog ↗"); lk.href = PH_ISSUE + encodeURIComponent(x.issue); lk.target = "_blank"; lk.rel = "noopener"; lk.style.color = "var(--signal)"; lk.className = "sub";
+      const c7 = el("td"); c7.append(el("div", null, when(x.t1)), lk);
+      tr.append(c1, c2, el("td", "mono", vs.join(", ")), el("td", "num", String(x.u)), el("td", "num", String(x.c)), el("td", "num", String(x.w)), c7);
+      cb.append(tr);
+      const firstDay = x.fresh ? (x.fresh >= x.u ? "dès le 1er jour pour tous" : x.fresh + " dès le 1er jour") : "";
+      alerts.push({ lvl: kind === "Plantage" ? "bad" : "warn", u: x.u, title: kind + " : " + (where || TYPE(x.type).toLowerCase()) + (where ? "" : " (" + plats([...x.ps]) + ")"),
+        sub: [where ? TYPE(x.type) : "", where ? plats([...x.ps]) : "", "versions " + vs.join(", "), firstDay, "dernière fois " + when(x.t1)].filter(Boolean).join(" · "), fix: fixed, href: PH_ISSUE + encodeURIComponent(x.issue) });
+    }
+    // connections and purchases table, and one alert per kind
+    const lb = $("uLinks"); lb.textContent = ""; const byEv = {};
+    if (!links.length) { const tr = el("tr"); const td = el("td", "empty", "Aucun problème de connexion ni d'achat sur 30 jours."); td.colSpan = 7; tr.append(td); lb.append(tr); }
+    for (const [ev, p, v, r, l, c, u, w, never, med, t1] of links) {
+      const why = linkWhy(ev, r, l, never, c, med);
+      const tr = el("tr"); tr.append(el("td", "email", TLAB[ev] || ev), el("td", null, why));
+      const c3 = el("td"); c3.append(el("div", null, PLAT[p] || p), el("div", "sub mono", v)); tr.append(c3, el("td", "num", String(u)), el("td", "num", String(c)), el("td", "num", String(w)), el("td", null, when(t1)));
+      lb.append(tr);
+      const b = byEv[ev] = byEv[ev] || { u: 0, c: 0, ps: new Set(), whys: {}, t1: "" }; b.u += u; b.c += c; b.ps.add(p); b.whys[why] = (b.whys[why] || 0) + c; if (String(t1) > b.t1) b.t1 = String(t1);
+    }
+    for (const [ev, b] of Object.entries(byEv)) {
+      const top = Object.entries(b.whys).sort((x, y) => y[1] - x[1])[0];
+      alerts.push({ lvl: ev.startsWith("purchase") ? (ev === "purchase_failed" ? "bad" : "") : "warn", u: b.u, title: TLAB[ev] || ev, sub: [top ? top[0] : "", plats([...b.ps]), b.c + " fois", "dernière fois " + when(b.t1)].filter(Boolean).join(" · ") });
+    }
+    for (const [p, st, u] of ok(usage.perms)) if (st !== "granted") alerts.push({ lvl: "warn", u, title: "Contrôle non autorisé sur " + (PLAT[p] || p), sub: "L'ordinateur n'a pas encore la permission de bouger la souris" });
+    // the alerts, worst first
+    const box = $("uAlerts"); box.textContent = "";
+    alerts.sort((a, b) => (b.lvl === "bad") - (a.lvl === "bad") || b.u - a.u);
+    if (!alerts.length) { const a = el("div", "alert ok"); a.append(el("span", "dot"), el("div", null, "Aucun problème remonté sur 30 jours."), el("span")); box.append(a); }
+    for (const x of alerts) {
+      const a = el("div", "alert " + x.lvl), mid = el("div"); mid.append(el("b", null, x.title), el("div", "sub", x.sub));
+      if (x.fix) mid.append(el("span", "fix", "✓ " + x.fix));
+      if (x.href) { const k = el("a", null, " Voir dans PostHog ↗"); k.href = x.href; k.target = "_blank"; k.rel = "noopener"; mid.append(document.createTextNode(" "), k); }
+      const n = el("div", "n", String(x.u)); n.append(el("small", null, x.u > 1 ? "appareils" : "appareil"));
+      a.append(el("span", "dot"), mid, n); box.append(a);
+    }
+    // per day
+    stacked($("uTrouble"), $("uTroubleLegend"), ok(usage.trouble), Object.keys(TCOL), TCOL, TLAB);
+    // first run funnel
+    const fu = ok(usage.funnel)[0] || [], steps = ["Choix de la langue", "Écran d'accueil", "Guide", "Compte connecté", "Ordinateur relié", "Première fonction utilisée"];
+    const fb = $("uFunnel"); fb.textContent = ""; const top0 = Math.max(1, fu[0] || 0);
+    steps.forEach((label, i) => {
+      const v = fu[i] || 0, t = el("div", "track"), f = el("div", "fill"); f.style.width = (100 * v / top0) + "%"; t.append(f);
+      fb.append(el("span", null, label), t, el("b", null, String(v)));
+      const prev = i ? fu[i - 1] || 0 : 0;
+      if (i && prev && v < prev && (prev - v) / prev >= 0.25) fb.append(el("span"), el("div", "drop", "−" + Math.round(100 * (prev - v) / prev) + " % ici (" + (prev - v) + " appareils)"));
+    });
+  }
+
   async function loadUsage() {
     $("uTiles").textContent = ""; $("uTiles").append(el("div", "tile", "Chargement…"));
     try { usage = await api("usage"); } catch (e) { usage = null; if (e.message !== "forbidden" && e.message !== "session") toast(e.message); return; }
@@ -425,26 +568,13 @@ tbody tr:first-child td{border-top:0}
     const trend = a[2] ? Math.round(100 * (a[1] - a[2]) / a[2]) : null;
     const tl = [["Actifs aujourd'hui", a[0], ""], ["Actifs sur 7 jours", a[1], "hl", trend == null ? "" : (trend >= 0 ? "+" : "") + trend + " % vs semaine d'avant"], ["Actifs sur 30 jours", a[3], ""],
                 ["Nouvelles installations, 7 jours", n[0], ""], ["Téléphones reliés à un ordi (30 j)", act[0] ? Math.round(100 * act[1] / act[0]) + " %" : "–", "", act[1] + " sur " + act[0]]];
+    const h = ok(usage.health)[0];
+    if (h && h[0]) { const free = Math.round(100 * Math.max(0, h[0] - h[1]) / h[0]); tl.splice(1, 0, ["Appareils sans plantage, 7 jours", free + " %", free >= 99 ? "good" : free >= 95 ? "" : "bad", h[1] + " sur " + h[0] + " ont planté"]); }
     const t = $("uTiles"); t.textContent = "";
     for (const [l, v, c, sub] of tl) { const d = el("div", "tile " + c); d.append(el("b", null, String(v)), el("span", null, l)); if (sub) d.append(el("div", "sub", sub)); t.append(d); }
-    // daily stacked bars
-    const days = {}, plats = new Set();
-    for (const [d, p, u] of ok(usage.daily)) { (days[d] = days[d] || {})[p] = u; plats.add(p); }
-    const keys = []; for (let i = 29; i >= 0; i--) { const d = new Date(Date.now() - i * 864e5); keys.push(d.toISOString().slice(0, 10)); }
-    const tot = keys.map((k) => Object.values(days[k] || {}).reduce((x, y) => x + y, 0)); const max = Math.max(1, ...tot);
-    const W = 600, H = 180, pad = 22, bw = (W - pad) / keys.length;
-    const ns = "http://www.w3.org/2000/svg", svg = document.createElementNS(ns, "svg"); svg.setAttribute("viewBox", `0 0 ${W} ${H + 18}`); svg.setAttribute("class", "chart");
-    const order = ["android", "ios", "macos", "windows", "linux"].filter((p) => plats.has(p)).concat([...plats].filter((p) => !COLORS[p]));
-    for (const g of [0, 0.5, 1]) { const y = H - g * (H - 10); const ln = document.createElementNS(ns, "line"); ln.setAttribute("x1", pad); ln.setAttribute("x2", W); ln.setAttribute("y1", y); ln.setAttribute("y2", y); ln.setAttribute("stroke", "currentColor"); ln.setAttribute("opacity", ".12"); svg.append(ln);
-      const tx = document.createElementNS(ns, "text"); tx.setAttribute("x", 0); tx.setAttribute("y", y + 4); tx.setAttribute("font-size", "11"); tx.setAttribute("fill", "currentColor"); tx.setAttribute("opacity", ".6"); tx.textContent = Math.round(g * max); svg.append(tx); }
-    keys.forEach((k, i) => { let y = H; for (const p of order) { const v = (days[k] || {})[p] || 0; if (!v) continue; const h = v / max * (H - 10); const r = document.createElementNS(ns, "rect");
-        r.setAttribute("x", pad + i * bw + 1.5); r.setAttribute("width", Math.max(1, bw - 3)); r.setAttribute("y", y - h); r.setAttribute("height", h); r.setAttribute("fill", COLORS[p] || "#999"); r.setAttribute("rx", "2");
-        const ti = document.createElementNS(ns, "title"); ti.textContent = fmt(k) + " · " + (PLAT[p] || p) + " : " + v; r.append(ti); svg.append(r); y -= h; } });
-    for (const i of [0, 14, 29]) { const tx = document.createElementNS(ns, "text"); tx.setAttribute("x", Math.min(W - 40, pad + i * bw)); tx.setAttribute("y", H + 15); tx.setAttribute("font-size", "11"); tx.setAttribute("fill", "currentColor"); tx.setAttribute("opacity", ".6"); tx.textContent = new Date(keys[i]).toLocaleDateString("fr-FR", { day: "numeric", month: "short" }); svg.append(tx); }
-    $("uDaily").textContent = ""; $("uDaily").append(svg);
-    $("uLegend").textContent = ""; for (const p of order) { const s = el("span"); const i = el("i"); i.style.background = COLORS[p] || "#999"; s.append(i, document.createTextNode(PLAT[p] || p)); $("uLegend").append(s); }
+    stacked($("uDaily"), $("uLegend"), ok(usage.daily), ["android", "ios", "macos", "windows", "linux"], COLORS, PLAT);
+    problems();
     bars($("uFeat"), ok(usage.features).map(([f, u]) => [FEAT[f] || f, u]));
-    bars($("uProb"), ok(usage.problems).sort((x, y) => y[1] - x[1]).map(([e, c, u]) => [PROB[e] || e, c, c + " (" + u + " app.)"]));
     bars($("uVer"), ok(usage.versions).map(([p, v, u]) => [(PLAT[p] || p) + " " + v, u]));
     let names; try { names = new Intl.DisplayNames(["fr"], { type: "region" }); } catch (_) { names = null; }
     bars($("uCountry"), ok(usage.countries).map(([c, u]) => [c && names ? (names.of(c) || c) : (c || "Inconnu"), u]));
