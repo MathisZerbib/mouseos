@@ -1,8 +1,15 @@
 # MouseOS — https://mouseos.app
-# One page and a privacy policy. Everyone is welcome: search engines and the
-# crawlers behind ChatGPT, Claude, Gemini, Perplexity and the rest.
+# The landing, five guides, the privacy policy and the terms, in eight languages.
+# Everyone is welcome: search engines and the crawlers behind ChatGPT, Claude,
+# Gemini, Perplexity and the rest. Kept out: what is not for readers (the back
+# office, the page shown after signing in from the desktop app, the Homebrew tap,
+# the README pictures), so crawlers spend their visits on the real pages.
 
 User-agent: *
+Disallow: /admin/
+Disallow: /signed-in.html
+Disallow: /Casks/
+Disallow: /readme/
 Allow: /
 
 User-agent: Googlebot
@@ -24,6 +31,10 @@ User-agent: Amazonbot
 User-agent: meta-externalagent
 User-agent: MistralAI-User
 User-agent: CCBot
+Disallow: /admin/
+Disallow: /signed-in.html
+Disallow: /Casks/
+Disallow: /readme/
 Allow: /
 
 Sitemap: https://mouseos.app/sitemap.xml
